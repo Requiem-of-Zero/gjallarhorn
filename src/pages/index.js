@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Header from '@/components/Header/Header'
+import Banner from '@/components/Banner/Banner'
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       </Head>
       <main>
         <Header />
+        <Banner />
       </main>
     </>
   )
