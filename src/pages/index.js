@@ -3,6 +3,8 @@ import Image from "next/image";
 import Header from "@/components/Header/Header";
 import Banner from "@/components/Banner/Banner";
 import ProductNavigation from "@/components/Product_Navigation/ProductNavigation";
+import Products from "@/components/Products/Products";
+import productsData from "@/components/ProductTile/data";
 
 export default function Home() {
   return (
@@ -17,6 +19,7 @@ export default function Home() {
         <Header />
         <Banner />
         <ProductNavigation />
+        <Products {...productsData} />
       </main>
     </>
   );
