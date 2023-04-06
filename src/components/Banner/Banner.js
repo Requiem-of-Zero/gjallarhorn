@@ -1,6 +1,5 @@
-import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { Splide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import Image from "next/image";
 import Slide from "./Slide";
 
 const Banner = ({banners}) => {
