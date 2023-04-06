@@ -10,6 +10,7 @@ module.exports = {
       grey: "rgba(39,40,42,1)",
       blue: "#87CEEB",
       white: "#ffffff",
+      "light-grey": '#A1A7AD'
     },
     screens: {
       xs: "320px",
