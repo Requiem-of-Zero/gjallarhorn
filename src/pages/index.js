@@ -8,6 +8,7 @@ import Footer from "@/components/Footer/Footer";
 import FooterNavigation from "@/components/Footer_Navigation/FooterNavigation"; 
 
 import productsData from "@/components/ProductTile/data";
+import bannerData from "@/components/Banner/data";
 
 export default function Home() {
   return (
@@ -20,7 +21,7 @@ export default function Home() {
       </Head>
       <main>
         <Header />
-        <Banner />
+        <Banner {...bannerData} />
         <ProductNavigation />
         <Products {...productsData} />
       </main>
