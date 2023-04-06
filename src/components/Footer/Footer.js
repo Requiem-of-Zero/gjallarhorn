@@ -4,7 +4,7 @@ import { FaMoon } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-grey">
+    <div className="bg-grey">
       <ul className="text-light-grey pl-3 pt-4">
         <li>Information</li>
         <li>About Us</li>
@@ -33,7 +33,7 @@ const Footer = () => {
           <AiOutlineCopyrightCircle /> NEW TYPE OCEAN LLC/INC 2023 All Rights Reserved
         </li>
       </ul>
-    </footer>
+    </div>
   );
 };
 
