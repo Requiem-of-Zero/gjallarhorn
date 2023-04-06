@@ -7,7 +7,7 @@ const ProductNavigation = () => {
     navButton.current.scrollLeft += scrollOffset
   }
   return (
-    <div className="bg-grey text-grey scrollbar-hide z-10 flex w-full whitespace-nowrap border-b border-t border-solid overflow-x-scroll overflow-y-hidden top-header lg:top-header-desktop sticky lg:w-full">
+    <div className="bg-grey text-grey scrollbar-hide z-10 flex w-full whitespace-nowrap border-b border-t border-solid overflow-x-scroll overflow-y-hidden top-header lg:top-header-desktop sticky top-[38px] lg:w-full">
       <ul className="flex gap-[30px] px-[20px] tracking-widest text-white font-[100]">
         <li
           className="py-2 border-b-4 border-blue"
