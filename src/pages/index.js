@@ -22,7 +22,6 @@ export default function Home() {
       <main>
         <Header />
         <Banner {...bannerData} />
-        <ProductNavigation />
         <Products {...productsData} />
       </main>
       <Footer />
