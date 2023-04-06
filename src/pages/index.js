@@ -4,6 +4,8 @@ import Header from "@/components/Header/Header";
 import Banner from "@/components/Banner/Banner";
 import ProductNavigation from "@/components/Product_Navigation/ProductNavigation";
 import Products from "@/components/Products/Products";
+import Footer from "@/components/Footer/Footer";
+
 import productsData from "@/components/ProductTile/data";
 
 export default function Home() {
@@ -21,6 +23,7 @@ export default function Home() {
         <ProductNavigation />
         <Products {...productsData} />
       </main>
+      <Footer />
     </>
   );
 }
