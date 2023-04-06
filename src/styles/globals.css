@@ -8,6 +8,7 @@ body {
 
 .MuiBottomNavigation-root {
   background-color: rgba(39,40,42,1)!important;
+  height: 70px!important;
 }
 
 .MuiButtonBase-root {
