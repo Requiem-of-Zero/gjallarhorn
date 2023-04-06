@@ -2,8 +2,15 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 
 const Banner = () => {
+  
   return (
-      <Splide aria-label="My Favorite Images">
+      <Splide options={
+        {
+          autoplay: true,
+          rewind: true,
+          arrows: false,
+        }
+      } id='banner-slider' aria-label="My Gundams">
         <SplideSlide>
           <img
             src="https://images4.alphacoders.com/715/thumb-1920-715075.png"
