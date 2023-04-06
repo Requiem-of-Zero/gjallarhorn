@@ -12,7 +12,7 @@ const ProductTile = ({ name, description, imgUrl, price, quantity }) => {
   };
   return (
     <li>
-      <Image src={imgUrl} width={1920} height={1080} alt={description} />
+      <Image loading="lazy" src={imgUrl} width={1920} height={1080} alt={description} />
       <h3 className="text-light-grey">{description}</h3>
       <h2 className="text-white">{name}</h2>
       <div className="flex justify-between">
