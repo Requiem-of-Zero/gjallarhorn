@@ -29,7 +29,7 @@ const Footer = () => {
           </ul>
         </div>
         <div id="light-dark-mode" className='flex gap-[8px]'>Mode <FaMoon /></div>
-        <li className="text-sm flex gap-[5px]">
+        <li className="text-sm flex gap-[5px] py-1 pb-2">
           <AiOutlineCopyrightCircle /> NEW TYPE OCEAN LLC/INC 2023 All Rights Reserved
         </li>
       </ul>
