@@ -24,10 +24,8 @@ export default function Home() {
         <ProductNavigation />
         <Products {...productsData} />
       </main>
-      <footer>
-        <Footer />
-        <FooterNavigation />
-      </footer>
+      <Footer />
+      <FooterNavigation />
     </>
   );
 }

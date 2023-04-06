@@ -5,3 +5,11 @@
 body {
   background-color: rgb(27, 26, 26);
 }
+
+.MuiBottomNavigation-root {
+  background-color: rgba(39,40,42,1)!important;
+}
+
+.MuiButtonBase-root {
+  color: white!important;
+}
