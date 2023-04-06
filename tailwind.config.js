@@ -7,6 +7,7 @@ module.exports = {
   ],
   theme: {
     colors: {
+      grey: "rgba(39,40,42,1)",
       blue: "#87CEEB",
       white: "#ffffff",
     },
@@ -25,5 +26,5 @@ module.exports = {
       btnShadow: "0 2px 5px 0 rgba(213,217,217,.5)",
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 };
