@@ -14,7 +14,6 @@ const ProductTile = ({ name, description, imgUrl, price, quantity }) => {
   return (
     <motion.div
       layout
-      className='max-w-xs'
     >
       <Image
         loading="lazy"
@@ -22,6 +21,7 @@ const ProductTile = ({ name, description, imgUrl, price, quantity }) => {
         width={1920}
         height={1080}
         alt={description}
+        className='product-img'
       />
       <h3 className="text-light-grey">{description}</h3>
       <h2 className="text-white">{name}</h2>
@@ -35,6 +35,7 @@ const ProductTile = ({ name, description, imgUrl, price, quantity }) => {
           {handleQuantity(quantity)}
         </p>
       </div>
+      <button className='text-white border w-[100%] py-2 tracking-wider mt-1'>ADD TO BAG</button>
     </motion.div>
   );
 };
