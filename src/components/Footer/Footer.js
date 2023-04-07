@@ -4,13 +4,16 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-grey">
-      <ul className="text-light-grey pl-3 pt-4 max-w-contentContainer m0a">
-        <li>Information</li>
-        <li>About Us</li>
-        <li>Help</li>
-        <li>Terms of Use</li>
-        <li>Privacy Policy</li>
+    <footer className="bg-grey max-w-contentContainer">
+      <ul className="text-light-grey px-4 pt-4 lgl:justify-center lgl:flex lgl:gap-[300px]">
+        <div>
+          <li>Information</li>
+          <li>About Us</li>
+          <li>Help</li>
+          <li>Terms of Use</li>
+          <li>Privacy Policy</li>
+        </div>
+
         <div className="py-2">
           Socials
           <ul id="footer-socials" className="flex gap-[10px]">
@@ -28,14 +31,15 @@ const Footer = () => {
             </li>
           </ul>
         </div>
+
         <div id="light-dark-mode" className="flex gap-[8px]">
           Mode <FaMoon />
         </div>
-        <li className="text-sm flex gap-[5px] py-1 pb-2">
-          <AiOutlineCopyrightCircle /> NEW TYPE OCEAN LLC/INC 2023 All Rights
-          Reserved
-        </li>
       </ul>
+      <p className="px-4 text-light-grey text-sm flex gap-[5px] py-1 pb-2 lgl:justify-center">
+        <AiOutlineCopyrightCircle /> NEW TYPE OCEAN LLC/INC 2023 All Rights
+        Reserved
+      </p>
     </footer>
   );
 };
