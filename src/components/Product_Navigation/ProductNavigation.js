@@ -37,7 +37,7 @@ const ProductNavigation = ({ setActive, active, setFiltered, products }) => {
         </li>
         <li
           onClick={() => setActive(3)}
-          className={`py-2 border-b-4 cursor-pointer select-none${
+          className={`py-2 border-b-4 cursor-pointer select-none ${
             active === 3 ? "border-blue" : "border-[transparent]"
           }`}
         >
@@ -45,7 +45,7 @@ const ProductNavigation = ({ setActive, active, setFiltered, products }) => {
         </li>
         <li
           onClick={() => setActive(4)}
-          className={`py-2 border-b-4 cursor-pointer select-none${
+          className={`py-2 border-b-4 cursor-pointer select-none ${
             active === 4 ? "border-blue" : "border-[transparent]"
           }`}
         >
