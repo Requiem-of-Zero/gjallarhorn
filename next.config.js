@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["alaskaseafood.site", 'images4.alphacoders.com', 'trumpwallpapers.com', 'cdn.wallpapersafari.com', 'wallpapercave.com'],
+    domains: ["upload.wikimedia.org","alaskaseafood.site", 'images4.alphacoders.com', 'trumpwallpapers.com', 'cdn.wallpapersafari.com', 'wallpapercave.com'],
   },
 };
 
