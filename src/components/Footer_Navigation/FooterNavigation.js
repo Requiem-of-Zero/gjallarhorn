@@ -7,6 +7,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import PersonIcon from "@mui/icons-material/Person";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 import MenuIcon from "@mui/icons-material/Menu";
+import Bag from "../Bag/Bag";
 
 export default function FooterNavigation() {
   const [value, setValue] = React.useState("Home");
@@ -31,7 +32,7 @@ export default function FooterNavigation() {
       <BottomNavigationAction
         label="My Cart"
         value="cart"
-        icon={<LocalMallIcon />}
+        icon={<Bag />}
       />
       <BottomNavigationAction
         label="Search"

@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import LoginSubheader from "./LoginSubheader";
+import Bag from "../Bag/Bag";
 
 const Header = () => {
   const products = useSelector((state) => state.products);
@@ -42,16 +43,7 @@ const Header = () => {
               />
               <SearchIcon className="absolute right-[5px] top-[8px]" />
             </div>
-            <div className="relative">
-              <LocalMallIcon className="cursor-pointer" />
-              <span
-                className={`cursor-pointer absolute text-xs -top-1 left-4 w-5 h-5 rounded-full flex justify-center items-center ${
-                  products && products.length > 0 ? "bg-blue" : ""
-                }`}
-              >
-                {products.length > 0 ? products.length : ""}
-              </span>
-            </div>
+            <Bag />
           </div>
         </div>
         <div id="topNav">
