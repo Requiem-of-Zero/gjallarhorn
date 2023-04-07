@@ -29,7 +29,7 @@ const Header = () => {
             </div>
             <div className='relative'>
               <LocalMallIcon />
-              <span className="absolute text-xs -top-1 left-4 p-1 pb-3 h-4 rounded-full bg-blue">{products.length > 0 ? products.length : '' }</span>
+              <span className={`absolute text-xs -top-1 left-4 p-1 pb-3 h-4 rounded-full ${products && products.length > 0 ? 'bg-blue' : '' }`}>{products.length > 0 ? products.length : '' }</span>
             </div>
           </div>
         </div>
