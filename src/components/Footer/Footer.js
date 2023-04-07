@@ -4,8 +4,8 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="bg-grey max-w-contentContainer">
-      <ul className="text-light-grey px-4 pt-4 lgl:justify-center lgl:flex lgl:gap-[300px]">
+    <footer className="bg-grey">
+      <ul className="text-light-grey px-4 pt-4 lgl:justify-center lgl:flex lgl:gap-[300px] max-w-contentContainer m0a">
         <div>
           <li>Information</li>
           <li>About Us</li>

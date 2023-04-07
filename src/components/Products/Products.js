@@ -1,5 +1,6 @@
 import ProductTile from "../ProductTile/ProductTile";
 import ProductNavigation from "../Product_Navigation/ProductNavigation";
+import EmptyResults from "../404/EmptyResults";
 import { useState } from "react";
 
 const Products = ({ products }) => {
@@ -11,6 +12,7 @@ const Products = ({ products }) => {
   // 2 is lobsters
   // 3 is crabs
   // 4 is shrimps
+  console.log(filtered)
   return (
     <div>
       <ProductNavigation
@@ -20,12 +22,11 @@ const Products = ({ products }) => {
         setActive={setActive}
       />
       <div
-        
         className="product-grid gap-[5px] px-2 pt-2 pb-5 max-w-contentContainer"
       >
-        {filtered.map((product, i) => (
-          <ProductTile key={`product-${i}`} {...product} />
-        ))}
+        {
+          filtered.length ? filtered.map((product, i) => <ProductTile key={`product-${i}`} {...product} /> ) : <EmptyResults />
+        }
       </div>
     </div>
   );
