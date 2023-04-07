@@ -7,7 +7,7 @@ const LoginSubheader = () => {
         <li className="pr-2">help</li>
         <Link href="/login">sign in</Link>
         <li>/</li>
-        <li>register</li>
+        <Link href='/register'>register</Link>
       </ul>
     </div>
   );

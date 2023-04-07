@@ -57,6 +57,14 @@ body {
   color: #A1A7AD;
 }
 
+.MuiFormLabel-root {
+  color: #A1A7AD!important;
+}
+
+#register-field:focus {
+  outline: #A1A7AD!important;
+}
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));

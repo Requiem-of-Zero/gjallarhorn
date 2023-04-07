@@ -12,6 +12,18 @@ import "../styles/globals.css";
 import "../styles/nprogress.css";
 import FooterNavigation from "@/components/Footer_Navigation/FooterNavigation";
 const anek = Anek_Gujarati({ subsets: ["latin"], weight: "500" });
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#ffffff",
+    },
+    secondary: {
+      main: "#ffffff",
+    },
+  },
+});
 
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
@@ -22,10 +34,12 @@ export default function App({ Component, pageProps }) {
     <AuthContextProvider>
       <Provider store={store} className={anek.className}>
         <PersistGate loading={null} persistor={persistor}>
-          <Header />
-          <Component {...pageProps} />
-          <Footer />
-          <FooterNavigation />
+          <ThemeProvider theme={theme}>
+            <Header />
+            <Component {...pageProps} />
+            <Footer />
+            <FooterNavigation />
+          </ThemeProvider>
         </PersistGate>
       </Provider>
     </AuthContextProvider>
