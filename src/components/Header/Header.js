@@ -1,7 +1,11 @@
-import SearchIcon from "@mui/icons-material/Search";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
+import SearchIcon from "@mui/icons-material/Search";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const products = useSelector((state) => state.cart.products);
+
+  console.log(products);
   return (
     <div className="sticky top-0 z-10 bg-grey h-12 flex justify-end flex-col items-center py-2 lgl:h-[120px] lgl:items-start">
       <div className="max-w-contentContainer m0a">
@@ -24,7 +28,10 @@ const Header = () => {
               />
               <SearchIcon className="absolute right-[5px] top-[8px]" />
             </div>
-            <LocalMallIcon />
+            <div className='relative'>
+              <LocalMallIcon />
+              <span className="absolute text-xs -top-1 left-4 p-1 pb-3 h-4 rounded-full bg-blue">{products.length > 0 ? products.length : '' }</span>
+            </div>
           </div>
         </div>
         <div id="topNav">

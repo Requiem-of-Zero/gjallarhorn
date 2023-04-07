@@ -1,7 +1,17 @@
-import Image from "next/image";
+import { addToCart } from "@/redux/reducers/cartSlice";
 import { motion } from "framer-motion";
+import { toast, ToastContainer } from "react-toastify";
+import Image from "next/image";
 
-const ProductTile = ({ name, description, imgUrl, price, quantity }) => {
+const ProductTile = ({
+  id,
+  name,
+  description,
+  imgUrl,
+  price,
+  quantity,
+  addToCart,
+}) => {
   const handleQuantity = (quantity) => {
     if (quantity > 20) {
       return "In stock";
@@ -39,9 +49,24 @@ const ProductTile = ({ name, description, imgUrl, price, quantity }) => {
           {handleQuantity(quantity)}
         </p>
       </div>
-      <button className="text-white border w-[100%] py-2 tracking-wider mt-1">
+      <button
+        onClick={() => addToCart & toast.success(`${name} is added to bag.`)}
+        className="text-white border w-[100%] py-2 tracking-wider mt-1"
+      >
         ADD TO BAG
       </button>
+      <ToastContainer 
+        position="top-left"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </motion.div>
   );
 };

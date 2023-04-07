@@ -1,15 +1,14 @@
+import Banner from "@/components/Banner/Banner";
+import bannerData from "@/components/Banner/data";
+import Footer from "@/components/Footer/Footer";
+import FooterNavigation from "@/components/Footer_Navigation/FooterNavigation";
+import Header from "@/components/Header/Header";
+import Products from "@/components/Products/Products";
+import productsData from "@/components/ProductTile/data";
+import ProductNavigation from "@/components/Product_Navigation/ProductNavigation";
 import Head from "next/head";
 import Image from "next/image";
-import Header from "@/components/Header/Header";
-import Banner from "@/components/Banner/Banner";
-import ProductNavigation from "@/components/Product_Navigation/ProductNavigation";
-import Products from "@/components/Products/Products";
-import Footer from "@/components/Footer/Footer";
-import FooterNavigation from "@/components/Footer_Navigation/FooterNavigation"; 
-
-import productsData from "@/components/ProductTile/data";
-import bannerData from "@/components/Banner/data";
-
+import "react-toastify/dist/ReactToastify.css";
 export default function Home() {
   return (
     <>
