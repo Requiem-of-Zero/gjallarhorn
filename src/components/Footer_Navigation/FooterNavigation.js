@@ -17,6 +17,7 @@ export default function FooterNavigation() {
 
   return (
     <BottomNavigation
+      id='bottomNav'
       className="sticky bottom-0 w-screen"
       value={value}
       onChange={handleChange}

@@ -7,12 +7,19 @@ body {
 }
 
 .MuiBottomNavigation-root {
-  background-color: rgba(39,40,42,1)!important;
-  height: 70px!important;
+  background-color: rgba(39, 40, 42, 1) !important;
+  height: 70px !important;
+  display: sticky;
+}
+
+@media screen and (min-width: 1024px) {
+  #bottomNav {
+    display: none;
+  }
 }
 
 .MuiButtonBase-root {
-  color: white!important;
+  color: white !important;
 }
 
 .product-grid {
