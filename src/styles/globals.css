@@ -10,6 +10,14 @@ body {
   #topNav {
     display: none;
   }
+
+  #main-search {
+    display: none
+  }
+
+  .navigation-title {
+    justify-content: center;
+  }
 }
 
 .MuiBottomNavigation-root {
@@ -26,6 +34,10 @@ body {
 
 .MuiButtonBase-root {
   color: white !important;
+}
+
+.MuiSvgIcon-root {
+  color: #A1A7AD;
 }
 
 .product-grid {
