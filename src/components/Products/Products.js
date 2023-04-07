@@ -1,6 +1,7 @@
 import ProductTile from "../ProductTile/ProductTile";
 import ProductNavigation from "../Product_Navigation/ProductNavigation";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Products = ({ products }) => {
   const [currProducts, setCurrProducts] = useState(products);
@@ -19,11 +20,11 @@ const Products = ({ products }) => {
         active={active}
         setActive={setActive}
       />
-      <ul className="grid grid-cols-2 gap-[5px] px-2 pt-2 pb-5">
+      <motion.div layout className="product-grid place-items-center gap-[5px] px-2 pt-2 pb-5">
         {filtered.map((product, i) => (
           <ProductTile key={`product-${i}`} {...product} />
         ))}
-      </ul>
+      </motion.div>
     </div>
   );
 };

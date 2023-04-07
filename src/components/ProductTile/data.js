@@ -44,7 +44,7 @@ const productsData = {
       id: 4,
       name: "Alaska Crab",
       description: "Crab from Alaska",
-      type: 3,
+      type: 4,
       imgUrl:
         "https://alaskaseafood.site/wp-content/uploads/2020/09/cangrejo-real.jpg",
       price: 10.99,
@@ -54,7 +54,7 @@ const productsData = {
       id: 5,
       name: "Alaska Crab",
       description: "Crab from Alaska",
-      type: 3,
+      type: 4,
       imgUrl:
         "https://alaskaseafood.site/wp-content/uploads/2020/09/cangrejo-real.jpg",
       price: 10.99,
@@ -64,7 +64,7 @@ const productsData = {
       id: 6,
       name: "Alaska Crab",
       description: "Crab from Alaska",
-      type: 3,
+      type: 2,
       imgUrl:
         "https://alaskaseafood.site/wp-content/uploads/2020/09/cangrejo-real.jpg",
       price: 10.99,
@@ -74,7 +74,7 @@ const productsData = {
       id: 7,
       name: "Alaska Crab",
       description: "Crab from Alaska",
-      type: 3,
+      type: 2,
       imgUrl:
         "https://alaskaseafood.site/wp-content/uploads/2020/09/cangrejo-real.jpg",
       price: 10.99,

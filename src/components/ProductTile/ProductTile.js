@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const ProductTile = ({ name, description, imgUrl, price, quantity }) => {
   const handleQuantity = (quantity) => {
@@ -11,8 +12,17 @@ const ProductTile = ({ name, description, imgUrl, price, quantity }) => {
     }
   };
   return (
-    <li>
-      <Image loading="lazy" src={imgUrl} width={1920} height={1080} alt={description} />
+    <motion.div
+      layout
+      className='max-w-xs'
+    >
+      <Image
+        loading="lazy"
+        src={imgUrl}
+        width={1920}
+        height={1080}
+        alt={description}
+      />
       <h3 className="text-light-grey">{description}</h3>
       <h2 className="text-white">{name}</h2>
       <div className="flex justify-between">
@@ -25,7 +35,7 @@ const ProductTile = ({ name, description, imgUrl, price, quantity }) => {
           {handleQuantity(quantity)}
         </p>
       </div>
-    </li>
+    </motion.div>
   );
 };
 
