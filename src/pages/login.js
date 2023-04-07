@@ -4,10 +4,11 @@ import { useRouter } from "next/router";
 export default function Login() {
   const { googleSignIn, user, logout } = UserAuth();
   const router = useRouter();
+
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
-      router.push('/')
+      await router.push('/')
     } catch (error) {
       console.log(error);
     }
@@ -16,6 +17,7 @@ export default function Login() {
   const handleSignOut = async () => {
     try {
       await logout()
+      await router.push('/')
     } catch(error) {
       console.log(error)
     }
