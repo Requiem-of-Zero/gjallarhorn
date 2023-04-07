@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 const Header = () => {
   const products = useSelector((state) => state.cart.products);
 
-  console.log(products);
   return (
     <div className="sticky top-0 z-10 bg-grey h-12 flex justify-end flex-col items-center py-2 lgl:h-[120px] lgl:items-start">
       <div className="max-w-contentContainer m0a">
