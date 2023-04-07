@@ -1,6 +1,5 @@
 import Banner from "@/components/Banner/Banner";
 import bannerData from "@/components/Banner/data";
-import FooterNavigation from "@/components/Footer_Navigation/FooterNavigation";
 import Products from "@/components/Products/Products";
 import productsData from "@/components/ProductTile/data";
 import Head from "next/head";
@@ -19,7 +18,6 @@ export default function Home() {
         <Banner {...bannerData} />
         <Products {...productsData} />
       </main>
-      <FooterNavigation />
     </>
   );
 }

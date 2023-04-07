@@ -10,6 +10,7 @@ import { app } from "../firebase.config";
 import { persistor, store } from "../redux/store";
 import "../styles/globals.css";
 import "../styles/nprogress.css";
+import FooterNavigation from "@/components/Footer_Navigation/FooterNavigation";
 const anek = Anek_Gujarati({ subsets: ["latin"], weight: "500" });
 
 Router.events.on("routeChangeStart", () => NProgress.start());
@@ -24,6 +25,7 @@ export default function App({ Component, pageProps }) {
           <Header />
           <Component {...pageProps} />
           <Footer />
+          <FooterNavigation />
         </PersistGate>
       </Provider>
     </AuthContextProvider>
