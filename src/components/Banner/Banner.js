@@ -14,7 +14,7 @@ const Banner = ({banners}) => {
       }}
       id="banner-slider"
       aria-label="My Gundams"
-      className="max-w-contentContainer m0a"
+      className="max-w-contentContainer m0a cursor-pointer"
     >
       {banners.map((banner, i) => <Slide key={`banner-${i}`}{...banner}/>)}
     </Splide>
