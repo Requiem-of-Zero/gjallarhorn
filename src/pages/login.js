@@ -1,5 +1,6 @@
 import { UserAuth } from "@/context/AuthContext";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export default function Login() {
   const { googleSignIn, user, logout } = UserAuth();
@@ -8,22 +9,17 @@ export default function Login() {
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
-      await router.push('/')
     } catch (error) {
       console.log(error);
     }
   };
 
-  const handleSignOut = async () => {
-    try {
-      await logout()
-      await router.push('/')
-    } catch(error) {
-      console.log(error)
+  useEffect(() => {
+    if(user !== null){
+      router.push('/')
     }
-  }
-  
-  console.log(user)
+  }, [])
+
   return (
     <div className="w-screen flex items-center justify-center">
       <div className="w-[300px]">
