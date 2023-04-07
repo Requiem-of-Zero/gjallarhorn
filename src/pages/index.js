@@ -9,6 +9,7 @@ import ProductNavigation from "@/components/Product_Navigation/ProductNavigation
 import Head from "next/head";
 import Image from "next/image";
 import "react-toastify/dist/ReactToastify.css";
+
 export default function Home() {
   return (
     <>
