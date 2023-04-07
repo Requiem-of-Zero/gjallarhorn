@@ -30,7 +30,9 @@ const Products = ({ products }) => {
             />
           ))
         ) : (
-          <EmptyResults />
+          <div className="w-screen flex justify-center">
+            <EmptyResults />
+          </div>
         )}
       </div>
     </div>
