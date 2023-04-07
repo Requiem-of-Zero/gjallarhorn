@@ -21,7 +21,7 @@ export default function Login() {
   }, [])
 
   return (
-    <div className="w-screen flex items-center justify-center">
+    <div className="w-screen flex items-center justify-center h-[565px]">
       <div className="w-[300px]">
         <div className="flex flex-col text-white">
           <h2 className="text-4xl">SIGN IN</h2>
