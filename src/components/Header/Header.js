@@ -18,7 +18,7 @@ const Header = () => {
     }
   };
   return (
-    <div className="sticky top-0 z-10 bg-grey h-12 flex justify-end flex-col items-center xs:pb-2 pt-2 lgl:h-[120px] lgl:items-start">
+    <div className="pb-2 sticky top-0 z-10 bg-grey h-12 flex justify-end flex-col items-center lgl:pb-0 lgl:h-[120px] lgl:items-start">
       <div className="max-w-contentContainer m0a">
         {user ? (
           <div className="flex justify-end text-[#A1A7AD] gap-2 text-sm h-9">
