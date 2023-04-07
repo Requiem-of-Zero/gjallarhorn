@@ -6,6 +6,23 @@ body {
   background-color: rgb(27, 26, 26);
 }
 
+::-webkit-scrollbar{
+  height: 5px;
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(27, 26, 26);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #87CEEB;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #87CEEB;
+}
+
 @media screen and (max-width: 1024px){
   #topNav {
     display: none;

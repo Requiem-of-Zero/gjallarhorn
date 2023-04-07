@@ -7,14 +7,14 @@ module.exports = {
   ],
   theme: {
     maxWidth: {
-      container: '1520px',
-      contentContainer: '1280px',
+      container: "1520px",
+      contentContainer: "1280px",
     },
     colors: {
       grey: "rgba(39,40,42,1)",
       blue: "#87CEEB",
       white: "#ffffff",
-      "light-grey": '#A1A7AD'
+      "light-grey": "#A1A7AD",
     },
     screens: {
       xs: "320px",
@@ -31,5 +31,5 @@ module.exports = {
       btnShadow: "0 2px 5px 0 rgba(213,217,217,.5)",
     },
   },
-  plugins: [require("tailwind-scrollbar-hide")],
+  plugins: [require("tailwind-scrollbar-hide"), require("tailwind-scrollbar")],
 };
