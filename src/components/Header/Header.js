@@ -17,7 +17,7 @@ const Header = () => {
     }
   };
   return (
-    <div className="sticky top-0 z-10 bg-grey h-12 flex justify-end flex-col items-center py-2 lgl:h-[120px] lgl:items-start">
+    <div className="sticky top-0 z-10 bg-grey h-12 flex justify-end flex-col items-center xs:pb-2 pt-2 lgl:h-[120px] lgl:items-start">
       <div className="max-w-contentContainer m0a">
         {user ? (
           <div className="flex justify-end text-[#A1A7AD] gap-2 text-sm h-9">
@@ -43,9 +43,9 @@ const Header = () => {
               <SearchIcon className="absolute right-[5px] top-[8px]" />
             </div>
             <div className="relative">
-              <LocalMallIcon />
+              <LocalMallIcon className="cursor-pointer" />
               <span
-                className={`absolute text-xs -top-1 left-4 w-5 h-5 rounded-full flex justify-center items-center ${
+                className={`cursor-pointer absolute text-xs -top-1 left-4 w-5 h-5 rounded-full flex justify-center items-center ${
                   products && products.length > 0 ? "bg-blue" : ""
                 }`}
               >
@@ -55,11 +55,31 @@ const Header = () => {
           </div>
         </div>
         <div id="topNav">
-          <ul className="flex text-white gap-[20px] tracking-wider">
-            <li>LOBSTERS</li>
-            <li>SHRIMPS</li>
-            <li>CRABS</li>
-            <li>FISH</li>
+          <ul className="flex text-white gap-[20px] tracking-widest">
+            <Link
+              href="/shop/lobsters"
+              className="transition duration-150 border-b-4 border-[transparent] hover:border-b-4 hover:border-[white] pb-1"
+            >
+              LOBSTERS
+            </Link>
+            <Link
+              href="/shop/shrimps"
+              className="transition duration-150 border-b-4 border-[transparent] hover:border-b-4 hover:border-[white] pb-1"
+            >
+              SHRIMPS
+            </Link>
+            <Link
+              href="/shop/crabs"
+              className="transition duration-150 border-b-4 border-[transparent] hover:border-b-4 hover:border-[white] pb-1"
+            >
+              CRABS
+            </Link>
+            <Link
+              href="/shop/fish"
+              className="transition duration-150 border-b-4 border-[transparent] hover:border-b-4 hover:border-[white] pb-1"
+            >
+              FISH
+            </Link>
           </ul>
         </div>
       </div>
