@@ -6,6 +6,10 @@ module.exports = {
     "./src/components/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    maxWidth: {
+      container: '1520px',
+      contentContainer: '1280px',
+    },
     colors: {
       grey: "rgba(39,40,42,1)",
       blue: "#87CEEB",

@@ -20,7 +20,7 @@ const Products = ({ products }) => {
         active={active}
         setActive={setActive}
       />
-      <motion.div layout className="product-grid place-items-center gap-[5px] px-2 pt-2 pb-5">
+      <motion.div layout className="product-grid gap-[5px] px-2 pt-2 pb-5 max-w-contentContainer">
         {filtered.map((product, i) => (
           <ProductTile key={`product-${i}`} {...product} />
         ))}
