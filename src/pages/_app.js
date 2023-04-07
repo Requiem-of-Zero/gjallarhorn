@@ -8,7 +8,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import { persistor, store } from "../redux/store";
 import "../styles/globals.css";
 import "../styles/nprogress.css";
-
+import {app} from '../firebase.config'
 const anek = Anek_Gujarati({ subsets: ["latin"], weight: "500" });
 
 Router.events.on("routeChangeStart", () => NProgress.start());

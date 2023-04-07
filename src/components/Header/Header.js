@@ -1,6 +1,7 @@
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 import SearchIcon from "@mui/icons-material/Search";
 import { useSelector } from "react-redux";
+import Link from "next/link";
 
 const Header = () => {
   const products = useSelector((state) => state.products);
@@ -11,13 +12,13 @@ const Header = () => {
         <div>
           <ul className="flex justify-end text-[#A1A7AD] gap-2 text-sm h-9">
             <li className="pr-2">help</li>
-            <li>sign in</li>
+            <Link href='/login'>sign in</Link>
             <li>/</li>
             <li>register</li>
           </ul>
         </div>
         <div className="navigation-title flex justify-between lgl:w-[1000px] xl:w-[1280px]">
-          <h1 className="text-3xl text-blue">NEW TYPE OCEAN</h1>
+          <Link href='/' className="text-3xl text-blue">NEW TYPE OCEAN</Link>
           <div id="main-search" className="flex gap-[10px] items-center">
             <div className="relative">
               <input
