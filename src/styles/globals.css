@@ -6,6 +6,12 @@ body {
   background-color: rgb(27, 26, 26);
 }
 
+@media screen and (max-width: 1024px){
+  #topNav {
+    display: none;
+  }
+}
+
 .MuiBottomNavigation-root {
   background-color: rgba(39, 40, 42, 1) !important;
   height: 70px !important;

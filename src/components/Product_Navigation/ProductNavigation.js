@@ -11,7 +11,7 @@ const ProductNavigation = ({ setActive, active, setFiltered, products }) => {
   }, [active]);
 
   return (
-    <div className="m0a bg-grey text-grey scrollbar-hide z-10 flex w-full whitespace-nowrap border-b border-t border-solid overflow-x-scroll overflow-y-hidden top-header lg:top-header-desktop sticky top-[38px] max-w-contentContainer sml:justify-center w-full">
+    <div className="m0a bg-grey text-grey scrollbar-hide z-10 flex w-full whitespace-nowrap border-b border-t border-solid overflow-x-scroll overflow-y-hidden top-header lg:top-header-desktop sticky top-[38px] max-w-contentContainer sml:justify-center w-full lgl:top-[119px]">
       <ul className="flex gap-[30px] px-[20px] tracking-widest text-white font-[100] md:items-center md:justify-center">
         <li
           onClick={() => setActive(0)}
