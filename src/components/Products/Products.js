@@ -1,6 +1,5 @@
 import { addToCart } from "@/redux/reducers/cartSlice";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import EmptyResults from "../404/EmptyResults";
 import ProductTile from "../ProductTile/ProductTile";
 import ProductNavigation from "../Product_Navigation/ProductNavigation";
@@ -9,7 +8,6 @@ const Products = ({ products }) => {
   const [currProducts, setCurrProducts] = useState(products);
   const [filtered, setFiltered] = useState(products);
   const [active, setActive] = useState(0);
-  const dispatch = useDispatch();
   // 0 is all
   // 1 is sold out
   // 2 is lobsters
@@ -27,7 +25,6 @@ const Products = ({ products }) => {
         {filtered.length ? (
           filtered.map((product, i) => (
             <ProductTile
-              addToCart={() => dispatch(addToCart({ ...product, quantity: 1 }))}
               key={`product-${i}`}
               {...product}
             />

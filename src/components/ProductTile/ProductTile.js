@@ -2,6 +2,7 @@ import { addToCart } from "@/redux/reducers/cartSlice";
 import { motion } from "framer-motion";
 import { toast, ToastContainer } from "react-toastify";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
 
 const ProductTile = ({
   id,
@@ -10,7 +11,6 @@ const ProductTile = ({
   imgUrl,
   price,
   quantity,
-  addToCart,
 }) => {
   const handleQuantity = (quantity) => {
     if (quantity > 20) {
@@ -21,6 +21,7 @@ const ProductTile = ({
       return "Sold out!";
     }
   };
+  const dispatch = useDispatch();
   return (
     <motion.div
       layout
@@ -50,7 +51,14 @@ const ProductTile = ({
         </p>
       </div>
       <button
-        onClick={() => addToCart & toast.success(`${name} is added to bag.`)}
+        onClick={() => dispatch(addToCart({
+          id: id,
+          name: name,
+          description: description,
+          imgUrl: imgUrl,
+          price: price,
+          quantity: 1
+        })) && toast.success(`${name} is added to bag.`)}
         className="text-white border w-[100%] py-2 tracking-wider mt-1"
       >
         ADD TO BAG
