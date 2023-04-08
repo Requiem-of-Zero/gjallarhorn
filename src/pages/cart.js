@@ -17,10 +17,13 @@ export default function Cart() {
   return (
     <div className="w-screen flex justify-center h-[100vh]">
       <div className="py-5 text-white font-bold max-w-contentContainer">
+        {/* Desktop Cart Page Header */}
         <h2 id="desktop_checkout" className="pb-1 text-4xl cursor-default">
           YOUR BAG
         </h2>
+        {/* End Desktop Cart Header */}
         <ul className="flex flex-col gap-[20px]">
+          {/* Mobile Checkout Block */}
           <div id="mobile_checkout" className="sticky top-[48px]">
             <h2 className="text-center pb-1 text-4xl cursor-default">
               YOUR BAG
@@ -33,11 +36,13 @@ export default function Cart() {
               <button className="border w-[100%] px-2 py-2">CHECKOUT</button>
             </div>
           </div>
+          {/* End Mobile Checkout Block */}
           {products.map((product, i) => (
             <CartItem key={`cart_item-${i}`} {...product} />
           ))}
         </ul>
       </div>
+      {/* Desktop Checkout Block */}
       <div
         id="desktop_checkout"
         className="sticky top-[105px] text-white h-20 w-[300px] pt-10"
@@ -45,6 +50,7 @@ export default function Cart() {
         Total: ${calculateCartTotal(products)} {`(${products.length} items)`}
         <button className="border w-[100%] px-2 py-2">CHECKOUT</button>
       </div>
+      {/* End Desktop Checkout Block */}
     </div>
   );
 }
