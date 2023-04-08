@@ -26,6 +26,7 @@ const Footer = () => {
                   src="https://upload.wikimedia.org/wikipedia/commons/c/c1/XiaohongshuLOGO.png?20181027065954"
                   height={20}
                   width={20}
+                  alt='red book'
                 />
               </a>
             </li>
