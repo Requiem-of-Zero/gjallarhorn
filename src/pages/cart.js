@@ -1,8 +1,14 @@
-import { useSelector } from "react-redux";
-import CartItem from "@/components/CartItem/CartItem";
 import EmptyResults from "@/components/404/EmptyResults";
+import CartItem from "@/components/CartItem/CartItem";
+import { UserAuth } from "@/context/AuthContext";
+import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
+import { useSelector } from "react-redux";
+
 export default function Cart() {
+  const stripePromise = loadStripe(process.env.stripe_public_key);
   const products = useSelector((state) => state.products);
+  const { user } = UserAuth();
 
   const calculateCartTotal = (products) => {
     let sum = 0;
@@ -14,9 +20,21 @@ export default function Cart() {
     return sum.toFixed(2);
   };
 
-  return (
-    products.length ? (
+  const createCheckoutSession = async () => {
+    const stripe = await stripePromise;
 
+    const checkoutSession = await axios.post("/api/create-checkout-session", {
+      items: products,
+      email: user.email,
+    });
+
+    const result = await stripe.redirectToCheckout({
+      sessionId: checkoutSession.data.id,
+    });
+
+    if (result.error) alert(result.error.message);
+  };
+  return products.length ? (
     <div className="w-screen flex justify-center h-[100vh]">
       <div className="py-5 text-white font-bold max-w-contentContainer">
         {/* Desktop Cart Page Header */}
@@ -35,7 +53,10 @@ export default function Cart() {
                 Total: ${calculateCartTotal(products)}{" "}
                 {`(${products.length} items)`}
               </p>
-              <button className="border w-[100%] px-2 py-2 hover:text-light-grey focus:text-light-grey">
+              <button
+                onClick={() => createCheckoutSession()}
+                className="border w-[100%] px-2 py-2 hover:text-light-grey focus:text-light-grey"
+              >
                 CHECKOUT
               </button>
             </div>
@@ -52,16 +73,18 @@ export default function Cart() {
         className="sticky top-[105px] text-white h-20 w-[200px] pt-10"
       >
         Total: ${calculateCartTotal(products)} {`(${products.length} items)`}
-        <button className="border w-[100%] px-2 py-2 hover:text-light-grey focus:text-light-grey">
+        <button
+          onClick={createCheckoutSession}
+          className="border w-[100%] px-2 py-2 hover:text-light-grey focus:text-light-grey"
+        >
           CHECKOUT
         </button>
       </div>
       {/* End Desktop Checkout Block */}
     </div>
-    ): (
-      <div className="w-screen flex justify-center">
-        <EmptyResults />
-      </div>
-    )
+  ) : (
+    <div className="w-screen flex justify-center">
+      <EmptyResults />
+    </div>
   );
 }
