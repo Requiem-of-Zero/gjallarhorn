@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import CartItem from "@/components/CartItem/CartItem";
-
+import EmptyResults from "@/components/404/EmptyResults";
 export default function Cart() {
   const products = useSelector((state) => state.products);
 
@@ -15,6 +15,8 @@ export default function Cart() {
   };
 
   return (
+    products.length ? (
+
     <div className="w-screen flex justify-center h-[100vh]">
       <div className="py-5 text-white font-bold max-w-contentContainer">
         {/* Desktop Cart Page Header */}
@@ -56,5 +58,10 @@ export default function Cart() {
       </div>
       {/* End Desktop Checkout Block */}
     </div>
+    ): (
+      <div className="w-screen flex justify-center">
+        <EmptyResults />
+      </div>
+    )
   );
 }
