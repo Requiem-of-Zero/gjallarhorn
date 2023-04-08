@@ -86,7 +86,7 @@ export default function Login() {
               }}
               focused
             />
-            <p className='text-light-grey underline'>Forgot password</p>
+            <p className="text-light-grey underline">Forgot password</p>
             <button className="border py-2 text-light-grey font-bold">
               SIGN IN
             </button>
@@ -95,7 +95,7 @@ export default function Login() {
             </p>
           </form>
           <p className="text-light-grey">
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <Link href="/register" className="underline">
               Sign Up
             </Link>
