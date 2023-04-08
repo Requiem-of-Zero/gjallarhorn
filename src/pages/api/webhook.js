@@ -29,7 +29,8 @@ const fulfillOrder = async (session) => {
       console.log('added to db')
     })
 };
-export default handler = async (req, res) => {
+
+export default async function handler(req, res){
   if (req.method === "POST") {
     const requestBuffer = await buffer(req);
     const payload = requestBuffer.toString();
