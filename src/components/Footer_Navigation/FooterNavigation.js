@@ -35,7 +35,12 @@ export default function FooterNavigation() {
         icon={<PersonIcon />}
         onClick={() => router.push("/login")}
       />
-      <BottomNavigationAction label="My Cart" value="cart" icon={<Bag />} />
+      <BottomNavigationAction
+        label="My Cart"
+        value="cart"
+        icon={<Bag />}
+        onClick={() => router.push("/cart")}
+      />
       <BottomNavigationAction
         label="Search"
         value="search"
