@@ -2,6 +2,7 @@ import { UserAuth } from "@/context/AuthContext";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { TextField } from "@mui/material";
+import Link from "next/link";
 
 export default function Login() {
   const { googleSignIn, user, signIn, logout } = UserAuth();
@@ -14,7 +15,7 @@ export default function Login() {
     try {
       await googleSignIn();
     } catch (e) {
-      setError(e.message)
+      setError(e.message);
       console.log(error);
     }
   };
@@ -26,7 +27,7 @@ export default function Login() {
       await signIn(email, password);
     } catch (e) {
       setError(e.message);
-      console.log(error)
+      console.log(error);
     }
   };
 
@@ -52,7 +53,7 @@ export default function Login() {
             <span class="mx-3">or</span>{" "}
             <span class="bg-light-grey h-[2px] flex-1"></span>
           </div>
-          <form onSubmit={handleSubmit} className='flex flex-col gap-[20px]'>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-[20px]">
             <TextField
               color="primary"
               label="Email"
@@ -88,8 +89,16 @@ export default function Login() {
             <button className="border py-2 text-light-grey font-bold">
               SIGN IN
             </button>
-            <p className='text-[red] text-center'>{error ? 'Incorrect email or password.' : ''}</p>
+            <p className="text-[red] text-center">
+              {error ? "Incorrect email or password." : ""}
+            </p>
           </form>
+          <p className="text-light-grey">
+            Don't have an account?{" "}
+            <Link href="/register" className="underline">
+              Sign Up
+            </Link>
+          </p>
         </div>
       </div>
     </div>
