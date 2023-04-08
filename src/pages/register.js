@@ -28,11 +28,11 @@ export default function Register() {
   }, [user]);
 
   return (
-    <div className="w-screen flex justify-center h-[640px] pt-8">
+    <div className="w-screen flex justify-center h-[75vh] items-center">
       <div className="w-[300px]">
         <div className="flex flex-col text-white gap-[20px]">
           <h2 className="text-4xl cursor-default">REGISTER</h2>
-          <form onSubmit={handleSubmit} className="flex flex-col">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-[20px]">
             <TextField
               color="primary"
               label="Email"
