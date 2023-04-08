@@ -32,7 +32,7 @@ export default function Register() {
       <div className="w-[300px]">
         <div className="flex flex-col text-white gap-[20px]">
           <h2 className="text-4xl cursor-default">REGISTER</h2>
-          <form onSubmit={handleSubmit} className="w-[100%]">
+          <form onSubmit={handleSubmit} className="flex flex-col">
             <TextField
               color="primary"
               label="Email"
