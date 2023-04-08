@@ -5,8 +5,8 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="bg-grey">
-      <ul className="text-light-grey px-4 pt-4 lgl:justify-center lgl:flex lgl:gap-[300px] max-w-contentContainer m0a">
-        <div>
+      <ul className="text-light-grey px-4 pt-4 lgl:justify-center lgl:flex lgl:items-start lgl:gap-[300px] max-w-contentContainer m0a">
+        <div className="pb-2">
           <li>Information</li>
           <li>About Us</li>
           <li>Help</li>
@@ -14,7 +14,7 @@ const Footer = () => {
           <li>Privacy Policy</li>
         </div>
 
-        <div className="py-2">
+        <div>
           Socials
           <ul id="footer-socials" className="flex gap-[10px]">
             <li>
@@ -32,13 +32,12 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div id="light-dark-mode" className="flex gap-[8px]">
-          Mode <FaMoon />
+        <div id="light-dark-mode" className="flex gap-[8px] items-center">
+            Mode <FaMoon />
         </div>
       </ul>
-      <p className="px-4 text-light-grey text-sm flex gap-[5px] py-1 pb-2 lgl:justify-center">
-        <AiOutlineCopyrightCircle /> NEW TYPE OCEAN LLC/INC 2023 All Rights
-        Reserved
+      <p className="px-4 text-light-grey text-sm flex gap-[5px] py-1 pb-2 justify-center items-center">
+        <AiOutlineCopyrightCircle /> GHALLAJORN INC 2023 All Rights Reserved
       </p>
     </footer>
   );

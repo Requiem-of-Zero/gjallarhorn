@@ -13,7 +13,8 @@ export default function Login() {
   const handleGoogleSignIn = async () => {
     try {
       await googleSignIn();
-    } catch (error) {
+    } catch (e) {
+      setError(e.message)
       console.log(error);
     }
   };
@@ -23,9 +24,9 @@ export default function Login() {
     setError("");
     try {
       await signIn(email, password);
-    } catch (error) {
-      setError(error.message);
-      console.log(error.message);
+    } catch (e) {
+      setError(e.message);
+      console.log(error)
     }
   };
 
@@ -36,7 +37,7 @@ export default function Login() {
   }, [user]);
 
   return (
-    <div className="w-screen flex justify-center h-[75vh] xs:items-center">
+    <div className="w-screen flex justify-center h-[75vh] sm:items-center">
       <div className="w-[300px]">
         <div className="flex flex-col text-white">
           <h2 className="text-4xl pb-4 pt-10">SIGN IN</h2>
@@ -87,6 +88,7 @@ export default function Login() {
             <button className="border py-2 text-light-grey font-bold">
               SIGN IN
             </button>
+            <p className='text-[red] text-center'>{error ? 'Incorrect email or password.' : ''}</p>
           </form>
         </div>
       </div>
