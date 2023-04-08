@@ -23,7 +23,7 @@ const Header = () => {
             id="subheader"
             className="flex justify-end text-[#A1A7AD] gap-2 text-sm h-9"
           >
-            <p className="pr-2 cursor-pointer">help</p>
+            <Link href='/help' className="pr-2 cursor-pointer hover:text-white">help</Link>
             <p onClick={handleSignOut} className="cursor-pointer">
               logout
             </p>
