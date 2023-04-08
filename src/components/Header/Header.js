@@ -21,7 +21,10 @@ const Header = () => {
     <div className="pb-2 sticky top-0 z-10 bg-grey h-12 flex justify-end flex-col items-center lgl:pb-0 lgl:h-[120px] lgl:items-start">
       <div className="max-w-contentContainer m0a">
         {user ? (
-          <div className="flex justify-end text-[#A1A7AD] gap-2 text-sm h-9">
+          <div
+            id="subheader"
+            className="flex justify-end text-[#A1A7AD] gap-2 text-sm h-9"
+          >
             <p className="pr-2 cursor-pointer">help</p>
             <p onClick={handleSignOut} className="cursor-pointer">
               logout
@@ -43,7 +46,9 @@ const Header = () => {
               />
               <SearchIcon className="absolute right-[5px] top-[8px]" />
             </div>
-            <Bag />
+            <Link href='/cart'>
+              <Bag />
+            </Link>
           </div>
         </div>
         <div id="topNav">
