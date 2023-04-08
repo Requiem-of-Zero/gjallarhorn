@@ -1,17 +1,17 @@
 import { AiOutlineCopyrightCircle } from "react-icons/ai";
 import { FaMoon } from "react-icons/fa";
 import Image from "next/image";
-
+import Link from "next/link";
 const Footer = () => {
   return (
     <footer className="bg-grey">
       <ul className="text-light-grey px-4 pt-4 lgl:justify-center lgl:flex lgl:items-start lgl:gap-[300px] max-w-contentContainer m0a">
-        <div className="pb-2">
-          <li>Information</li>
-          <li>About Us</li>
-          <li>Help</li>
-          <li>Terms of Use</li>
-          <li>Privacy Policy</li>
+        <div className="pb-2 flex flex-col">
+          <Link href='/information'>Information</Link>
+          <Link href='/about'>About Us</Link>
+          <Link href='/help'>Help</Link>
+          <Link href='/terms-and-conditions'>Terms of Use</Link>
+          <Link href='/privacy'>Privacy Policy</Link>
         </div>
 
         <div>
@@ -33,7 +33,7 @@ const Footer = () => {
         </div>
 
         <div id="light-dark-mode" className="flex gap-[8px] items-center">
-            Mode <FaMoon />
+          Mode <FaMoon />
         </div>
       </ul>
       <p className="px-4 text-light-grey text-sm flex gap-[5px] py-1 pb-2 justify-center items-center">
