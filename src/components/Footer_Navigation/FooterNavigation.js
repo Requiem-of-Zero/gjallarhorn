@@ -19,7 +19,7 @@ export default function FooterNavigation() {
   return (
     <BottomNavigation
       id="bottomNav"
-      className="sticky bottom-0 w-screen"
+      className="sticky bottom-0 w-screen z-20"
       value={value}
       onChange={handleChange}
     >
@@ -33,6 +33,7 @@ export default function FooterNavigation() {
         label="Profile"
         value="profile"
         icon={<PersonIcon />}
+        onClick={() => router.push("/login")}
       />
       <BottomNavigationAction label="My Cart" value="cart" icon={<Bag />} />
       <BottomNavigationAction
