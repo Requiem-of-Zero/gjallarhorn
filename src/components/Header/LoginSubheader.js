@@ -4,10 +4,16 @@ const LoginSubheader = () => {
   return (
     <div>
       <ul className="flex justify-end text-[#A1A7AD] gap-2 text-sm h-9">
-        <li className="pr-2">help</li>
-        <Link href="/login">sign in</Link>
+        <Link href="/help" className="pr-2 hover:text-white">
+          help
+        </Link>
+        <Link href="/login" className="hover:text-white">
+          sign in
+        </Link>
         <li>/</li>
-        <Link href='/register'>register</Link>
+        <Link href="/register" className="hover:text-white">
+          register
+        </Link>
       </ul>
     </div>
   );

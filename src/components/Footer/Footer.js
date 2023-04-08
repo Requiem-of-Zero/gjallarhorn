@@ -7,11 +7,11 @@ const Footer = () => {
     <footer className="bg-grey">
       <ul className="text-light-grey px-4 pt-4 lgl:justify-center lgl:flex lgl:items-start lgl:gap-[300px] max-w-contentContainer m0a">
         <div className="pb-2 flex flex-col">
-          <Link href='/information'>Information</Link>
-          <Link href='/about'>About Us</Link>
-          <Link href='/help'>Help</Link>
-          <Link href='/terms-and-conditions'>Terms of Use</Link>
-          <Link href='/privacy'>Privacy Policy</Link>
+          <li>Information</li>
+          <Link href='/about' className="hover:underline hover:text-white">About Us</Link>
+          <Link href='/help' className="hover:underline hover:text-white">Help</Link>
+          <Link href='/terms-and-conditions' className="hover:underline hover:text-white">Terms of Use</Link>
+          <Link href='/privacy' className="hover:underline hover:text-white">Privacy Policy</Link>
         </div>
 
         <div>

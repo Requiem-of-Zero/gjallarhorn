@@ -6,7 +6,7 @@ const Bag = () => {
   const products = useSelector((state) => state.products);
 
   return (
-    <div className="relative">
+    <div className="relative hover:opacity-[0.5]">
       <LocalMallIcon className="cursor-pointer" />
       <span
         className={`cursor-pointer absolute text-xs -top-1 left-4 w-5 h-5 rounded-full flex justify-center items-center ${

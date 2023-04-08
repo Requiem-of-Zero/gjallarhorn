@@ -23,8 +23,13 @@ const Header = () => {
             id="subheader"
             className="flex justify-end text-[#A1A7AD] gap-2 text-sm h-9"
           >
-            <Link href='/help' className="pr-2 cursor-pointer hover:text-white">help</Link>
-            <p onClick={handleSignOut} className="cursor-pointer">
+            <Link href="/help" className="pr-2 cursor-pointer hover:text-white">
+              help
+            </Link>
+            <p
+              onClick={handleSignOut}
+              className="cursor-pointer hover:text-white"
+            >
               logout
             </p>
           </div>
@@ -41,12 +46,12 @@ const Header = () => {
             <div className="relative">
               <input
                 type="text"
-                className="px-2 w-[400px] h-[40px] bg-[#1F2122]"
+                className="px-2 w-[400px] h-[40px] bg-[#1F2122] text-white"
                 placeholder="Search..."
               />
               <SearchIcon className="absolute right-[5px] top-[8px]" />
             </div>
-            <Link href='/cart'>
+            <Link href="/cart">
               <Bag />
             </Link>
           </div>
