@@ -1,14 +1,15 @@
-import React from "react";
-import Image from "next/image";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
-import ClearIcon from "@mui/icons-material/Clear";
-import { useDispatch } from "react-redux";
 import {
-  removeFromCart,
   decrementQuantity,
   incrementQuantity,
+  removeFromCart,
 } from "@/redux/reducers/cartSlice";
+import AddIcon from "@mui/icons-material/Add";
+import ClearIcon from "@mui/icons-material/Clear";
+import RemoveIcon from "@mui/icons-material/Remove";
+import Image from "next/image";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { toast, ToastContainer } from "react-toastify";
 
 const CartItem = ({ id, name, description, type, imgUrl, price, quantity }) => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const CartItem = ({ id, name, description, type, imgUrl, price, quantity }) => {
   return (
     <li className="flex gap-[15px]">
       <div className="flex gap-[10px]">
-        <Image src={imgUrl} width={200} height={300} alt='product'/>
+        <Image src={imgUrl} width={200} height={300} alt="product" />
         <div>
           <p className="font-medium text-base text-light-grey">
             {name.toUpperCase()}
