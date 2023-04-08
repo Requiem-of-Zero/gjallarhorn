@@ -10,6 +10,7 @@ import Image from "next/image";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CartItem = ({ id, name, description, type, imgUrl, price, quantity }) => {
   const dispatch = useDispatch();

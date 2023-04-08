@@ -53,7 +53,5 @@ export default async function handler(req, res){
     },
   });
 
-  await stripe.payment_intent.created
-
   res.status(200).json({ id: session.id });
 };
