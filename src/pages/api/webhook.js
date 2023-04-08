@@ -1,4 +1,4 @@
-import { buffer } from "micro";
+const { buffer } = require('micro');
 const admin = require('firebase-admin')
 const serviceAccount = require("../../../permissions.json");
 
