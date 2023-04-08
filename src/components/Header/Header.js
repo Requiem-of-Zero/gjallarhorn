@@ -19,6 +19,7 @@ const Header = () => {
   };
   return (
     <div className="pb-2 sticky top-0 z-10 bg-grey h-12 flex justify-end flex-col items-center lgl:pb-0 lgl:h-[120px] lgl:items-start">
+      {/* Header Login Bar */}
       <div className="max-w-contentContainer m0a">
         {user ? (
           <div
@@ -33,6 +34,8 @@ const Header = () => {
         ) : (
           <LoginSubheader />
         )}
+        {/* End Header Login Bar */}
+        {/* Search Bar and Title */}
         <div className="navigation-title flex justify-between lgl:w-[1000px] xl:w-[1280px]">
           <Link href="/" className="text-3xl text-blue">
             GHALLAJORN
@@ -51,6 +54,8 @@ const Header = () => {
             </Link>
           </div>
         </div>
+        {/* End Search Bar and Title */}
+        {/* Header Navigation */}
         <div id="topNav">
           <ul className="flex text-white gap-[20px] tracking-widest">
             <Link
@@ -79,6 +84,7 @@ const Header = () => {
             </Link>
           </ul>
         </div>
+        {/* End Header Navigation */}
       </div>
     </div>
   );
