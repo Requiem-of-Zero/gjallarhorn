@@ -5,7 +5,7 @@ import { TextField } from "@mui/material";
 import Link from "next/link";
 
 export default function Login() {
-  const { googleSignIn, user, signIn, logout } = UserAuth();
+  const { googleSignIn, user, signIn, logout, sendPasswordReset } = UserAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -86,6 +86,7 @@ export default function Login() {
               }}
               focused
             />
+            <p className='text-light-grey underline'>Forgot password</p>
             <button className="border py-2 text-light-grey font-bold">
               SIGN IN
             </button>

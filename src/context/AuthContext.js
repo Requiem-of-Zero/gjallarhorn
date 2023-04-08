@@ -7,6 +7,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { createContext, useContext, useEffect, useState, useMemo } from "react";
 import { useRouter } from "next/router";
@@ -52,6 +53,10 @@ export const AuthContextProvider = ({ children }) => {
       });
   };
 
+  const sendPasswordReset = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  }
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       console.log(user);
@@ -64,7 +69,7 @@ export const AuthContextProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ googleSignIn, logout, user, createUser, signIn }}
+      value={{ googleSignIn, logout, user, createUser, signIn, sendPasswordReset }}
     >
       {children}
     </AuthContext.Provider>
