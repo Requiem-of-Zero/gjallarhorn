@@ -1,13 +1,10 @@
 import { UserAuth } from "@/context/AuthContext";
-import LocalMallIcon from "@mui/icons-material/LocalMall";
 import SearchIcon from "@mui/icons-material/Search";
 import Link from "next/link";
-import { useSelector } from "react-redux";
 import LoginSubheader from "./LoginSubheader";
 import Bag from "../Bag/Bag";
 
 const Header = () => {
-  const products = useSelector((state) => state.products);
   const { user, logout } = UserAuth();
 
   const handleSignOut = async () => {
