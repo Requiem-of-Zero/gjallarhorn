@@ -10,7 +10,7 @@ import {
   incrementQuantity,
 } from "@/redux/reducers/cartSlice";
 
-const CartItem = ({ id, name, description, type, imgUrl, price, quantity, toast }) => {
+const CartItem = ({ id, name, description, type, imgUrl, price, quantity }) => {
   const dispatch = useDispatch();
 
   return (
@@ -45,6 +45,18 @@ const CartItem = ({ id, name, description, type, imgUrl, price, quantity, toast 
           }}
         />
       </div>
+      <ToastContainer
+        position="top-left"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </li>
   );
 };
