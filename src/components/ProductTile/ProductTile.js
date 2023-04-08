@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { toast, ToastContainer } from "react-toastify";
 import Image from "next/image";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const ProductTile = ({
   id,
@@ -21,7 +22,21 @@ const ProductTile = ({
       return "Sold out!";
     }
   };
+
+  const handleQuantityInBag = (products, currProductId) => {
+    let count = 0;
+
+    for(const product of products){
+      if(product.id === currProductId) count += product.quantity
+    }
+
+    return count;
+  }
+
   const dispatch = useDispatch();
+  const products = useSelector((state) => state.products)
+  const quantityInBag = handleQuantityInBag(products, id)
+  console.log(products)
   return (
     <motion.div
       layout
@@ -59,9 +74,9 @@ const ProductTile = ({
           price: price,
           quantity: 1
         })) && toast.success(`${name} is added to bag.`)}
-        className="text-white border w-[100%] py-2 tracking-wider mt-1"
+        className="text-white border text-xs w-[100%] py-2 tracking-wider mt-1 hover:text-light-grey focus:text-light-grey"
       >
-        ADD TO BAG
+        {`ADD TO BAG ${quantityInBag > 0 ? `(${quantityInBag} INSIDE)` : ''}`}
       </button>
       <ToastContainer 
         position="top-left"

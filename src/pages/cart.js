@@ -33,7 +33,9 @@ export default function Cart() {
                 Total: ${calculateCartTotal(products)}{" "}
                 {`(${products.length} items)`}
               </p>
-              <button className="border w-[100%] px-2 py-2">CHECKOUT</button>
+              <button className="border w-[100%] px-2 py-2 hover:text-light-grey focus:text-light-grey">
+                CHECKOUT
+              </button>
             </div>
           </div>
           {/* End Mobile Checkout Block */}
@@ -45,10 +47,12 @@ export default function Cart() {
       {/* Desktop Checkout Block */}
       <div
         id="desktop_checkout"
-        className="sticky top-[105px] text-white h-20 w-[300px] pt-10"
+        className="sticky top-[105px] text-white h-20 w-[200px] pt-10"
       >
         Total: ${calculateCartTotal(products)} {`(${products.length} items)`}
-        <button className="border w-[100%] px-2 py-2">CHECKOUT</button>
+        <button className="border w-[100%] px-2 py-2 hover:text-light-grey focus:text-light-grey">
+          CHECKOUT
+        </button>
       </div>
       {/* End Desktop Checkout Block */}
     </div>
