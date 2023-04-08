@@ -17,7 +17,7 @@ const CartItem = ({ id, name, description, type, imgUrl, price, quantity }) => {
   return (
     <li className="flex gap-[15px]">
       <div className="flex gap-[10px]">
-        <Image src={imgUrl} width={300} height={300} />
+        <Image src={imgUrl} width={200} height={300} />
         <div>
           <p className="font-medium text-base text-light-grey">
             {name.toUpperCase()}
@@ -27,15 +27,20 @@ const CartItem = ({ id, name, description, type, imgUrl, price, quantity }) => {
       </div>
       <div className="flex items-end gap-[5px] text-sm pl-5">
         <RemoveIcon
+          className="cursor-pointer"
           size="large"
           onClick={() => dispatch(decrementQuantity(id))}
         />
-        <p>{quantity}</p>
-        <AddIcon onClick={() => dispatch(incrementQuantity(id))} />
+        <p className="cursor-default">{quantity}</p>
+        <AddIcon
+          className="cursor-pointer"
+          onClick={() => dispatch(incrementQuantity(id))}
+        />
       </div>
       <div className="flex gap-[30px]">
         <p>${price * quantity}</p>
         <ClearIcon
+          className="cursor-pointer"
           onClick={() => {
             dispatch(removeFromCart(id)) && toast.error(`${name} is removed.`);
           }}

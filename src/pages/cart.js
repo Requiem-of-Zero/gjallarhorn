@@ -13,19 +13,20 @@ export default function Cart() {
 
     return sum.toFixed(2)
   }
-  console.log(products);
+
   return (
-    <div className="w-screen flex justify-center">
+    <div className="w-screen flex justify-center h-[100vh]">
       <div className="py-5 text-white font-bold max-w-contentContainer">
-        <h2 className="pb-1 text-4xl">YOUR BAG</h2>
+        <h2 className="pb-1 text-4xl cursor-default">YOUR BAG</h2>
         <ul className="flex flex-col gap-[20px]">
           {products.map((product, i) => (
             <CartItem key={`cart_item-${i}`}{...product} />
           ))}
         </ul>
       </div>
-      <div className="text-white">
-        Total: {calculateCartTotal(products)}
+      <div className="sticky top-[105px] text-white h-20 w-[300px] pt-10">
+        Total: ${calculateCartTotal(products)} {`(${products.length} items)`}
+        <button className="border w-[100%] px-2 py-2">CHECKOUT</button>
       </div>
     </div>
   );
