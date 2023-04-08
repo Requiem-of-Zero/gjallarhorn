@@ -8,13 +8,27 @@ import {
   signInWithEmailAndPassword,
   signOut,
 } from "firebase/auth";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, useMemo } from "react";
+import { useRouter } from "next/router";
+
 const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
-  const googleSignIn = () => {
+  const router = useRouter();
+  const createUser = (email, password) => {
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
 
+  const signIn = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const logout = () => {
+    return signOut(auth);
+  };
+
+  const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
     signInWithRedirect(auth, provider)
       .then((result) => {
@@ -38,25 +52,20 @@ export const AuthContextProvider = ({ children }) => {
       });
   };
 
-  const createUser = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password)
-  }
-
-  
-
-  const logout = () => {
-    signOut(auth)
-  }
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser)
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      console.log(user);
+      setUser(user);
     });
     return () => {
       unsubscribe();
-    }
+    };
   }, []);
+
   return (
-    <AuthContext.Provider value={{ googleSignIn, logout, user, createUser }}>
+    <AuthContext.Provider
+      value={{ googleSignIn, logout, user, createUser, signIn }}
+    >
       {children}
     </AuthContext.Provider>
   );

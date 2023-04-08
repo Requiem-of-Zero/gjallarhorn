@@ -18,7 +18,7 @@ export default function Login() {
     if(user !== null){
       router.push('/')
     }
-  }, [])
+  }, [user])
 
   return (
     <div className="w-screen flex items-center justify-center h-[565px]">
