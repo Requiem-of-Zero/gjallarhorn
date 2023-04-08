@@ -4,7 +4,7 @@ import { UserAuth } from "@/context/AuthContext";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import { useSelector } from "react-redux";
-
+import { toast, ToastContainer } from "react-toastify";
 export default function Cart() {
   const stripePromise = loadStripe(process.env.stripe_public_key);
   const products = useSelector((state) => state.products);
@@ -64,7 +64,7 @@ export default function Cart() {
           </div>
           {/* End Mobile Checkout Block */}
           {products.map((product, i) => (
-            <CartItem key={`cart_item-${i}`} {...product} />
+            <CartItem key={`cart_item-${i}`} {...product} toast={toast} />
           ))}
         </ul>
       </div>
@@ -81,6 +81,18 @@ export default function Cart() {
           CHECKOUT
         </button>
       </div>
+      <ToastContainer
+        position="top-left"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       {/* End Desktop Checkout Block */}
     </div>
   ) : (

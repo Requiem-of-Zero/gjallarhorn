@@ -9,9 +9,9 @@ import {
   decrementQuantity,
   incrementQuantity,
 } from "@/redux/reducers/cartSlice";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
-const CartItem = ({ id, name, description, type, imgUrl, price, quantity }) => {
+const CartItem = ({ id, name, description, type, imgUrl, price, quantity, toast }) => {
   const dispatch = useDispatch();
 
   return (
@@ -46,18 +46,6 @@ const CartItem = ({ id, name, description, type, imgUrl, price, quantity }) => {
           }}
         />
       </div>
-      <ToastContainer
-        position="top-left"
-        autoClose={1000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
     </li>
   );
 };
