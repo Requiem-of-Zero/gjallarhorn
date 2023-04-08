@@ -48,10 +48,10 @@ export default function Login() {
           >
             SIGN IN WITH GOOGLE
           </button>
-          <div class="text-weak dark:text-weak-dark flex items-center py-4">
-            <span class="bg-light-grey h-[2px] flex-1"></span>{" "}
-            <span class="mx-3">or</span>{" "}
-            <span class="bg-light-grey h-[2px] flex-1"></span>
+          <div className="text-weak dark:text-weak-dark flex items-center py-4">
+            <span className="bg-light-grey h-[2px] flex-1"></span>{" "}
+            <span className="mx-3">or</span>{" "}
+            <span className="bg-light-grey h-[2px] flex-1"></span>
           </div>
           <form onSubmit={handleSubmit} className="flex flex-col gap-[20px]">
             <TextField
