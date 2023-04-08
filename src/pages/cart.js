@@ -48,6 +48,7 @@ export default function Cart() {
             <h2 className="text-center pb-1 text-4xl cursor-default">
               YOUR BAG
             </h2>
+            {/*  */}
             <div>
               <p className="text-center">
                 Total: ${calculateCartTotal(products)}{" "}
