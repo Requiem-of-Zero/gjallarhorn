@@ -16,13 +16,9 @@ const nextConfig = {
   env: {
     stripe_public_key: process.env.STRIPE_PUBLIC_KEY,
   },
-  typescript: {
-    // !! WARN !!
-    // Dangerously allow production builds to successfully complete even if
-    // your project has type errors.
-    // !! WARN !!
-    ignoreBuildErrors: true,
-  },
+  eslint: {
+    ignoreDuringBuilds: false,
+  }
 };
 
 module.exports = nextConfig;
