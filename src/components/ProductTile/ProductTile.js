@@ -36,7 +36,6 @@ const ProductTile = ({
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products)
   const quantityInBag = handleQuantityInBag(products, id)
-  console.log(products)
   return (
     <motion.div
       layout

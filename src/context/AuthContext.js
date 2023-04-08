@@ -9,14 +9,12 @@ import {
   signOut,
   sendPasswordResetEmail,
 } from "firebase/auth";
-import { createContext, useContext, useEffect, useState, useMemo } from "react";
-import { useRouter } from "next/router";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
-  const router = useRouter();
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
