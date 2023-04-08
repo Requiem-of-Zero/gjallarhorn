@@ -9,7 +9,6 @@ import {
   decrementQuantity,
   incrementQuantity,
 } from "@/redux/reducers/cartSlice";
-import { toast } from "react-toastify";
 
 const CartItem = ({ id, name, description, type, imgUrl, price, quantity, toast }) => {
   const dispatch = useDispatch();
