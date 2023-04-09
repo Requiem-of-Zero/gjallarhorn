@@ -2,7 +2,7 @@ import * as admin from "firebase-admin";
 import { buffer } from "micro";
 import Stripe from "stripe";
 const serviceAccount = require("../../../permissions.json");
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
 export const config = {
   api: {
@@ -68,9 +68,8 @@ export default async function webhookHandler(req, res) {
     case "checkout.session.completed":
       const session = event.data.object;
       return fulfillOrder(session)
-        .then(() => res.status(200)).then(()=> {
-
-        })
+        .then(() => res.status(200))
+        .then(() => {})
         .catch((err) => res.status(400).send("Webhook Error"));
     case "charge.succeeded":
       break;
