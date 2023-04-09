@@ -1,20 +1,19 @@
 import EmptyResults from "@/components/404/EmptyResults";
 import CartItem from "@/components/CartItem/CartItem";
 import Footer from "@/components/Footer/Footer";
+import FooterNavigation from "@/components/Footer_Navigation/FooterNavigation";
 import Header from "@/components/Header/Header";
 import { UserAuth } from "@/context/AuthContext";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
-import { useSelector } from "react-redux";
-import FooterNavigation from "@/components/Footer_Navigation/FooterNavigation";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function Cart() {
   const stripePromise = loadStripe(process.env.stripe_publishable_key);
   const products = useSelector((state) => state.products);
   const { user } = UserAuth();
   const [sidebar, setSidebar] = useState(false);
-
 
   const calculateCartTotal = (products) => {
     let sum = 0;
@@ -41,56 +40,60 @@ export default function Cart() {
     if (result.error) alert(result.error.message);
   };
   return products.length ? (
-    <div className="w-screen flex justify-center h-[100vh]">
+    <div>
       <Header />
-      <div className="py-5 text-white font-bold max-w-contentContainer">
-        {/* Desktop Cart Page Header */}
-        <h2 id="desktop_checkout" className="pb-1 text-4xl cursor-default">
-          YOUR BAG
-        </h2>
-        {/* End Desktop Cart Header */}
-        <ul className="flex flex-col gap-[20px]">
-          {/* Mobile Checkout Block */}
-          <div id="mobile_checkout" className="sticky top-[48px]">
-            <h2 className="text-center pb-1 text-4xl cursor-default">
+      <div className="w-screen">
+        <div className="flex justify-center">
+          <div className="py-5 text-white font-bold">
+            <h2 id="desktop_checkout" className="pb-1 text-4xl cursor-default">
               YOUR BAG
             </h2>
-            {/*  */}
-            <div>
-              <p className="text-center">
-                Total: ${calculateCartTotal(products)}{" "}
-                {`(${products.length} items)`}
-              </p>
-              <button
-                onClick={() => createCheckoutSession()}
-                className="border w-[100%] px-2 py-2 hover:text-light-grey focus:text-light-grey"
-              >
-                CHECKOUT
-              </button>
-            </div>
+            {/* Desktop Cart Page Header */}
+            {/* End Desktop Cart Header */}
+            <ul className="flex flex-col gap-[20px]">
+              {/* Mobile Checkout Block */}
+              <div id="mobile_checkout" className="sticky top-[48px]">
+                <h2 className="text-center pb-1 text-4xl cursor-default">
+                  YOUR BAG
+                </h2>
+                {/*  */}
+                <div>
+                  <p className="text-center">
+                    Total: ${calculateCartTotal(products)}{" "}
+                    {`(${products.length} items)`}
+                  </p>
+                  <button
+                    onClick={() => createCheckoutSession()}
+                    className="border w-[100%] px-2 py-2 hover:text-light-grey focus:text-light-grey"
+                  >
+                    CHECKOUT
+                  </button>
+                </div>
+              </div>
+              {/* End Mobile Checkout Block */}
+              {products.map((product, i) => (
+                <CartItem key={`cart_item-${i}`} {...product} />
+              ))}
+            </ul>
           </div>
-          {/* End Mobile Checkout Block */}
-          {products.map((product, i) => (
-            <CartItem key={`cart_item-${i}`} {...product} />
-          ))}
-        </ul>
-      </div>
-      {/* Desktop Checkout Block */}
-      <div
-        id="desktop_checkout"
-        className="sticky top-[105px] text-white h-20 w-[200px] pt-10"
-      >
-        Total: ${calculateCartTotal(products)} {`(${products.length} items)`}
-        <button
-          onClick={createCheckoutSession}
-          className="border w-[100%] px-2 py-2 hover:text-light-grey focus:text-light-grey"
+        </div>
+        {/* Desktop Checkout Block */}
+        <div
+          id="desktop_checkout"
+          className="fixed right-[30px] top-[105px] text-white h-20 pt-10"
         >
-          CHECKOUT
-        </button>
+          Total: ${calculateCartTotal(products)} {`(${products.length} items)`}
+          <button
+            onClick={createCheckoutSession}
+            className="border w-[100%] px-2 py-2 hover:text-light-grey focus:text-light-grey"
+          >
+            CHECKOUT
+          </button>
+        </div>
+        <Footer />
+        <FooterNavigation sidebar={sidebar} setSidebar={setSidebar} />
       </div>
       {/* End Desktop Checkout Block */}
-      <Footer />
-      <FooterNavigation sidebar={sidebar} setSidebar={setSidebar}/>
     </div>
   ) : (
     <div>
@@ -99,7 +102,7 @@ export default function Cart() {
         <EmptyResults />
       </div>
       <Footer />
-      <FooterNavigation sidebar={sidebar} setSidebar={setSidebar}/>
+      <FooterNavigation sidebar={sidebar} setSidebar={setSidebar} />
     </div>
   );
 }
