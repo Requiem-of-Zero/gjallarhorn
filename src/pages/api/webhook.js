@@ -29,8 +29,7 @@ const fulfillOrder = async (session) => {
     .set({
       amount: session.amount_total / 100,
       amount_shipping: session.total_details.amount_shipping / 100,
-      quantity: JSON.parse(session.metadata.quantity),
-      items_id: JSON.parse(session.metadata.items_id),
+      items_id_quantity: JSON.parse(session.metadata.items_id_quantity),
       timestamp: admin.firestore.FieldValue.serverTimestamp(),
     })
     .then(() => {
