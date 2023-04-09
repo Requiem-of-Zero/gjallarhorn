@@ -8,14 +8,16 @@ export default function Success() {
   useEffect(() => {
     dispatch(resetCart(products))
   }, [])
-  
+
   return (
     <body className="h-[100vh] w-screen flex items-center">
       <main className="max-w-contentContainer text-white text-3xl">
-        <h1 className="text-center pb-4">Success, your order has been placed!</h1>
+        <h1 className="text-center pb-4">
+          Success, your order has been placed!
+        </h1>
         <p className="text-center">
-          Thank you for shopping with us. We'll send a confirmation once your
-          item(s) has shipped.
+          Thank you for shopping with us. We&aposll send a confirmation once
+          your item(s) has shipped.
         </p>
       </main>
     </body>
