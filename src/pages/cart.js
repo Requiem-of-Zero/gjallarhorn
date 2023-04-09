@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import Footer from "@/components/Footer/Footer";
 
 export default function Cart() {
-  const stripePromise = loadStripe(process.env.stripe_publishable_key);
+  const stripePromise = loadStripe(`${process.env.stripe_publishable_key}`);
   const products = useSelector((state) => state.products);
   const { user } = UserAuth();
 
