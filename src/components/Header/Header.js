@@ -1,12 +1,16 @@
 import { UserAuth } from "@/context/AuthContext";
 import SearchIcon from "@mui/icons-material/Search";
 import Link from "next/link";
-import LoginSubheader from "./LoginSubheader";
+import { useDispatch, useSelector } from "react-redux";
 import Bag from "../Bag/Bag";
+import LoginSubheader from "./LoginSubheader";
+import { resetCart } from "@/redux/reducers/cartSlice";
 
 const Header = () => {
   const { user, logout } = UserAuth();
-
+  const products = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+  
   const handleSignOut = async () => {
     try {
       await logout();
@@ -27,7 +31,10 @@ const Header = () => {
               help
             </Link>
             <p
-              onClick={handleSignOut}
+              onClick={() => {  
+                handleSignOut()
+                dispatch(resetCart(products))
+              }}
               className="cursor-pointer hover:text-white"
             >
               logout
