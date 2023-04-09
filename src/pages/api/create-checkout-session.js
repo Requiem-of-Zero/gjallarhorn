@@ -12,7 +12,6 @@ export default async function handler(req, res) {
         description: item.description,
         name: item.name,
         images: [item.imgUrl],
-        quantity: item.quantity,
       },
     },
   }));
