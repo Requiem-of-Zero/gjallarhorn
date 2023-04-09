@@ -58,7 +58,7 @@ export default async function webhookHandler(req, res) {
 
     res.status(200).send();
   }
-
+  const session = event.data.object
   // Handle the event
   switch (event.type) {
     case "payment_intent.succeeded":
@@ -66,7 +66,6 @@ export default async function webhookHandler(req, res) {
     case "payment_intent.created":
       break;
     case "checkout.session.completed":
-      const session = event.data.object;
       return await fulfillOrder(session)
         .then(() => res.status(200))
         .then(() => {})
