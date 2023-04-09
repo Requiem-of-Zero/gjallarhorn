@@ -45,7 +45,7 @@ export default function Cart() {
       <div className="w-screen">
         <div className="flex justify-center">
           <div className="py-5 text-white font-bold">
-            <h2 id="desktop_checkout" className="pb-1 text-4xl cursor-default">
+            <h2 id="desktop_checkout" className="pb-1 text-3xl cursor-default">
               YOUR BAG
             </h2>
             {/* Desktop Cart Page Header */}
