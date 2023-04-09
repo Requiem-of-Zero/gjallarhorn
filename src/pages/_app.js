@@ -1,6 +1,3 @@
-import Footer from "@/components/Footer/Footer";
-import FooterNavigation from "@/components/Footer_Navigation/FooterNavigation";
-import Header from "@/components/Header/Header";
 import { AuthContextProvider } from "@/context/AuthContext";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Anek_Gujarati } from "next/font/google";
@@ -34,10 +31,7 @@ export default function App({ Component, pageProps }) {
       <Provider store={store} className={anek.className}>
         <ThemeProvider theme={theme}>
           <PersistGate loading={null} persistor={persistor}>
-            <Header />
             <Component {...pageProps} />
-            <Footer />
-            <FooterNavigation />
           </PersistGate>
         </ThemeProvider>
       </Provider>

@@ -1,14 +1,20 @@
 import EmptyResults from "@/components/404/EmptyResults";
 import CartItem from "@/components/CartItem/CartItem";
+import Footer from "@/components/Footer/Footer";
+import Header from "@/components/Header/Header";
 import { UserAuth } from "@/context/AuthContext";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import FooterNavigation from "@/components/Footer_Navigation/FooterNavigation";
+import { useState } from "react";
 
 export default function Cart() {
   const stripePromise = loadStripe(process.env.stripe_publishable_key);
   const products = useSelector((state) => state.products);
   const { user } = UserAuth();
+  const [sidebar, setSidebar] = useState(false);
+
 
   const calculateCartTotal = (products) => {
     let sum = 0;
@@ -36,6 +42,7 @@ export default function Cart() {
   };
   return products.length ? (
     <div className="w-screen flex justify-center h-[100vh]">
+      <Header />
       <div className="py-5 text-white font-bold max-w-contentContainer">
         {/* Desktop Cart Page Header */}
         <h2 id="desktop_checkout" className="pb-1 text-4xl cursor-default">
@@ -82,10 +89,17 @@ export default function Cart() {
         </button>
       </div>
       {/* End Desktop Checkout Block */}
+      <Footer />
+      <FooterNavigation sidebar={sidebar} setSidebar={setSidebar}/>
     </div>
   ) : (
-    <div className="w-screen flex justify-center">
-      <EmptyResults />
+    <div>
+      <Header />
+      <div className="w-screen flex justify-center">
+        <EmptyResults />
+      </div>
+      <Footer />
+      <FooterNavigation sidebar={sidebar} setSidebar={setSidebar}/>
     </div>
   );
 }

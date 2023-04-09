@@ -1,11 +1,17 @@
 import Banner from "@/components/Banner/Banner";
 import bannerData from "@/components/Banner/data";
+import Footer from "@/components/Footer/Footer";
+import FooterNavigation from "@/components/Footer_Navigation/FooterNavigation";
+import Header from "@/components/Header/Header";
 import Products from "@/components/Products/Products";
 import productsData from "@/components/ProductTile/data";
+import Sidebar from "@/components/Sidebar/Sidebar";
 import Head from "next/head";
+import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
+  const [sidebar, setSidebar] = useState(false);
   return (
     <>
       <Head>
@@ -15,8 +21,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <Header />
         <Banner {...bannerData} />
         <Products {...productsData} />
+        <Footer />
+        {sidebar && <Sidebar sidebar={sidebar} />}
+        <FooterNavigation setSidebar={setSidebar} sidebar={sidebar} />
       </main>
     </>
   );

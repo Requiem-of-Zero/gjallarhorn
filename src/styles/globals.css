@@ -2,10 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --animation-timing: 200 ease-in-out;
+}
+
 body {
   background-color: rgb(27, 26, 26);
 }
+/* Sidebar styling */
+#sidebar {
+  position: fixed;
+  top: 0;
+  background-color: white;
+  color: white;
+  height: 100vh;
+  padding: 0.5rem 1rem;
+  z-index: 999;
+}
 
+/* End Sidebar styling */
 ::-webkit-scrollbar{
   height: 5px;
   width: 5px;
