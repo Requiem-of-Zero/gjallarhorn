@@ -46,10 +46,10 @@ const Footer = ({ toggleTheme }) => {
         </div>
 
         <div id="light-dark-mode" className="flex gap-[8px] items-center">
-          Mode <FaMoon onClick={toggleTheme}/>
+          Mode <FaMoon onClick={toggleTheme} className="cursor-pointer" />
         </div>
       </ul>
-      <p className="px-4 text-light-grey text-sm flex gap-[5px] py-1 pb-2 justify-center items-center">
+      <p className="px-4 text-light-grey text-sm flex gap-[5px] py-1 pb-2 justify-center items-center select-none">
         <AiOutlineCopyrightCircle /> GHALLAJORN INC 2023 All Rights Reserved
       </p>
     </footer>
