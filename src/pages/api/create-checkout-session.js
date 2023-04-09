@@ -48,7 +48,7 @@ export default async function handler(req, res){
     success_url: `${process.env.HOST}/success`,
     cancel_url: `${process.env.HOST}/cart`,
     metadata: {
-      email,
+      email: email,
       images: JSON.stringify(items.map((item) => item.imgUrl)),
     },
   });
