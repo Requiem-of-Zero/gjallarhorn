@@ -8,7 +8,8 @@ export default function Success() {
   useEffect(() => {
     dispatch(resetCart(products))
   }, [])
-
+ 
+  
   return (
     <body className="h-[100vh] w-screen flex items-center">
       <main className="max-w-contentContainer text-white text-3xl">
