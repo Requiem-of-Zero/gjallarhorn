@@ -1,17 +1,18 @@
 const stripe = require("stripe")(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
-export default async function handler(req, res){
+export default async function handler(req, res) {
   const { items, email } = req.body;
-  
+
   const transformedProducts = items.map((item) => ({
     quantity: item.quantity,
     price_data: {
       currency: "usd",
-      unit_amount: +item.price * 100,
+      unit_amount: (+item.price * 100).toFixed(),
       product_data: {
         description: item.description,
         name: item.name,
         images: [item.imgUrl],
+        quantity: item.quantity,
       },
     },
   }));
@@ -55,4 +56,4 @@ export default async function handler(req, res){
   });
 
   res.status(200).json({ id: session.id });
-};
+}
