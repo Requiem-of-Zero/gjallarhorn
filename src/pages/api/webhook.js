@@ -16,7 +16,7 @@ const app = !admin.apps.length
     })
   : admin.app();
 
-const webhookSecret = process.env.STRIPE_SIGNING_SECRET;
+const webhookSecret = process.env.NEXT_PUBLIC_STRIPE_SIGNING_SECRET;
 
 const fulfillOrder = async (session) => {
   console.log("fulfilling order", session);
