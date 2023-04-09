@@ -8,11 +8,15 @@ const Products = ({ products }) => {
   const [currProducts, setCurrProducts] = useState(products);
   const [filtered, setFiltered] = useState(products);
   const [active, setActive] = useState(0);
+
+  // type
   // 0 is all
   // 1 is sold out
   // 2 is lobsters
   // 3 is crabs
   // 4 is shrimps
+  // 5 is fish
+  // 6 is eggs
   return (
     <div>
       <ProductNavigation
