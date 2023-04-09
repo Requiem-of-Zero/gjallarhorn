@@ -4,16 +4,20 @@
 
 :root {
   --animation-timing: 200 ease-in-out;
+  --trimming-primary: rgba(39, 40, 42, 1);
+  --trimming-scondary: white;
 }
 
 body {
   background-color: rgb(27, 26, 26);
+
 }
 /* Sidebar styling */
 #sidebar {
+  transition: opacity var(--animation-timing);
   position: fixed;
   top: 0;
-  background-color: white;
+  background-color: var(--trimming-primary);
   color: white;
   height: 100vh;
   padding: 0.5rem 1rem;

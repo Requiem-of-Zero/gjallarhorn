@@ -19,7 +19,7 @@ export default function FooterNavigation({setSidebar, sidebar}) {
   return (
     <BottomNavigation
       id="bottomNav"
-      className="sticky bottom-0 w-screen z-20"
+      className="sticky bottom-0 w-screen z-10"
       value={value}
       onChange={handleChange}
     >
