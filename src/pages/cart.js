@@ -1,19 +1,16 @@
 import EmptyResults from "@/components/404/EmptyResults";
 import CartItem from "@/components/CartItem/CartItem";
-import Footer from "@/components/Footer/Footer";
-import FooterNavigation from "@/components/Footer_Navigation/FooterNavigation";
 import Header from "@/components/Header/Header";
 import { UserAuth } from "@/context/AuthContext";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
-import { useState } from "react";
 import { useSelector } from "react-redux";
+import Footer from "@/components/Footer/Footer";
 
 export default function Cart() {
   const stripePromise = loadStripe(process.env.stripe_publishable_key);
   const products = useSelector((state) => state.products);
   const { user } = UserAuth();
-  const [sidebar, setSidebar] = useState(false);
 
   const calculateCartTotal = (products) => {
     let sum = 0;
@@ -50,7 +47,7 @@ export default function Cart() {
             </h2>
             {/* Desktop Cart Page Header */}
             {/* End Desktop Cart Header */}
-            <ul className="flex flex-col gap-[20px]">
+            <ul className="flex flex-col gap-[20px] h-[100vh]">
               {/* Mobile Checkout Block */}
               <div id="mobile_checkout" className="sticky top-[48px]">
                 <h2 className="text-center pb-1 text-4xl cursor-default">
@@ -90,10 +87,9 @@ export default function Cart() {
             CHECKOUT
           </button>
         </div>
-        <Footer />
-        <FooterNavigation sidebar={sidebar} setSidebar={setSidebar} />
       </div>
       {/* End Desktop Checkout Block */}
+      <Footer/>
     </div>
   ) : (
     <div>
@@ -102,7 +98,6 @@ export default function Cart() {
         <EmptyResults />
       </div>
       <Footer />
-      <FooterNavigation sidebar={sidebar} setSidebar={setSidebar} />
     </div>
   );
 }
