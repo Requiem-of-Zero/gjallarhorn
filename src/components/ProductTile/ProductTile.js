@@ -45,7 +45,7 @@ const ProductTile = ({ id, name, description, imgUrl, price, quantity }) => {
         className="product-img"
       />
       <h3 className="text-light-grey text-xs pt-2">{description}</h3>
-      <h2 className="text-white">{name}</h2>
+      <h2 className='product_name'>{name}</h2>
       <div className="flex justify-between">
         <p className="text-light-grey">{"$" + price}</p>
         <p
@@ -70,7 +70,7 @@ const ProductTile = ({ id, name, description, imgUrl, price, quantity }) => {
             })
           ) && toast.success(`${name} is added to bag.`)
         }
-        className="text-white border text-xs w-[100%] py-2 tracking-wider mt-1 hover:text-light-grey focus:text-light-grey"
+        className="product_add text-white border text-xs w-[100%] py-2 tracking-wider mt-1 hover:text-light-grey focus:text-light-grey"
       >
         {`ADD TO BAG ${quantityInBag > 0 ? `(${quantityInBag} INSIDE)` : ""}`}
       </button>

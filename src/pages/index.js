@@ -8,8 +8,9 @@ import Head from "next/head";
 import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function Home() {
+export default function Home({ toggleTheme }) {
   const [sidebar, setSidebar] = useState(false);
+
   return (
     <>
       <Head>
@@ -22,7 +23,7 @@ export default function Home() {
         <Header />
         <Banner {...bannerData} />
         <Products {...productsData} />
-        <Footer />
+        <Footer toggleTheme={toggleTheme}/>
       </main>
     </>
   );

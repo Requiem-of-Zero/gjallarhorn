@@ -8,18 +8,18 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Bag from "../Bag/Bag";
 import { useRouter } from "next/router";
 
-export default function FooterNavigation({setSidebar, sidebar}) {
+export default function FooterNavigation({ setSidebar, sidebar, theme }) {
   const [value, setValue] = React.useState("Home");
   const router = useRouter();
-  console.log(sidebar)
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   return (
     <BottomNavigation
-      id="bottomNav"
-      className="sticky bottom-0 w-screen z-10"
+      id='bottomNav'
+      className="bottom_nav sticky bottom-0 w-screen z-10"
       value={value}
       onChange={handleChange}
     >
@@ -46,7 +46,11 @@ export default function FooterNavigation({setSidebar, sidebar}) {
         value="search"
         icon={<SearchIcon />}
       />
-      <BottomNavigationAction label="Menu" value="menu" icon={<MenuIcon onClick={() => setSidebar(!sidebar)}/>} />
+      <BottomNavigationAction
+        label="Menu"
+        value="menu"
+        icon={<MenuIcon onClick={() => setSidebar(!sidebar)} />}
+      />
     </BottomNavigation>
   );
 }

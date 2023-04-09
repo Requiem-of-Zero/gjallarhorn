@@ -19,7 +19,7 @@ const Header = () => {
     }
   };
   return (
-    <div className="pb-2 sticky top-0 z-10 bg-grey h-12 flex justify-end flex-col items-center lgl:pb-0 lgl:h-[120px] lgl:items-start">
+    <div className="navigation_bar pb-2 sticky top-0 z-10 bg-grey h-12 flex justify-end flex-col items-center lgl:pb-0 lgl:h-[120px] lgl:items-start">
       {/* Header Login Bar */}
       <div className="max-w-contentContainer m0a">
         {user ? (

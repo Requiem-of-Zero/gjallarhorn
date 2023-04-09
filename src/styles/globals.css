@@ -4,14 +4,75 @@
 
 :root {
   --animation-timing: 200 ease-in-out;
-  --trimming-primary: rgba(39, 40, 42, 1);
-  --trimming-scondary: white;
+  --trimming-dark-primary: #181818;
+  --trimming-dark-secondary: #212121;
+  --trimming-light-primary: #fafafa;
+  --trimming-light-secondary: #9394a5;
+  --text-light-primary: #181818;
+  --text-dark-primary: #d2d3db;
 }
 
-body {
-  background-color: rgb(27, 26, 26);
-
+/* Light and Dark mode styling */
+#light {
+  background-color: var(--trimming-light-primary);
 }
+
+#light .navigation_bar,
+.product_navigation {
+  background-color: var(--trimming-light-secondary);
+}
+
+#light #topNav > ul {
+  color: var(--text-light-primary);
+}
+
+#light .bottom_nav {
+  background-color: var(--trimming-light-secondary) !important;
+}
+
+#light .bottom_nav span {
+  color: var(--text-light-primary);
+}
+
+#light .bottom_nav svg {
+  color: var(--text-light-primary);
+}
+
+#light .product_navigation > ul {
+  color: var(--text-light-primary);
+}
+
+#light .footer_info {
+  background-color: var(--trimming-light-secondary);
+}
+
+#light .footer_info ul {
+  color: var(--text-light-primary);
+}
+
+#light p {
+  color: var(--text-light-primary);
+}
+
+#light .product_add {
+  color: var(--trimming-dark-primary);
+}
+
+#dark {
+  background-color: var(--trimming-dark-primary);
+}
+
+#dark .product_name,
+.product_add {
+  color: var(--trimming-light-primary);
+}
+
+#dark .product_navigation {
+  background-color: var(--trimming-dark-secondary);
+}
+
+/* End Light and Dark mode */
+
 /* Sidebar styling */
 #sidebar {
   transition: opacity var(--animation-timing);
@@ -25,7 +86,7 @@ body {
 }
 
 /* End Sidebar styling */
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   height: 5px;
   width: 5px;
 }
@@ -35,20 +96,20 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #87CEEB;
+  background: #87ceeb;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #87CEEB;
+  background: #87ceeb;
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1024px) {
   #topNav {
     display: none;
   }
 
   #main-search {
-    display: none
+    display: none;
   }
 
   .navigation-title {
@@ -61,7 +122,7 @@ body {
   background-color: rgb(27, 26, 26);
 }
 
-@media screen and (max-width: 903px){
+@media screen and (max-width: 903px) {
   #desktop_checkout {
     display: none;
   }
@@ -72,11 +133,10 @@ body {
 }
 
 .MuiBottomNavigation-root {
-  background-color: rgba(39, 40, 42, 1) !important;
+  background-color: rgba(39, 40, 42, 1);
   height: 70px !important;
   display: sticky;
 }
-
 
 @media screen and (min-width: 1024px) {
   #bottomNav {
@@ -89,15 +149,15 @@ body {
 }
 
 .MuiSvgIcon-root {
-  color: #A1A7AD;
+  color: #a1a7ad;
 }
 
 .MuiFormLabel-root {
-  color: #A1A7AD!important;
+  color: #a1a7ad !important;
 }
 
 #register-field:focus {
-  outline: #A1A7AD!important;
+  outline: #a1a7ad !important;
 }
 
 .product-grid {

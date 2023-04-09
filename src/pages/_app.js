@@ -13,8 +13,11 @@ import { persistor, store } from "../redux/store";
 import "../styles/globals.css";
 import "../styles/nprogress.css";
 const anek = Anek_Gujarati({ subsets: ["latin"], weight: "500" });
+import { createContext } from "react";
 
-const theme = createTheme({
+export const ThemeContext = createContext(null);
+
+const inputTheme = createTheme({
   palette: {
     primary: {
       main: "#ffffff",
@@ -31,23 +34,36 @@ Router.events.on("routeChangeError", () => NProgress.done());
 
 export default function App({ Component, pageProps }) {
   const [sidebar, setSidebar] = useState(false);
+  const [theme, setTheme] = useState("dark");
+
+  const toggleTheme = () => {
+    setTheme((currTheme) => (currTheme === "light" ? "dark" : "light"));
+  };
 
   return (
     <AuthContextProvider>
       <Provider store={store} className={anek.className}>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={inputTheme}>
           <PersistGate loading={null} persistor={persistor}>
-            {sidebar && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: sidebar ? 0.8 : 0 }}
-                className="bg-[black] w-screen h-screen fixed z-20 opacity-0"
-                onClick={() => setSidebar(false)}
-              ></motion.div>
-            )}
-            <Component {...pageProps} />
-            {sidebar && <Sidebar sidebar={sidebar} />}
-            <FooterNavigation sidebar={sidebar} setSidebar={setSidebar} />
+            <ThemeContext.Provider value={{ theme, toggleTheme }}>
+              {sidebar && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: sidebar ? 0.8 : 0 }}
+                  className="bg-[black] w-screen h-screen fixed z-20 opacity-0"
+                  onClick={() => setSidebar(false)}
+                ></motion.div>
+              )}
+              <div id={theme}>
+                <Component {...pageProps} toggleTheme={toggleTheme}/>
+                {sidebar && <Sidebar sidebar={sidebar} />}
+                <FooterNavigation
+                  theme={theme}
+                  sidebar={sidebar}
+                  setSidebar={setSidebar}
+                />
+              </div>
+            </ThemeContext.Provider>
           </PersistGate>
         </ThemeProvider>
       </Provider>
