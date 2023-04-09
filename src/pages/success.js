@@ -11,7 +11,7 @@ export default function Success() {
  
   
   return (
-    <body className="h-[100vh] w-screen flex items-center">
+    <div className="h-[100vh] w-screen flex items-center">
       <main className="max-w-contentContainer text-white text-3xl">
         <h1 className="text-center pb-4">
           Success, your order has been placed!
@@ -21,6 +21,6 @@ export default function Success() {
           your item(s) has shipped.
         </p>
       </main>
-    </body>
+    </div>
   );
 }

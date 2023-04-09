@@ -50,7 +50,6 @@ export default async function handler(req, res){
     metadata: {
       email: email,
       quantity: JSON.stringify(items.map((item) => item.quantity)),
-      images: JSON.stringify(items.map((item) => item.imgUrl)),
       items_id: JSON.stringify(items.map((item) => item.id)),
     },
   });

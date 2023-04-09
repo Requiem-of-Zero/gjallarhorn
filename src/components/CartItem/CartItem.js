@@ -39,7 +39,7 @@ const CartItem = ({ id, name, description, type, imgUrl, price, quantity }) => {
         />
       </div>
       <div className="flex gap-[30px]">
-        <p>${price * quantity}</p>
+        <p>${(price * quantity).toFixed(2)}</p>
         <ClearIcon
           className="cursor-pointer"
           onClick={() => {
