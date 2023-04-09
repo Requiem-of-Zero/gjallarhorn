@@ -67,7 +67,7 @@ export default async function webhookHandler(req, res) {
       break;
     case "checkout.session.completed":
       const session = event.data.object;
-      return fulfillOrder(session)
+      return await fulfillOrder(session)
         .then(() => res.status(200))
         .then(() => {})
         .catch((err) => res.status(400).send("Webhook Error"));
