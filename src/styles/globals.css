@@ -115,3 +115,8 @@ body {
 .m0a {
   margin: 0 auto;
 }
+
+#sold-out {
+  background-color: red;
+  color: white;
+}

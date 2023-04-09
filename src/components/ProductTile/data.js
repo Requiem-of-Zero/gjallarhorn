@@ -57,17 +57,17 @@ const productsData = {
       imgUrl:
         "https://cdn.mos.cms.futurecdn.net/4UdEs7tTKwLJbxZPUYR3hF-1200-80.jpg",
       price: 0.99,
-      quantity: 4,
+      quantity: 20,
     },
     {
       id: 6,
       name: "Red Pearl Salmon Caviar",
       description: "Finest Eggs of the Sea",
-      type: 6,
+      type: 1,
       imgUrl:
         "https://fishandcaviar.com/wp-content/uploads/2018/07/pink-still-01.jpg",
       price: 10.99,
-      quantity: 4,
+      quantity: 0,
     },
     {
       id: 7,
@@ -147,19 +147,19 @@ const productsData = {
       imgUrl:
         "https://www.ilovecrabs.com/media/original/upload/image/shutterstock_727967926-min.jpg",
       price: 20.99,
-      quantity: 4,
+      quantity: 20,
     },
     {
       id: 15,
       name: "Maine Lobster",
       description: "The Lobster",
-      type: 2,
+      type: 1,
       imgUrl:
         "https://dixonsseafood.com/wp-content/uploads/2016/01/Live-Maine-Lobster.jpg",
       price: 50.99,
-      quantity: 4,
+      quantity: 0,
     },
   ],
 };
 
-export default productsData
+export default productsData;
