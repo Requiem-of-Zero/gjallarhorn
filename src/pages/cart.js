@@ -41,7 +41,7 @@ export default function Cart({ toggleTheme }) {
   };
   return products.length ? (
     <div className="min-h-[100vh] relative">
-      <Loading open={loading} setOpen={setLoading} />
+    <Loading open={loading} setOpen={setLoading} />
       <Header />
       <div className="w-screen min-h-screen">
         <div className="flex justify-center">

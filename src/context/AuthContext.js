@@ -9,12 +9,14 @@ import {
   signOut,
   sendPasswordResetEmail,
 } from "firebase/auth";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
 const AuthContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
+  let mounted = useRef(false);
+
   const createUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
@@ -53,20 +55,37 @@ export const AuthContextProvider = ({ children }) => {
 
   const sendPasswordReset = (email) => {
     return sendPasswordResetEmail(auth, email);
-  }
+  };
 
   useEffect(() => {
+    mounted.current = true;
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setUser(user);
+      if (user) {
+        if (mounted.current) {
+          setUser(user);
+        }
+      } else {
+        if (mounted.current) {
+          setUser(null);
+        }
+      }
     });
     return () => {
+      mounted.current = false;
       unsubscribe();
     };
-  }, []);
+  }, [user]);
 
   return (
     <AuthContext.Provider
-      value={{ googleSignIn, logout, user, createUser, signIn, sendPasswordReset }}
+      value={{
+        googleSignIn,
+        logout,
+        user,
+        createUser,
+        signIn,
+        sendPasswordReset,
+      }}
     >
       {children}
     </AuthContext.Provider>
