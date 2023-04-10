@@ -206,6 +206,10 @@ body {
     max-width: 100%;
     overflow-x: clip;
   }
+
+  .product_navigation {
+    overflow-x: scroll;
+  }
 }
 
 @media screen and (min-width: 1024px) {
