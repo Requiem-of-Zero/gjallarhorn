@@ -39,6 +39,7 @@ export const AuthContextProvider = ({ children }) => {
         // The signed-in user info.
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
+        setUser(user);
         // ...
       })
       .catch((error) => {
