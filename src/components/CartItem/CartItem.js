@@ -16,17 +16,16 @@ const CartItem = ({ id, name, description, type, imgUrl, price, quantity }) => {
   const dispatch = useDispatch();
 
   return (
-    <li className="flex gap-[15px]">
+    <li className="flex gap-[15px] justify-between w-[100%]">
       <div className="flex gap-[10px]">
-        <Image src={imgUrl} width={200} height={200} alt="product" />
-        <div>
-          <p className="font-medium text-base text-light-grey">
+        <Image src={imgUrl} alt="product" height={100} width={100} />
+        <div className="flex flex-col justify-center h-[100%]">
+          <p className="font-medium text-xs text-light-grey w-[50px] sml:w-[100px] sml:text-sm">
             {name.toUpperCase()}
           </p>
-          <p className="text-sm font-medium text-light-grey sm:invisible">{description}</p>
         </div>
       </div>
-      <div className="flex items-end gap-[5px] text-sm pl-5">
+      <div className="flex items-end gap-[5px] text-sm w-[100px]">
         <RemoveIcon
           className="cursor-pointer"
           size="large"
@@ -39,7 +38,7 @@ const CartItem = ({ id, name, description, type, imgUrl, price, quantity }) => {
         />
       </div>
       <div className="flex gap-[30px]">
-        <p>${(price * quantity).toFixed(2)}</p>
+        <p className="w-[50px]">${(price * quantity).toFixed(2)}</p>
         <ClearIcon
           className="cursor-pointer"
           onClick={() => {

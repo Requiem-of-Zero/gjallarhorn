@@ -37,7 +37,7 @@ export default function Cart() {
     if (result.error) alert(result.error.message);
   };
   return products.length ? (
-    <div className="min-h-[100vh]">
+    <div className="min-h-[100vh] overflow-x-hidden">
       <Header />
       <div className="w-screen">
         <div className="flex justify-center">
