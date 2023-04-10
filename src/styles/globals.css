@@ -78,7 +78,7 @@
   transition: opacity var(--animation-timing);
   position: fixed;
   top: 0;
-  background-color: var(--trimming-primary);
+  background-color: var(--trimming-dark-primary);
   color: white;
   height: 100vh;
   padding: 0.5rem 1rem;

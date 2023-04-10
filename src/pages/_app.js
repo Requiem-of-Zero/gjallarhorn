@@ -55,7 +55,7 @@ export default function App({ Component, pageProps }) {
                 ></motion.div>
               )}
               <div id={theme}>
-                <Component {...pageProps} toggleTheme={toggleTheme}/>
+                <Component {...pageProps} toggleTheme={toggleTheme} />
                 {sidebar && <Sidebar sidebar={sidebar} />}
                 <FooterNavigation
                   theme={theme}
