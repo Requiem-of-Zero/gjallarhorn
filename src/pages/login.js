@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-export default function Login() {
+export default function Login({ toggleTheme }) {
   const { googleSignIn, user, signIn, logout, sendPasswordReset } = UserAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -107,7 +107,7 @@ export default function Login() {
             </p>
           </div>
         </div>
-        <Footer />
+        <Footer toggleTheme={toggleTheme}/>
       </div>
     </div>
   );

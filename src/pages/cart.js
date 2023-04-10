@@ -9,7 +9,7 @@ import Footer from "@/components/Footer/Footer";
 import { useState } from "react";
 import Loading from "@/components/Loading/Loading";
 
-export default function Cart() {
+export default function Cart({ toggleTheme }) {
   const stripePromise = loadStripe(`${process.env.stripe_publishable_key}`);
   const products = useSelector((state) => state.products);
   const { user } = UserAuth();
@@ -97,7 +97,7 @@ export default function Cart() {
         </div>
       </div>
       {/* End Desktop Checkout Block */}
-      <Footer />
+      <Footer toggleTheme={toggleTheme} />
     </div>
   ) : (
     <div>
@@ -105,7 +105,7 @@ export default function Cart() {
       <div className="w-screen flex justify-center">
         <EmptyResults />
       </div>
-      <Footer />
+      <Footer toggleTheme={toggleTheme} />
     </div>
   );
 }
