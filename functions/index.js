@@ -12,7 +12,7 @@ exports.stripeWebhook = functions.https.onRequest(async (request, response) => {
   if (request.method === "POST") {
     const raw = request.rawBody;
     const signature = request.headers["stripe-signature"];
-    const whSecret = functions.config()(stripe.webhookSecret);
+    const whSecret = functions.config()(stripe.webhook_secret);
 
     try {
       if (!signature || !whSecret) return;
