@@ -34,6 +34,10 @@
   color: var(--text-light-primary);
 }
 
+#dark .bottom_nav {
+  background-color: var(--trimming-dark-secondary);
+}
+
 #light .bottom_nav svg {
   color: var(--text-light-primary);
 }
