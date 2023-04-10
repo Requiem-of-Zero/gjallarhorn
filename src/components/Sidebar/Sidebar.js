@@ -3,8 +3,8 @@ import Link from "next/link";
 
 const Sidebar = ({ sidebar }) => {
   return (
-    <motion.div animate={{ width: sidebar ? "20rem" : "0px" }} id="sidebar">
-      <ul className="py-40 flex flex-col justify-between items-end text-5xl h-[100%]">
+    <motion.div animate={{ width: sidebar ? "15rem" : "0px" }} id="sidebar">
+      <ul className="py-40 pr-5 flex flex-col justify-between items-end text-3xl h-[100%]">
         <Link href="/shop/crabs" className="hover:text-blue focus:text-blue transition-colors">
           CRABS
         </Link>
