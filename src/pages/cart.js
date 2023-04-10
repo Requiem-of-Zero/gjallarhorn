@@ -37,7 +37,7 @@ export default function Cart() {
     if (result.error) alert(result.error.message);
   };
   return products.length ? (
-    <div>
+    <div className="min-h-[100vh]">
       <Header />
       <div className="w-screen">
         <div className="flex justify-center">
@@ -47,7 +47,7 @@ export default function Cart() {
             </h2>
             {/* Desktop Cart Page Header */}
             {/* End Desktop Cart Header */}
-            <ul className="flex flex-col gap-[20px] h-[100vh]">
+            <ul className="flex flex-col gap-[20px]">
               {/* Mobile Checkout Block */}
               <div id="mobile_checkout" className="sticky top-[48px]">
                 <h2 className="text-center pb-1 text-4xl cursor-default">
@@ -68,7 +68,7 @@ export default function Cart() {
                 </div>
               </div>
               {/* End Mobile Checkout Block */}
-              {products.map((product, i) => (
+              {products && products.map((product, i) => (
                 <CartItem key={`cart_item-${i}`} {...product} />
               ))}
             </ul>
