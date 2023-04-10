@@ -60,7 +60,7 @@ export default function Cart() {
                     {`(${products.length} items)`}
                   </p>
                   <button
-                    onClick={() => createCheckoutSession()}
+                    onClick={createCheckoutSession}
                     className="border w-[100%] px-2 py-2 hover:text-light-grey focus:text-light-grey"
                   >
                     CHECKOUT
