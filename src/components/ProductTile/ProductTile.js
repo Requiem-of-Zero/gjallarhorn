@@ -71,7 +71,7 @@ const ProductTile = ({ id, name, description, imgUrl, price, quantity }) => {
             })
           ) && toast.success(`${name} is added to bag.`);
         }}
-        className="product_add text-white border text-xs w-[100%] py-2 tracking-wider mt-1 hover:text-light-grey focus:text-light-grey"
+        className={`product_add ${quantity ? 'text-white': 'disabled'} border text-xs w-[100%] py-2 tracking-wider mt-1 hover:text-light-grey focus:text-light-grey`}
       >
         {`ADD TO BAG ${quantityInBag > 0 ? `(${quantityInBag} INSIDE)` : ""}`}
       </button>

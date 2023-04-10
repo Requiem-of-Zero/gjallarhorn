@@ -11,7 +11,11 @@
   --text-light-primary: #181818;
   --text-dark-primary: #d2d3db;
 }
-
+/* disabled button styling */
+.disabled {
+  color: #6b6c6e!important;
+  border: 1px solid #6b6c6e;
+}
 /* Light and Dark mode styling */
 #light {
   background-color: var(--trimming-light-primary);

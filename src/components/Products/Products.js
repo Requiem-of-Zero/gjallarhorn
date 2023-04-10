@@ -25,7 +25,7 @@ const Products = ({ products }) => {
         active={active}
         setActive={setActive}
       />
-      <div className={`${filtered.length ? 'product-grid' : ''} gap-[5px] pt-2 pb-5 max-w-contentContainer`}>
+      <div className={`${filtered.length ? 'product-grid' : ''} gap-[5px] pt-2 pb-5 max-w-contentContainer min-h-[50vh]`}>
         {filtered.length ? (
           filtered.map((product, i) => (
             <ProductTile
