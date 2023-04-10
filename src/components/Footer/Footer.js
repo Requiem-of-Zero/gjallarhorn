@@ -50,7 +50,7 @@ const Footer = ({ toggleTheme }) => {
         </div>
       </ul>
       <p className="px-4 text-light-grey text-sm flex gap-[5px] py-1 pb-2 justify-center items-center select-none">
-        <AiOutlineCopyrightCircle /> GHALLAJORN INC 2023 All Rights Reserved
+        <AiOutlineCopyrightCircle /> GJALLAHORN INC 2023 All Rights Reserved
       </p>
     </footer>
   );

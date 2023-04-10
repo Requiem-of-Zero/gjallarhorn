@@ -47,7 +47,7 @@ const Header = () => {
         {/* Search Bar and Title */}
         <div className="navigation-title flex justify-between lgl:w-[1000px] xl:w-[1280px]">
           <Link href="/" className="text-3xl text-blue">
-            GHALLAJORN
+            GJALLAHORN
           </Link>
           <div id="main-search" className="flex gap-[10px] items-center">
             <div className="relative">
