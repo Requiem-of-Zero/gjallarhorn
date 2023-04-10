@@ -45,11 +45,11 @@ export default function Cart({ toggleTheme }) {
       <Header />
       <div className="w-screen min-h-screen">
         <div className="flex justify-center">
-          <div className="pb-5 text-white font-bold">
+            {/* Desktop Cart Page Header */}
+          <div className="py-6 text-white font-bold">
             <h2 id="desktop_checkout" className="pb-1 text-3xl cursor-default">
               YOUR BAG
             </h2>
-            {/* Desktop Cart Page Header */}
             {/* End Desktop Cart Header */}
             <ul className="flex flex-col gap-[20px]">
               {/* Mobile Checkout Block */}
