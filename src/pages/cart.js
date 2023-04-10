@@ -37,9 +37,9 @@ export default function Cart() {
     if (result.error) alert(result.error.message);
   };
   return products.length ? (
-    <div className="min-h-[100vh] overflow-x-hidden">
+    <div className="min-h-[100vh]">
       <Header />
-      <div className="w-screen">
+      <div className="w-screen min-h-screen">
         <div className="flex justify-center">
           <div className="py-5 text-white font-bold">
             <h2 id="desktop_checkout" className="pb-1 text-3xl cursor-default">
@@ -68,9 +68,10 @@ export default function Cart() {
                 </div>
               </div>
               {/* End Mobile Checkout Block */}
-              {products && products.map((product, i) => (
-                <CartItem key={`cart_item-${i}`} {...product} />
-              ))}
+              {products &&
+                products.map((product, i) => (
+                  <CartItem key={`cart_item-${i}`} {...product} />
+                ))}
             </ul>
           </div>
         </div>
@@ -89,7 +90,7 @@ export default function Cart() {
         </div>
       </div>
       {/* End Desktop Checkout Block */}
-      <Footer/>
+      <Footer />
     </div>
   ) : (
     <div>
