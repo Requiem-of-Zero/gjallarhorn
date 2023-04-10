@@ -18,8 +18,9 @@ const Header = () => {
       console.log(error);
     }
   };
+
   return (
-    <div className="navigation_bar pb-2 sticky top-0 z-10 bg-grey h-12 flex justify-end flex-col items-center lgl:pb-0 lgl:h-[120px] lgl:items-start">
+    <div id='nav_bar' className="navigation_bar pb-2 z-10 bg-grey h-12 flex justify-end flex-col items-center lgl:pb-0 lgl:h-[120px] lgl:items-start">
       {/* Header Login Bar */}
       <div className="max-w-contentContainer m0a">
         {user ? (
@@ -66,7 +67,7 @@ const Header = () => {
         {/* End Search Bar and Title */}
         {/* Header Navigation */}
         <div id="topNav">
-          <ul className="flex text-white gap-[20px] tracking-widest">
+          <nav className="flex text-white gap-[20px] tracking-widest">
             <Link
               href="/shop/lobsters"
               className="transition duration-150 border-b-4 border-[transparent] hover:border-b-4 hover:border-[white] pb-1"
@@ -91,7 +92,7 @@ const Header = () => {
             >
               FISH
             </Link>
-          </ul>
+          </nav>
         </div>
         {/* End Header Navigation */}
       </div>
