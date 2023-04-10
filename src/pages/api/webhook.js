@@ -59,7 +59,7 @@ export default async function webhookHandler(req, res) {
       case "payment_intent.created":
         break;
       case "checkout.session.completed":
-        return await fulfillOrder(session)
+        return fulfillOrder(session)
           .then(() => res.status(200))
           .catch((err) => res.status(400).send("Webhook Error"));
       case "charge.succeeded":
