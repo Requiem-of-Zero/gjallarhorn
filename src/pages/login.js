@@ -12,7 +12,6 @@ export default function Login({ toggleTheme }) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
-  const [sidebar, setSidebar] = useState(false);
 
   const handleGoogleSignIn = async () => {
     try {
@@ -70,7 +69,6 @@ export default function Login({ toggleTheme }) {
                   },
                 }}
                 onChange={(e) => {
-                  console.log(email);
                   setEmail(e.target.value);
                 }}
                 focused
@@ -86,7 +84,6 @@ export default function Login({ toggleTheme }) {
                   },
                 }}
                 onChange={(e) => {
-                  console.log(password);
                   setPassword(e.target.value);
                 }}
                 focused
