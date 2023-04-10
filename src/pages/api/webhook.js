@@ -51,9 +51,6 @@ export default async function webhookHandler(req, res) {
       return res.status(404).send("webhook error");
     }
 
-    console.log(event.type);
-
-    res.status(200).send();
     const session = event.data.object;
     // Handle the event
     switch (event.type) {
