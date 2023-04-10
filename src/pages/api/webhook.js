@@ -1,8 +1,7 @@
 import * as admin from "firebase-admin";
 import { buffer } from "micro";
-import Stripe from "stripe";
 const serviceAccount = require("../../../permissions.json");
-const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
+const stripe = require("stripe")(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
 export const config = {
   api: {
@@ -33,20 +32,19 @@ const fulfillOrder = async (session) => {
       timestamp: admin.firestore.FieldValue.serverTimestamp(),
     })
     .then(() => {
-      console.log("added to db");
+      console.log(`success order ${session.id} added to db`);
     });
 };
 
 export default async function webhookHandler(req, res) {
   console.log("Payment intent");
-  let event;
   if (req.method === "POST") {
     const buf = await buffer(req);
     const signature = req.headers["stripe-signature"];
+    let event;
     // Get the signature sent by Stripe
     try {
       if (!signature || !webhookSecret) return;
-
       event = stripe.webhooks.constructEvent(buf, signature, webhookSecret);
     } catch (err) {
       console.log(`⚠️  Webhook signature verification failed.`, err.message);
@@ -56,22 +54,21 @@ export default async function webhookHandler(req, res) {
     console.log(event.type);
 
     res.status(200).send();
-  }
-  const session = event.data.object
-  // Handle the event
-  switch (event.type) {
-    case "payment_intent.succeeded":
-      break;
-    case "payment_intent.created":
-      break;
-    case "checkout.session.completed":
-      return await fulfillOrder(session)
-        .then(() => res.status(200))
-        .then(() => {})
-        .catch((err) => res.status(400).send("Webhook Error"));
-    case "charge.succeeded":
-      break;
-    default:
-      console.log(`Unhandled event type ${event.type}`);
+    const session = event.data.object;
+    // Handle the event
+    switch (event.type) {
+      case "payment_intent.succeeded":
+        break;
+      case "payment_intent.created":
+        break;
+      case "checkout.session.completed":
+        return await fulfillOrder(session)
+          .then(() => res.status(200))
+          .catch((err) => res.status(400).send("Webhook Error"));
+      case "charge.succeeded":
+        break;
+      default:
+        console.log(`Unhandled event type ${event.type}`);
+    }
   }
 }
