@@ -6,8 +6,7 @@ import bannerData from "../components/Banner/data";
 import Products from "../components/Products/Products";
 import productsData from "../components/ProductTile/data";
 
-export default function Home({ theme, toggleTheme }) {
-  const [sidebar, setSidebar] = useState(false);
+export default function Home() {
 
   return (
     <>

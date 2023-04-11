@@ -2,7 +2,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import FooterNavigation from "../Footer_Navigation/FooterNavigation";
 import Sidebar from "../Sidebar/Sidebar";
-import motion from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function Layout({
   children,
