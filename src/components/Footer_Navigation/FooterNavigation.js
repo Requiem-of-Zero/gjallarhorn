@@ -7,9 +7,11 @@ import PersonIcon from "@mui/icons-material/Person";
 import MenuIcon from "@mui/icons-material/Menu";
 import Bag from "../Bag/Bag";
 import { useRouter } from "next/router";
+import { UserAuth } from "@/context/AuthContext";
 
 export default function FooterNavigation({ setSidebar, sidebar, theme }) {
   const [value, setValue] = React.useState("Home");
+  const { user } = UserAuth();
   const router = useRouter();
 
   const handleChange = (event, newValue) => {
@@ -18,7 +20,7 @@ export default function FooterNavigation({ setSidebar, sidebar, theme }) {
 
   return (
     <BottomNavigation
-      id='bottomNav'
+      id="bottomNav"
       className="bottom_nav sticky bottom-0 w-screen z-10"
       value={value}
       onChange={handleChange}
@@ -33,7 +35,13 @@ export default function FooterNavigation({ setSidebar, sidebar, theme }) {
         label="Profile"
         value="profile"
         icon={<PersonIcon />}
-        onClick={() => router.push("/login")}
+        onClick={() => {
+          if (user) {
+            router.push("/");
+          } else {
+            router.push("/login");
+          }
+        }}
       />
       <BottomNavigationAction
         label="My Cart"
