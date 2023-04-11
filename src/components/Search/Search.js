@@ -1,4 +1,6 @@
 import React from "react";
+import productsData from "../ProductTile/data";
+import SearchIcon from "@mui/icons-material/Search";
 
 const Search = () => {
   return (
@@ -10,7 +12,9 @@ const Search = () => {
           placeholder="Search..."
         />
         <SearchIcon className="absolute right-[5px] top-[8px]" />
-        
+        <div>
+          results
+        </div>
       </div>
     </div>
   );
