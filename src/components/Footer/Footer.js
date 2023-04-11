@@ -1,9 +1,10 @@
-import { AiOutlineCopyrightCircle } from "react-icons/ai";
-import { FaMoon } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
+import { AiOutlineCopyrightCircle } from "react-icons/ai";
+import { BsSunFill } from "react-icons/bs";
+import { FaMoon } from "react-icons/fa";
 
-const Footer = ({ toggleTheme }) => {
+const Footer = ({ theme, toggleTheme }) => {
   return (
     <footer className="bg-grey footer_info">
       <ul className="text-light-grey px-4 pt-4 lgl:justify-center lgl:flex lgl:items-start lgl:gap-[300px] max-w-contentContainer m0a">
@@ -46,7 +47,12 @@ const Footer = ({ toggleTheme }) => {
         </div>
 
         <div id="light-dark-mode" className="flex gap-[8px] items-center">
-          Mode <FaMoon onClick={toggleTheme} className="cursor-pointer" />
+          Mode{" "}
+          {theme === "light" ? (
+            <FaMoon onClick={toggleTheme} className="cursor-pointer" />
+          ) : (
+            <BsSunFill onClick={toggleTheme} className="pointer-cursor" />
+          )}
         </div>
       </ul>
       <p className="px-4 text-light-grey text-sm flex gap-[5px] py-1 pb-2 justify-center items-center select-none">

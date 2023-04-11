@@ -61,9 +61,6 @@ body {
   color: var(--text-light-primary);
 }
 
-#dark .bottom_nav {
-  background-color: var(--trimming-dark-secondary);
-}
 
 #light .bottom_nav svg {
   color: var(--text-light-primary);
@@ -92,6 +89,15 @@ body {
 
 #dark {
   background-color: var(--trimming-dark-primary);
+}
+
+#dark footer li {
+  color: var(--text-dark-secondary)
+}
+
+
+#dark .bottom_nav {
+  background-color: var(--trimming-dark-secondary);
 }
 
 #dark .product_name,
