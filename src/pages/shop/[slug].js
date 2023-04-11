@@ -26,7 +26,7 @@ export default function ProductDetail() {
   return (
     <main className="min-h-screen w-screen">
       <Header />
-      <div className="min-h-screen py-10 px-10 flex gap-[40px]">
+      <div className="min-h-screen py-10 px-10 flex flex-wrap gap-[20px] justify-center lgl:justify-start">
         {products.map((product) => <ProductTile width={300} height={300} {...product}/>)}
       </div>
       <Footer />
