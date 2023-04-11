@@ -4,10 +4,20 @@ import Image from "next/image";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
-import Loading from '../Loading/Loading';
-const ProductTile = ({ id, name, description, imgUrl, price, quantity, height, width }) => {
+import { UserAuth } from "../../context/AuthContext";
+import Loading from "../Loading/Loading";
+const ProductTile = ({
+  id,
+  name,
+  description,
+  imgUrl,
+  price,
+  quantity,
+  height,
+  width,
+}) => {
   const [loading, setLoading] = useState(false);
-
+  const { user } = UserAuth();
   const handleQuantity = (quantity) => {
     if (quantity >= 20) {
       return "In stock";
@@ -38,7 +48,7 @@ const ProductTile = ({ id, name, description, imgUrl, price, quantity, height, w
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className='max-w-[200px]'
+      className="max-w-[200px]"
     >
       <Loading open={loading} setOpen={setLoading} />
       <Image
@@ -63,9 +73,9 @@ const ProductTile = ({ id, name, description, imgUrl, price, quantity, height, w
         </p>
       </div>
       <button
-        disabled={!quantity}
+        disabled={!quantity || !user}
         onClick={() => {
-          setLoading(true)
+          setLoading(true);
           dispatch(
             addToCart({
               id: id,
@@ -75,13 +85,15 @@ const ProductTile = ({ id, name, description, imgUrl, price, quantity, height, w
               price: price,
               quantity: 1,
             })
-          ) && toast.success(`${name} is added to bag.`) && setTimeout(() => setLoading(false), 500);
+          ) &&
+            toast.success(`${name} is added to bag.`) &&
+            setTimeout(() => setLoading(false), 500);
         }}
         className={`product_add ${
           quantity ? "text-white" : "disabled"
         } border text-xs w-[100%] py-2 tracking-wider mt-1 hover:text-light-grey focus:text-light-grey`}
       >
-        {`ADD TO BAG ${quantityInBag > 0 ? `(${quantityInBag} INSIDE)` : ""}`}
+        {`${user ? 'ADD TO BAG' : 'Sign In to Start Shopping'} ${quantityInBag > 0 ? `(${quantityInBag} INSIDE)` : ""}`}
       </button>
       <ToastContainer
         position="top-left"
