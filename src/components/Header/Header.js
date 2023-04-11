@@ -23,7 +23,7 @@ const Header = () => {
       {/* Header Login Bar */}
       <div className="max-w-contentContainer m0a">
         {user ? (
-          <div
+          <ul
             id="subheader"
             className="flex justify-end text-[#A1A7AD] gap-2 text-sm h-9"
           >
@@ -39,7 +39,7 @@ const Header = () => {
             >
               logout
             </p>
-          </div>
+          </ul>
         ) : (
           <LoginSubheader />
         )}

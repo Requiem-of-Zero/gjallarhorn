@@ -8,7 +8,7 @@
   --trimming-dark-secondary: #212121;
   --trimming-light-primary: #fafafa;
   --trimming-light-secondary: #9394a5;
-  --text-light-primary: #181818;
+  --text-light-primary: black;
   --text-dark-primary: #d2d3db;
 }
 
@@ -32,12 +32,24 @@ body {
   background-color: var(--trimming-light-primary);
 }
 
+#light input {
+  background-color: white;
+}
+
+#light #subheader > a, li{
+  color: black;
+}
+
+#light svg {
+  color: black;
+}
+
 #light .navigation_bar,
 .product_navigation {
   background-color: var(--trimming-light-secondary);
 }
 
-#light #topNav > ul {
+#light #topNav > nav {
   color: var(--text-light-primary);
 }
 
@@ -59,6 +71,7 @@ body {
 
 #light .product_navigation > ul {
   color: var(--text-light-primary);
+  font-weight: 500;
 }
 
 #light .footer_info {

@@ -3,7 +3,7 @@ import Link from "next/link";
 const LoginSubheader = () => {
   return (
     <div>
-      <ul className="flex justify-end text-[#A1A7AD] gap-2 text-sm h-9">
+      <ul id='subheader' className="flex justify-end text-[#A1A7AD] gap-2 text-sm h-9">
         <Link href="/help" className="pr-2 hover:text-white">
           help
         </Link>
