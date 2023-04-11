@@ -31,6 +31,8 @@ const Products = ({ products }) => {
             <ProductTile
               key={`product-${i}`}
               {...product}
+              height={1080}
+              width={1920}
             />
           ))
         ) : (

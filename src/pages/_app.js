@@ -1,6 +1,6 @@
-import FooterNavigation from "@/components/Footer_Navigation/FooterNavigation";
-import Sidebar from "@/components/Sidebar/Sidebar";
-import { AuthContextProvider } from "@/context/AuthContext";
+import FooterNavigation from "../components/Footer_Navigation/FooterNavigation";
+import Sidebar from "../components/Sidebar/Sidebar";
+import { AuthContextProvider } from "../context/AuthContext";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { motion } from "framer-motion";
 import { Anek_Gujarati } from "next/font/google";

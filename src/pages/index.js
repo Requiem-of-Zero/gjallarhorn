@@ -1,9 +1,9 @@
-import Banner from "@/components/Banner/Banner";
-import bannerData from "@/components/Banner/data";
-import Footer from "@/components/Footer/Footer";
-import Header from "@/components/Header/Header";
-import Products from "@/components/Products/Products";
-import productsData from "@/components/ProductTile/data";
+import Banner from "../components/Banner/Banner";
+import bannerData from "../components/Banner/data";
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
+import Products from "../components/Products/Products";
+import productsData from "../components/ProductTile/data";
 import Head from "next/head";
 import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";

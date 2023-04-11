@@ -1,4 +1,4 @@
-import { UserAuth } from "@/context/AuthContext";
+import { UserAuth } from "../../context/AuthContext";
 import SearchIcon from "@mui/icons-material/Search";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";

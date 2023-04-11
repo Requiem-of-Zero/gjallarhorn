@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import Loading from '../Loading/Loading';
-const ProductTile = ({ id, name, description, imgUrl, price, quantity }) => {
+const ProductTile = ({ id, name, description, imgUrl, price, quantity, height, width }) => {
   const [loading, setLoading] = useState(false);
 
   const handleQuantity = (quantity) => {
@@ -38,13 +38,14 @@ const ProductTile = ({ id, name, description, imgUrl, price, quantity }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
+      className='max-w-[200px]'
     >
       <Loading open={loading} setOpen={setLoading} />
       <Image
         loading="lazy"
         src={imgUrl}
-        width={1920}
-        height={1080}
+        width={width}
+        height={height}
         alt={description}
         className="product-img"
       />
@@ -74,7 +75,7 @@ const ProductTile = ({ id, name, description, imgUrl, price, quantity }) => {
               price: price,
               quantity: 1,
             })
-          ) && toast.success(`${name} is added to bag.`) && setTimeout(() => setLoading(false), 1000);
+          ) && toast.success(`${name} is added to bag.`) && setTimeout(() => setLoading(false), 500);
         }}
         className={`product_add ${
           quantity ? "text-white" : "disabled"

@@ -7,7 +7,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import MenuIcon from "@mui/icons-material/Menu";
 import Bag from "../Bag/Bag";
 import { useRouter } from "next/router";
-import { UserAuth } from "@/context/AuthContext";
+import { UserAuth } from "../../context/AuthContext";
 
 export default function FooterNavigation({ setSidebar, sidebar, theme }) {
   const [value, setValue] = React.useState("Home");
