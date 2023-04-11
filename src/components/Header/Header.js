@@ -1,16 +1,15 @@
-import { UserAuth } from "../../context/AuthContext";
-import SearchIcon from "@mui/icons-material/Search";
+import { resetCart } from "@/redux/reducers/cartSlice";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
+import { UserAuth } from "../../context/AuthContext";
 import Bag from "../Bag/Bag";
+import Search from "../Search/Search";
 import LoginSubheader from "./LoginSubheader";
-import { resetCart } from "@/redux/reducers/cartSlice";
-
 const Header = () => {
   const { user, logout } = UserAuth();
   const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
-  
+
   const handleSignOut = async () => {
     try {
       await logout();
@@ -32,9 +31,9 @@ const Header = () => {
               help
             </Link>
             <p
-              onClick={() => {  
-                handleSignOut()
-                dispatch(resetCart(products))
+              onClick={() => {
+                handleSignOut();
+                dispatch(resetCart(products));
               }}
               className="cursor-pointer hover:text-white"
             >
@@ -50,19 +49,7 @@ const Header = () => {
           <Link href="/" className="text-3xl text-blue">
             GJALLAHORN
           </Link>
-          <div id="main-search" className="flex gap-[10px] items-center">
-            <div className="relative">
-              <input
-                type="text"
-                className="px-2 w-[400px] h-[40px] bg-[#1F2122] text-white"
-                placeholder="Search..."
-              />
-              <SearchIcon className="absolute right-[5px] top-[8px]" />
-            </div>
-            <Link href="/cart">
-              <Bag />
-            </Link>
-          </div>
+          <Search />
         </div>
         {/* End Search Bar and Title */}
         {/* Header Navigation */}
