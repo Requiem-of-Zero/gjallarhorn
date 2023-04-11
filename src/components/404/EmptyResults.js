@@ -9,7 +9,7 @@ const EmptyResults = () => {
         height={1080}
         alt='gojo'
       />
-      <p className="absolute text-6xl top-[300px] left-[100px]">
+      <p className="absolute text-6xl top-[200px] left-[100px]">
         There are no items in your cart... 
       </p>
     </div>

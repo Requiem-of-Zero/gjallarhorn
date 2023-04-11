@@ -18,6 +18,10 @@ body {
   /* overflow-x: hidden; */
 }
 
+#main-search {
+  z-index: 999;
+}
+
 /* Disabled button styling */
 .disabled {
   color: #6b6c6e !important;
