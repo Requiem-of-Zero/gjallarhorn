@@ -6,6 +6,7 @@ const stripe = require("stripe")(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 export const config = {
   api: {
     bodyParser: false,
+    externalResolver: true
   },
 };
 
@@ -50,21 +51,11 @@ export default async function webhookHandler(req, res) {
       return res.status(404).send("webhook error");
     }
 
-    const session = event.data.object;
     // Handle the event
-    switch (event.type) {
-      case "payment_intent.succeeded":
-        break;
-      case "payment_intent.created":
-        break;
-      case "checkout.session.completed":
-        return fulfillOrder(session)
-          .then(() => res.status(200))
-          .catch((err) => res.status(400).send("Webhook Error"));
-      case "charge.succeeded":
-        break;
-      default:
-        console.log(`Unhandled event type ${event.type}`);
+    if(event.type === 'checkout.session.completed'){
+      const session = event.data.object;
+      
+      return fulfillOrder(session).then(() => res.status(200)).catch((err) => res.status(400).send(`Webhook Error: ${err.message}`)) 
     }
   }
 }
