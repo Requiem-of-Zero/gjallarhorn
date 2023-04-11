@@ -52,7 +52,7 @@ const Footer = ({ theme, toggleTheme }) => {
           {theme === "light" ? (
             <FaMoon onClick={toggleTheme} className="cursor-pointer" />
           ) : (
-            <BsSunFill onClick={toggleTheme} className="pointer-pointer" />
+            <BsSunFill onClick={toggleTheme} className="cursor-pointer" />
           )}
         </div>
       </ul>
