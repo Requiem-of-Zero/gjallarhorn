@@ -44,7 +44,6 @@ export default async function webhookHandler(req, res) {
     let event;
     // Get the signature sent by Stripe
     try {
-      if (!signature || !webhookSecret) return;
       event = stripe.webhooks.constructEvent(buf, signature, webhookSecret);
     } catch (err) {
       console.log(`⚠️  Webhook signature verification failed.`, err.message);
