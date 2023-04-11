@@ -56,7 +56,7 @@ export default function App({ Component, pageProps }) {
               )}
               <div id={theme}>
                 <Component {...pageProps} theme={theme} toggleTheme={toggleTheme} />
-                {sidebar && <Sidebar sidebar={sidebar} />}
+                {sidebar && <Sidebar sidebar={sidebar} setSidebar={setSidebar}/>}
                 <FooterNavigation
                   theme={theme}
                   sidebar={sidebar}

@@ -107,7 +107,9 @@ body {
 #dark {
   background-color: var(--trimming-dark-primary);
 }
-
+#dark #sidebar > ul li {
+  color: white;
+}
 #dark #subheader > li {
   color:#A1A7AD;
 }
