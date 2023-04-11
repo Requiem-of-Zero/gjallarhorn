@@ -1,13 +1,13 @@
-import EmptyResults from "@/components/404/EmptyResults";
-import CartItem from "@/components/CartItem/CartItem";
-import Header from "@/components/Header/Header";
-import { UserAuth } from "@/context/AuthContext";
+import EmptyResults from "../components/404/EmptyResults";
+import CartItem from "../components/CartItem/CartItem";
+import Header from "../components/Header/Header";
+import { UserAuth } from "../context/AuthContext";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import Footer from "@/components/Footer/Footer";
+import Footer from "../components/Footer/Footer";
 import { useState } from "react";
-import Loading from "@/components/Loading/Loading";
+import Loading from "../components/Loading/Loading";
 
 export default function Cart({ toggleTheme }) {
   const stripePromise = loadStripe(`${process.env.stripe_publishable_key}`);
@@ -102,7 +102,7 @@ export default function Cart({ toggleTheme }) {
   ) : (
     <div>
       <Header />
-      <div className="w-screen flex justify-center">
+      <div className="w-screen flex justify-center min-h-screen item-center">
         <EmptyResults />
       </div>
       <Footer toggleTheme={toggleTheme} />

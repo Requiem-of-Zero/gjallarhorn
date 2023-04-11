@@ -49,11 +49,11 @@ export default function FooterNavigation({ setSidebar, sidebar, theme }) {
         icon={<Bag />}
         onClick={() => router.push("/cart")}
       />
-      <BottomNavigationAction
+      {/* <BottomNavigationAction
         label="Search"
         value="search"
         icon={<SearchIcon />}
-      />
+      /> */}
       <BottomNavigationAction
         label="Menu"
         value="menu"
