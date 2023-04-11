@@ -87,6 +87,15 @@ body {
   color: var(--trimming-dark-primary);
 }
 
+#light #google_btn {
+  color: black!important;
+  border: 1px solid black;
+}
+
+#light #login_header {
+  color: #A1A7AD;
+}
+
 #dark {
   background-color: var(--trimming-dark-primary);
 }

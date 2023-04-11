@@ -45,8 +45,9 @@ export default function Login({ toggleTheme }) {
       <div>
         <div className="w-max-contentContainer h-[80vh] flex justify-center">
           <div className="flex flex-col text-white">
-            <h2 className="text-4xl pb-4 pt-10">SIGN IN</h2>
+            <h2 id='login_header' className="text-4xl pb-4 pt-10">SIGN IN</h2>
             <button
+              id='google_btn'
               className="border-white border py-2"
               onClick={handleGoogleSignIn}
             >
