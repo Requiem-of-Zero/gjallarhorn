@@ -34,6 +34,7 @@ body {
 
 #light input {
   background-color: white;
+  color: black;
 }
 
 #light #subheader > a, li{
@@ -83,6 +84,8 @@ body {
   color: var(--text-light-primary);
 }
 
+
+
 #light .product_add {
   color: var(--trimming-dark-primary);
 }
@@ -96,8 +99,17 @@ body {
   color: #A1A7AD;
 }
 
+#light .search_item {
+  background-color: white;
+  color: black;
+}
+
 #dark {
   background-color: var(--trimming-dark-primary);
+}
+
+#dark #subheader > li {
+  color:#A1A7AD;
 }
 
 #dark footer li {
