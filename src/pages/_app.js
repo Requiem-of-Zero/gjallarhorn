@@ -14,7 +14,7 @@ import "../styles/globals.css";
 import "../styles/nprogress.css";
 const anek = Anek_Gujarati({ subsets: ["latin"], weight: "500" });
 import { createContext } from "react";
-
+import Layout from "../components/Layout/Layout";
 export const ThemeContext = createContext(null);
 
 const inputTheme = createTheme({
@@ -46,22 +46,19 @@ export default function App({ Component, pageProps }) {
         <ThemeProvider theme={inputTheme}>
           <PersistGate loading={null} persistor={persistor}>
             <ThemeContext.Provider value={{ theme, toggleTheme }}>
-              {sidebar && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: sidebar ? 0.8 : 0 }}
-                  className="bg-[black] w-screen h-screen fixed z-20 opacity-0"
-                  onClick={() => setSidebar(false)}
-                ></motion.div>
-              )}
               <div id={theme}>
-                <Component {...pageProps} theme={theme} toggleTheme={toggleTheme} />
-                {sidebar && <Sidebar sidebar={sidebar} setSidebar={setSidebar}/>}
-                <FooterNavigation
+                <Layout
                   theme={theme}
                   sidebar={sidebar}
                   setSidebar={setSidebar}
-                />
+                  toggleTheme={toggleTheme}
+                >
+                  <Component
+                    {...pageProps}
+                    theme={theme}
+                    toggleTheme={toggleTheme}
+                  />
+                </Layout>
               </div>
             </ThemeContext.Provider>
           </PersistGate>

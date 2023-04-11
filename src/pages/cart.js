@@ -1,11 +1,9 @@
 import EmptyResults from "../components/404/EmptyResults";
 import CartItem from "../components/CartItem/CartItem";
-import Header from "../components/Header/Header";
 import { UserAuth } from "../context/AuthContext";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import Footer from "../components/Footer/Footer";
 import { useState } from "react";
 import Loading from "../components/Loading/Loading";
 
@@ -42,7 +40,6 @@ export default function Cart({ toggleTheme }) {
   return products.length ? (
     <div className="min-h-[100vh] relative">
     <Loading open={loading} setOpen={setLoading} />
-      <Header />
       <div className="w-screen min-h-screen">
         <div className="flex justify-center">
             {/* Desktop Cart Page Header */}
@@ -97,15 +94,12 @@ export default function Cart({ toggleTheme }) {
         </div>
       </div>
       {/* End Desktop Checkout Block */}
-      <Footer toggleTheme={toggleTheme} />
     </div>
   ) : (
     <div>
-      <Header />
       <div className="w-screen flex justify-center min-h-screen item-center">
         <EmptyResults />
       </div>
-      <Footer toggleTheme={toggleTheme} />
     </div>
   );
 }

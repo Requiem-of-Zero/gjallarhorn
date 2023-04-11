@@ -1,5 +1,3 @@
-import Footer from "../components/Footer/Footer";
-import Header from "../components/Header/Header";
 import { UserAuth } from "../context/AuthContext";
 import { TextField } from "@mui/material";
 import Link from "next/link";
@@ -41,7 +39,6 @@ export default function Login({ toggleTheme }) {
 
   return (
     <div className="w-screen sm:items-center">
-      <Header />
       <div>
         <div className="w-max-contentContainer h-[80vh] flex justify-center">
           <div className="flex flex-col text-white">
@@ -105,7 +102,6 @@ export default function Login({ toggleTheme }) {
             </p>
           </div>
         </div>
-        <Footer toggleTheme={toggleTheme} />
       </div>
     </div>
   );

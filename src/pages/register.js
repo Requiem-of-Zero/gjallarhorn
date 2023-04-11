@@ -1,5 +1,3 @@
-import Footer from "../components/Footer/Footer";
-import Header from "../components/Header/Header";
 import { UserAuth } from "../context/AuthContext";
 import { TextField } from "@mui/material";
 import { useRouter } from "next/router";
@@ -31,11 +29,12 @@ export default function Register() {
 
   return (
     <div className="w-screen">
-      <Header />
       <div className="flex justify-center">
         <div className="w-[300px] h-[80vh]">
           <div className="mt-10 flex flex-col text-white gap-[20px]">
-            <h2 id='login_header' className="text-4xl cursor-default">REGISTER</h2>
+            <h2 id="login_header" className="text-4xl cursor-default">
+              REGISTER
+            </h2>
             <form onSubmit={handleSubmit} className="flex flex-col gap-[20px]">
               <TextField
                 color="primary"
@@ -76,7 +75,6 @@ export default function Register() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
