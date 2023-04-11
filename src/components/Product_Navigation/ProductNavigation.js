@@ -11,8 +11,8 @@ const ProductNavigation = ({ setActive, active, setFiltered, products }) => {
   }, [active]);
 
   return (
-    <div className="product_navigation m0a bg-grey text-grey scrollbar-hide flex w-full whitespace-nowrap border-b border-t border-[#1F2122] border-solid top-header lg:top-header-desktop sticky top-[47px] max-w-contentContainer sml:justify-center lgl:top-[119px]">
-      <ul className="flex gap-[30px] px-[20px] pt-2 tracking-widest text-white font-[100] md:items-center md:justify-center">
+    <div className="product_navigation m0a bg-grey scrollbar-hide flex w-full whitespace-nowrap border-b border-t border-[#1F2122] border-solid top-header lg:top-header-desktop sticky top-[47px] max-w-contentContainer sml:justify-center lgl:top-[119px]">
+      <ul id='filter_list'className="flex gap-[30px] px-[20px] pt-2 tracking-widest text-white font-[100] md:items-center md:justify-center">
         <li
           onClick={() => setActive(0)}
           className={`py-2 border-b-4 cursor-pointer select-none ${active === 0 ? "border-blue" : "border-[transparent]"}`}

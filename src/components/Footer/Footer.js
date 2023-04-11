@@ -5,6 +5,7 @@ import { BsSunFill } from "react-icons/bs";
 import { FaMoon } from "react-icons/fa";
 
 const Footer = ({ theme, toggleTheme }) => {
+  console.log(theme)
   return (
     <footer className="bg-grey footer_info">
       <ul className="text-light-grey px-4 pt-4 lgl:justify-center lgl:flex lgl:items-start lgl:gap-[300px] max-w-contentContainer m0a">
