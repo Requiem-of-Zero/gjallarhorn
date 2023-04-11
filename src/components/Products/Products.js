@@ -1,4 +1,3 @@
-import { addToCart } from "@/redux/reducers/cartSlice";
 import { useState } from "react";
 import EmptyResults from "../404/EmptyResults";
 import ProductTile from "../ProductTile/ProductTile";

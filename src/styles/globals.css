@@ -37,8 +37,15 @@ body {
   color: black;
 }
 
-#light #subheader > a, li{
+#light #subheader > a,
+li {
   color: black;
+}
+
+#light #subheader > a:hover,
+#light #subheader > p:hover {
+  transition: color var(--animation-timing);
+  color: white;
 }
 
 #light svg {
@@ -54,16 +61,15 @@ body {
   color: var(--text-light-primary);
 }
 
+#light #topNav > nav > a:hover {
+  color: white;
+}
+
 #light .bottom_nav {
   background-color: var(--trimming-light-secondary) !important;
 }
 
-#light .bottom_nav span {
-  color: var(--text-light-primary);
-}
-
-
-#light .bottom_nav svg {
+#light .bottom_nav span{
   color: var(--text-light-primary);
 }
 
@@ -84,19 +90,17 @@ body {
   color: var(--text-light-primary);
 }
 
-
-
 #light .product_add {
   color: var(--trimming-dark-primary);
 }
 
 #light #google_btn {
-  color: black!important;
+  color: black !important;
   border: 1px solid black;
 }
 
 #light #login_header {
-  color: #A1A7AD;
+  color: #a1a7ad;
 }
 
 #light .search_item {
@@ -118,30 +122,37 @@ body {
   background-color: var(--trimming-dark-primary);
 }
 
-#dark #cart_quantity, #dark #cart_price {
-  color: #A1A7AD!important;
+#dark #cart_quantity,
+#dark #cart_price {
+  color: #a1a7ad !important;
 }
-
 
 #dark #sidebar > ul li {
   color: white;
 }
 #dark #subheader > li {
-  color:#A1A7AD;
+  color: #a1a7ad;
 }
 
 #dark footer li {
-  color: var(--text-dark-secondary)
+  color: var(--text-dark-secondary);
 }
 
 #dark #filter_list > li {
-  color: white!important;
+  color: white !important;
   font-weight: 400;
 }
 
-
 #dark .bottom_nav {
   background-color: var(--trimming-dark-secondary);
+}
+
+#dark #light-dark-mode svg {
+  color: var(--trimming-light-secondary);
+}
+
+#dark footer > svg {
+  color: var(--text-dark-primary)
 }
 
 #dark .product_name,

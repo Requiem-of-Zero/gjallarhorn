@@ -1,4 +1,4 @@
-import { resetCart } from "@/redux/reducers/cartSlice";
+import { resetCart } from "../../redux/reducers/cartSlice";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { UserAuth } from "../../context/AuthContext";
