@@ -50,7 +50,7 @@ const ProductTile = ({ id, name, description, imgUrl, price, quantity, height, w
         className="product-img"
       />
       <h3 className="text-light-grey text-xs pt-2">{description}</h3>
-      <h2 className="product_name">{name}</h2>
+      <h2 className="product_name h-[50px]">{name}</h2>
       <div className="flex justify-between">
         <p className="text-light-grey">{"$" + price}</p>
         <p
