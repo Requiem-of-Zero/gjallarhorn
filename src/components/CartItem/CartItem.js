@@ -2,7 +2,7 @@ import {
   decrementQuantity,
   incrementQuantity,
   removeFromCart,
-} from "@/redux/reducers/cartSlice";
+} from "../../redux/reducers/cartSlice";
 import AddIcon from "@mui/icons-material/Add";
 import ClearIcon from "@mui/icons-material/Clear";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -31,14 +31,18 @@ const CartItem = ({ id, name, description, type, imgUrl, price, quantity }) => {
           size="large"
           onClick={() => dispatch(decrementQuantity(id))}
         />
-        <p id='cart_quantity' className="cursor-default">{quantity}</p>
+        <p id="cart_quantity" className="cursor-default">
+          {quantity}
+        </p>
         <AddIcon
           className="cursor-pointer"
           onClick={() => dispatch(incrementQuantity(id))}
         />
       </div>
       <div className="flex gap-[30px]">
-        <p id='cart_price' className="w-[50px]">${(price * quantity).toFixed(2)}</p>
+        <p id="cart_price" className="w-[50px]">
+          ${(price * quantity).toFixed(2)}
+        </p>
         <ClearIcon
           className="cursor-pointer"
           onClick={() => {

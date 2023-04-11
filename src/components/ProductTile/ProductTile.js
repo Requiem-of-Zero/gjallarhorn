@@ -91,7 +91,7 @@ const ProductTile = ({
         }}
         className={`product_add ${
           quantity ? "text-white" : "disabled"
-        } border text-xs w-[100%] py-2 tracking-wider mt-1 hover:text-light-grey focus:text-light-grey`}
+        } border text-xs w-[100%] py-2 tracking-wider mt-1 shadow-btnShadow hover:text-light-grey focus:text-light-grey`}
       >
         {`${user ? 'ADD TO BAG' : 'Sign In to Start Shopping'} ${quantityInBag > 0 ? `(${quantityInBag} INSIDE)` : ""}`}
       </button>
