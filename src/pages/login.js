@@ -104,7 +104,7 @@ export default function Login({ toggleTheme }) {
             </p>
           </div>
         </div>
-        <Footer toggleTheme={toggleTheme}/>
+        <Footer toggleTheme={toggleTheme} />
       </div>
     </div>
   );
