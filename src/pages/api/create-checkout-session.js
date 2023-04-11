@@ -50,7 +50,7 @@ export default async function handler(req, res) {
     metadata: {
       email: email,
       items_id_quantity: JSON.stringify(items.map((item) => `${item.id}, ${item.quantity}`)),
-      status: JSON.stringify('started'),
+      status: JSON.stringify('order.created'),
     },
   });
 
