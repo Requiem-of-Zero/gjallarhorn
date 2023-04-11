@@ -31,14 +31,14 @@ const CartItem = ({ id, name, description, type, imgUrl, price, quantity }) => {
           size="large"
           onClick={() => dispatch(decrementQuantity(id))}
         />
-        <p className="cursor-default">{quantity}</p>
+        <p id='cart_quantity' className="cursor-default">{quantity}</p>
         <AddIcon
           className="cursor-pointer"
           onClick={() => dispatch(incrementQuantity(id))}
         />
       </div>
       <div className="flex gap-[30px]">
-        <p className="w-[50px]">${(price * quantity).toFixed(2)}</p>
+        <p id='cart_price' className="w-[50px]">${(price * quantity).toFixed(2)}</p>
         <ClearIcon
           className="cursor-pointer"
           onClick={() => {

@@ -103,10 +103,26 @@ body {
   background-color: white;
   color: black;
 }
+#light .cart_header {
+  color: black;
+}
+
+#light #desktop_checkout {
+  color: black;
+}
+#light #mobile_checkout {
+  background-color: var(--trimming-light-secondary);
+}
 
 #dark {
   background-color: var(--trimming-dark-primary);
 }
+
+#dark #cart_quantity, #dark #cart_price {
+  color: #A1A7AD!important;
+}
+
+
 #dark #sidebar > ul li {
   color: white;
 }
