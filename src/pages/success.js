@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { resetCart } from "@/redux/reducers/cartSlice";
-import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
+import { resetCart } from "../redux/reducers/cartSlice";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 
 export default function Success() {
   const products = useSelector((state) => state.products);

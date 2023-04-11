@@ -1,6 +1,6 @@
-import Footer from "@/components/Footer/Footer";
-import Header from "@/components/Header/Header";
-import { UserAuth } from "@/context/AuthContext";
+import Footer from "../components/Footer/Footer";
+import Header from "../components/Header/Header";
+import { UserAuth } from "../context/AuthContext";
 import { TextField } from "@mui/material";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
