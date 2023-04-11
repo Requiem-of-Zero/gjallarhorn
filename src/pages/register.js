@@ -35,7 +35,7 @@ export default function Register() {
       <div className="flex justify-center">
         <div className="w-[300px] h-[80vh]">
           <div className="mt-10 flex flex-col text-white gap-[20px]">
-            <h2 className="text-4xl cursor-default">REGISTER</h2>
+            <h2 id='login_header' className="text-4xl cursor-default">REGISTER</h2>
             <form onSubmit={handleSubmit} className="flex flex-col gap-[20px]">
               <TextField
                 color="primary"
