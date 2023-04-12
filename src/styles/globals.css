@@ -216,6 +216,7 @@ li {
 #mobile_checkout {
   display: none;
   background-color: rgb(27, 26, 26);
+  padding-top: 20px;
 }
 
 @media screen and (max-width: 903px) {

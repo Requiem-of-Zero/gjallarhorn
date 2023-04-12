@@ -7,12 +7,13 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import Loading from "../components/Loading/Loading";
 
-export default function Cart({ toggleTheme }) {
+export default function Cart() {
   const stripePromise = loadStripe(`${process.env.stripe_publishable_key}`);
   const products = useSelector((state) => state.products);
   const { user } = UserAuth();
   const [loading, setLoading] = useState(false);
 
+  console.log(products)
   const calculateCartTotal = (products) => {
     let sum = 0;
 
@@ -43,14 +44,14 @@ export default function Cart({ toggleTheme }) {
       <div className="w-screen min-h-screen">
         <div className="flex justify-center">
             {/* Desktop Cart Page Header */}
-          <div className="cart_header py-6 text-white font-bold">
+          <div className="cart_header pb-6 text-white font-bold">
             <h2 id="desktop_checkout" className="pb-1 text-3xl cursor-default">
               YOUR BAG
             </h2>
             {/* End Desktop Cart Header */}
             <ul className="flex flex-col gap-[20px]">
               {/* Mobile Checkout Block */}
-              <div id="mobile_checkout" className="sticky top-[48px]">
+              <div id="mobile_checkout" className="sticky top-[38px]">
                 <h2 className="text-center pb-1 text-4xl cursor-default">
                   YOUR BAG
                 </h2>

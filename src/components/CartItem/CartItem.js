@@ -18,7 +18,7 @@ const CartItem = ({ id, name, description, type, imgUrl, price, quantity }) => {
   return (
     <li className="flex gap-[15px] justify-between w-[100%]">
       <div className="flex gap-[10px]">
-        <Image src={imgUrl} alt="product" height={100} width={100} />
+        <Image src={`https:${imgUrl}`} alt="product" height={100} width={100} />
         <div className="flex flex-col justify-center h-[100%]">
           <p className="font-medium text-xs text-light-grey w-[50px] sml:w-[100px] sml:text-sm">
             {name.toUpperCase()}
