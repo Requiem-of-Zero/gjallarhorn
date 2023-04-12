@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { resetCart } from "../redux/reducers/cartSlice";
 import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
 
 export async function getServerSideProps() {
   const products = await getEntryById("2wkr5VcBa9PYCsBQqvvvbl");
@@ -36,7 +35,6 @@ export default function Success({ products }) {
           </p>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }
