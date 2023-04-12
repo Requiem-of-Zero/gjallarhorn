@@ -45,6 +45,7 @@ export default function ProductDetail({ products }) {
                 key={`product-${i}`}
                 width={300}
                 height={300}
+                id={product.sys.id}
                 description={description}
                 name={name}
                 price={price}

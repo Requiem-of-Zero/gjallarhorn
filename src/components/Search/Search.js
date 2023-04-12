@@ -14,7 +14,6 @@ const Search = ({ products }) => {
       setData([]);
     } else {
       setKeyword(e.target.value.toLowerCase());
-      console.log(products);
       setData(
         products.filter((product) => {
           return (
