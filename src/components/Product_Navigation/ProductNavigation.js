@@ -6,7 +6,7 @@ const ProductNavigation = ({ setActive, active, setFiltered, products }) => {
       setFiltered(products);
       return;
     }
-    const filtered = products.filter((product) => product.type === active);
+    const filtered = products.filter((product) => product.fields.type === active);
     setFiltered(filtered);
   }, [active]);
 
