@@ -7,7 +7,6 @@ const Products = ({ products }) => {
   const [currProducts, setCurrProducts] = useState(products);
   const [filtered, setFiltered] = useState(products);
   const [active, setActive] = useState(0);
-
   // type
   // 0 is all
   // 1 is sold out
@@ -24,16 +23,29 @@ const Products = ({ products }) => {
         active={active}
         setActive={setActive}
       />
-      <div className={`${filtered.length ? 'product-grid' : ''} gap-[5px] pt-2 pb-5 max-w-contentContainer min-h-[50vh]`}>
+      <div
+        className={`${
+          filtered.length ? "product-grid" : ""
+        } gap-[5px] pt-2 pb-5 max-w-contentContainer min-h-[50vh]`}
+      >
         {filtered.length ? (
-          filtered.map((product, i) => (
-            <ProductTile
-              key={`product-${i}`}
-              {...product}
-              height={1080}
-              width={1920}
-            />
-          ))
+          filtered.map((product, i) => {
+            const { description, name, price, quantity, type } = product.fields;
+            const { url } = product.fields.image.fields.file;
+            return (
+              <ProductTile
+                key={`product-${i}`}
+                description={description}
+                name={name}
+                price={price}
+                quantity={quantity}
+                type={type}
+                imgUrl={url}
+                height={1080}
+                width={1920}
+              />
+            );
+          })
         ) : (
           <div className="w-screen flex justify-center">
             <EmptyResults />

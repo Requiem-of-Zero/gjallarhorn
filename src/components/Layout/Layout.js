@@ -4,16 +4,30 @@ import FooterNavigation from "../Footer_Navigation/FooterNavigation";
 import Sidebar from "../Sidebar/Sidebar";
 import { motion } from "framer-motion";
 
+export const getStaticProps = async () => {
+  const banners = await getEntryById("JEKYG8KNcGOnz3uJt3Nhm");
+  const products = await getEntryById("2wkr5VcBa9PYCsBQqvvvbl");
+
+  return {
+    props: {
+      banners,
+      products,
+    },
+  };
+};
+
 export default function Layout({
   children,
   theme,
   setSidebar,
   sidebar,
   toggleTheme,
+  banners,
+  products
 }) {
   return (
     <>
-      <Header />
+      <Header products={products}/>
       {sidebar && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -22,7 +36,7 @@ export default function Layout({
           onClick={() => setSidebar(false)}
         ></motion.div>
       )}
-      <main>{children}</main>
+      <main banners={banners} products={products}>{children}</main>
       <Footer theme={theme} toggleTheme={toggleTheme} />
       {sidebar && <Sidebar sidebar={sidebar} setSidebar={setSidebar} />}
       <FooterNavigation

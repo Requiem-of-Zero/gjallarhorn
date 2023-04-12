@@ -19,7 +19,6 @@ const app = !admin.apps.length
 const webhookSecret = process.env.NEXT_PUBLIC_STRIPE_SIGNING_SECRET;
 
 const fulfillOrder = async (session) => {
-  console.log("fulfilling order", session);
   return app
     .firestore()
     .collection("users")
@@ -39,7 +38,6 @@ const fulfillOrder = async (session) => {
 };
 
 export default async function webhookHandler(req, res) {
-  console.log("Payment intent");
   if (req.method === "POST") {
     const buf = await buffer(req);
     const signature = req.headers["stripe-signature"];

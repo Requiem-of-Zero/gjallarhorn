@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import { UserAuth } from "../../context/AuthContext";
 import Loading from "../Loading/Loading";
+
 const ProductTile = ({
   id,
   name,
@@ -53,7 +54,7 @@ const ProductTile = ({
       <Loading open={loading} setOpen={setLoading} />
       <Image
         loading="lazy"
-        src={imgUrl}
+        src={`https:${imgUrl}`}
         width={width}
         height={height}
         alt={description}

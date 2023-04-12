@@ -2,10 +2,9 @@ import SearchIcon from "@mui/icons-material/Search";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Bag from "../Bag/Bag";
-import productsData from "../ProductTile/data";
 import SearchItem from "../SearchItem/SearchItem";
 
-const Search = () => {
+const Search = ({products}) => {
   const [keyword, setKeyword] = useState("");
   const [data, setData] = useState([]);
 
@@ -16,8 +15,8 @@ const Search = () => {
     } else {
       setKeyword(e.target.value.toLowerCase());
       setData(
-        productsData.products.filter((product) => 
-          product.name.toLowerCase().startsWith(keyword)
+        products.products.filter((product) => 
+          product.fields.name.toLowerCase().startsWith(keyword)
         )
       );
     }

@@ -47,7 +47,6 @@ export default function Register() {
                   },
                 }}
                 onChange={(e) => {
-                  console.log(email);
                   setEmail(e.target.value);
                 }}
                 focused
@@ -63,7 +62,6 @@ export default function Register() {
                   },
                 }}
                 onChange={(e) => {
-                  console.log(password);
                   setPassword(e.target.value);
                 }}
                 focused
