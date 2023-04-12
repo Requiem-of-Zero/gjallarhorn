@@ -36,6 +36,7 @@ const Products = ({ products }) => {
               <ProductTile
                 key={`product-${i}`}
                 description={description}
+                id={i}
                 name={name}
                 price={price}
                 quantity={quantity}

@@ -13,7 +13,6 @@ export default function Cart() {
   const { user } = UserAuth();
   const [loading, setLoading] = useState(false);
 
-  console.log(products)
   const calculateCartTotal = (products) => {
     let sum = 0;
 
