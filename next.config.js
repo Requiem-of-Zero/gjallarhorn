@@ -3,6 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: [
+      'images.ctfassets.net',
       "staticg.sportskeeda.com",
       "upload.wikimedia.org",
       "alaskaseafood.site",

@@ -2,11 +2,23 @@ import Head from "next/head";
 import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import Banner from "../components/Banner/Banner";
-import bannerData from "../components/Banner/data";
+// import bannerData from "../components/Banner/data";
 import Products from "../components/Products/Products";
 import productsData from "../components/ProductTile/data";
+import getEntryById from "../contentful/client";
 
-export default function Home() {
+export const getStaticProps = async () => {
+  const banners = await getEntryById("JEKYG8KNcGOnz3uJt3Nhm");
+
+  return {
+    props: {
+      banners,
+    },
+  };
+};
+
+
+export default function Home({banners}) {
 
   return (
     <>
@@ -17,7 +29,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Banner {...bannerData} />
+        <Banner {...banners}/>
         <Products {...productsData} />
       </main>
     </>
