@@ -4,24 +4,28 @@ import { useState, useEffect } from "react";
 import Bag from "../Bag/Bag";
 import SearchItem from "../SearchItem/SearchItem";
 
-const Search = ({products}) => {
+const Search = ({ products }) => {
   const [keyword, setKeyword] = useState("");
   const [data, setData] = useState([]);
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if(!e.target.value) {
-      setData([])
+    if (!e.target.value) {
+      setData([]);
     } else {
       setKeyword(e.target.value.toLowerCase());
+      console.log(products);
       setData(
-        products.products.filter((product) => 
-          product.fields.name.toLowerCase().startsWith(keyword)
-        )
+        products.filter((product) => {
+          return (
+            product.fields.name.toLowerCase().includes(keyword) ||
+            product.fields.name.toLowerCase().startsWith(keyword)
+          );
+        })
       );
     }
   };
-  
+
   return (
     <div id="main-search" className="flex gap-[10px] items-center">
       <div className="relative">
@@ -33,9 +37,18 @@ const Search = ({products}) => {
         />
         <SearchIcon className="absolute right-[5px] top-[8px]" />
         <div className="absolute">
-          {data.map((product, i) => (
-            <SearchItem className='z-20' key={`search_result-${i}`} {...product}/>
-          ))}
+          {data.map((product, i) => {
+            const { name } = product.fields;
+            const { url } = product.fields.image.fields.file;
+            return (
+              <SearchItem
+                className="z-20"
+                key={`search_result-${i}`}
+                name={name}
+                imgUrl={url}
+              />
+            );
+          })}
         </div>
       </div>
       <Link href="/cart">

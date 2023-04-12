@@ -3,8 +3,20 @@ import { TextField } from "@mui/material";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Header from "../components/Header/Header";
+import getEntryById from "../contentful/client";
 
-export default function Login({ toggleTheme }) {
+export async function getServerSideProps() {
+  const products = await getEntryById("2wkr5VcBa9PYCsBQqvvvbl");
+
+  return {
+    props: {
+      products,
+    },
+  };
+}
+
+export default function Login({ products }) {
   const { googleSignIn, user, signIn, logout, sendPasswordReset } = UserAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -39,6 +51,7 @@ export default function Login({ toggleTheme }) {
 
   return (
     <div className="w-screen sm:items-center">
+      <Header products={products}/>
       <div>
         <div className="w-max-contentContainer h-[80vh] flex justify-center">
           <div className="flex flex-col text-white">

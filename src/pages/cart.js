@@ -6,10 +6,22 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import Loading from "../components/Loading/Loading";
+import Header from "../components/Header/Header";
+import getEntryById from "../contentful/client";
 
-export default function Cart() {
+export async function getServerSideProps() {
+  const products = await getEntryById("2wkr5VcBa9PYCsBQqvvvbl");
+
+  return {
+    props: {
+      products,
+    },
+  };
+}
+
+export default function Cart({ products }) {
   const stripePromise = loadStripe(`${process.env.stripe_publishable_key}`);
-  const products = useSelector((state) => state.products);
+  const cartProducts = useSelector((state) => state.products);
   const { user } = UserAuth();
   const [loading, setLoading] = useState(false);
 
@@ -27,7 +39,7 @@ export default function Cart() {
     const stripe = await stripePromise;
 
     const checkoutSession = await axios.post("/api/create-checkout-session", {
-      items: products,
+      items: cartProducts,
       email: user.email,
     });
 
@@ -37,12 +49,13 @@ export default function Cart() {
 
     if (result.error) alert(result.error.message);
   };
-  return products.length ? (
+  return cartProducts.length ? (
     <div className="min-h-[100vh] relative">
-    <Loading open={loading} setOpen={setLoading} />
+      <Loading open={loading} setOpen={setLoading} />
       <div className="w-screen min-h-screen">
+        <Header {...products} />
         <div className="flex justify-center">
-            {/* Desktop Cart Page Header */}
+          {/* Desktop Cart Page Header */}
           <div className="cart_header pb-6 text-white font-bold">
             <h2 id="desktop_checkout" className="pb-1 text-3xl cursor-default">
               YOUR BAG
@@ -57,8 +70,8 @@ export default function Cart() {
                 {/*  */}
                 <div>
                   <p className="text-center">
-                    Total: ${calculateCartTotal(products)}{" "}
-                    {`(${products.length} items)`}
+                    Total: ${calculateCartTotal(cartProducts)}{" "}
+                    {`(${cartProducts.length} items)`}
                   </p>
                   <button
                     onClick={createCheckoutSession}
@@ -69,8 +82,8 @@ export default function Cart() {
                 </div>
               </div>
               {/* End Mobile Checkout Block */}
-              {products &&
-                products.map((product, i) => (
+              {cartProducts &&
+                cartProducts.map((product, i) => (
                   <CartItem key={`cart_item-${i}`} {...product} />
                 ))}
             </ul>
@@ -81,7 +94,8 @@ export default function Cart() {
           id="desktop_checkout"
           className="fixed right-[30px] top-[105px] text-white h-20 pt-10"
         >
-          Total: ${calculateCartTotal(products)} {`(${products.length} items)`}
+          Total: ${calculateCartTotal(cartProducts)}{" "}
+          {`(${cartProducts.length} items)`}
           <button
             onClick={() => {
               setLoading(!loading);
@@ -97,6 +111,7 @@ export default function Cart() {
     </div>
   ) : (
     <div>
+        <Header {...products} />
       <div className="w-screen flex justify-center min-h-screen item-center">
         <EmptyResults />
       </div>

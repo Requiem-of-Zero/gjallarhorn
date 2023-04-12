@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import ProductTile from "../../components/ProductTile/ProductTile";
 import "react-toastify/dist/ReactToastify.css";
 import getEntryById from "../../contentful/client";
+import Header from "../../components/Header/Header";
 
 export async function getServerSideProps() {
   const products = await getEntryById("2wkr5VcBa9PYCsBQqvvvbl");
@@ -14,7 +15,6 @@ export async function getServerSideProps() {
 }
 
 export default function ProductDetail({ products }) {
-  console.log(products);
   const router = useRouter();
   const productType = router.query.slug;
 
@@ -34,6 +34,7 @@ export default function ProductDetail({ products }) {
 
   return (
     <main className="min-h-screen w-screen">
+      <Header {...products}/>
       <div className="min-h-screen py-10 px-10 flex flex-wrap gap-[20px] justify-center lgl:justify-start">
         {filteredProducts &&
           filteredProducts.map((product, i) => {

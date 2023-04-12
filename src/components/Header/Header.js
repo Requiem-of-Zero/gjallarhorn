@@ -2,14 +2,23 @@ import { resetCart } from "../../redux/reducers/cartSlice";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { UserAuth } from "../../context/AuthContext";
-import Bag from "../Bag/Bag";
 import Search from "../Search/Search";
 import LoginSubheader from "./LoginSubheader";
-const Header = () => {
-  const { user, logout } = UserAuth();
-  const products = useSelector((state) => state.products);
-  const dispatch = useDispatch();
 
+export const getStaticProps = async () => {
+  const products = await getEntryById("2wkr5VcBa9PYCsBQqvvvbl");
+
+  return {
+    props: {
+      products,
+    },
+  };
+};
+
+const Header = ({ products }) => {
+  const { user, logout } = UserAuth();
+  const cartProducts = useSelector((state) => state.products);
+  const dispatch = useDispatch();
   const handleSignOut = async () => {
     try {
       await logout();
@@ -17,7 +26,6 @@ const Header = () => {
       console.log(error);
     }
   };
-
   return (
     <div className="sticky top-0 navigation_bar pb-2 z-10 bg-grey h-12 flex justify-end flex-col items-center shadow-lg lgl:pb-0 lgl:h-[120px] lgl:items-start">
       {/* Header Login Bar */}
@@ -33,7 +41,7 @@ const Header = () => {
             <p
               onClick={() => {
                 handleSignOut();
-                dispatch(resetCart(products));
+                dispatch(resetCart(cartProducts));
               }}
               className="cursor-pointer hover:text-white"
             >
@@ -49,7 +57,7 @@ const Header = () => {
           <Link href="/" className="text-3xl text-blue">
             GJALLAHORN
           </Link>
-          <Search />
+          <Search products={products} />
         </div>
         {/* End Search Bar and Title */}
         {/* Header Navigation */}

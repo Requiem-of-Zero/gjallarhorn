@@ -1,10 +1,10 @@
 import Head from "next/head";
-import { useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import Banner from "../components/Banner/Banner";
 // import bannerData from "../components/Banner/data";
 import Products from "../components/Products/Products";
 import getEntryById from "../contentful/client";
+import Header from "../components/Header/Header";
 
 export const getStaticProps = async () => {
   const banners = await getEntryById("JEKYG8KNcGOnz3uJt3Nhm");
@@ -28,6 +28,7 @@ export default function Home({ banners, products }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <Header {...products}/>
         <Banner {...banners} />
         <Products {...products} />
       </main>

@@ -2,8 +2,20 @@ import { UserAuth } from "../context/AuthContext";
 import { TextField } from "@mui/material";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Header from "../components/Header/Header";
+import getEntryById from "../contentful/client";
 
-export default function Register() {
+export async function getServerSideProps() {
+  const products = await getEntryById("2wkr5VcBa9PYCsBQqvvvbl");
+
+  return {
+    props: {
+      products,
+    },
+  };
+}
+
+export default function Register({ products }) {
   const { createUser, user, signIn } = UserAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,6 +41,7 @@ export default function Register() {
 
   return (
     <div className="w-screen">
+      <Header {...products} />
       <div className="flex justify-center">
         <div className="w-[300px] h-[80vh]">
           <div className="mt-10 flex flex-col text-white gap-[20px]">

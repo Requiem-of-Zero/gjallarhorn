@@ -4,17 +4,27 @@ import { resetCart } from "../redux/reducers/cartSlice";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 
-export default function Success() {
-  const products = useSelector((state) => state.products);
+export async function getServerSideProps() {
+  const products = await getEntryById("2wkr5VcBa9PYCsBQqvvvbl");
+
+  return {
+    props: {
+      products,
+    },
+  };
+}
+
+export default function Success({ products }) {
+  const cartProducts = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(resetCart(products));
+    dispatch(resetCart(cartProducts));
   }, []);
 
   return (
     <div className="items-center">
-      <Header />
+      <Header {...products} />
       <main className="flex justify-center w-screen h-screen items-center text-white text-3xl">
         <div className="flex flex-col max-w-contentContainer">
           <h1 className="w-screen text-center pb-4">
