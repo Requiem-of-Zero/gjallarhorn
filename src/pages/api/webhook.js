@@ -49,7 +49,14 @@ const handleContentful = async (session, client) => {
       )
       .then((environment) => environment.getEntry(itemId))
       .then((entry) => {
-        entry.fields.quantity["en-US"] -= quantity;
+        if (entry.fields.quantity["en-US"] > 0) {
+          entry.fields.quantity["en-US"] -= quantity;
+        }
+
+        if (entry.fields.quantity["en-US"] <= 0) {
+          entry.fields.type["en-US"] = 1;
+        }
+        
         return entry.update();
       })
       .then(
