@@ -50,18 +50,12 @@ const handleContentful = async (session, client) => {
       .then((environment) => environment.getEntry(itemId))
       .then((entry) => {
         entry.fields.quantity["en-US"] -= quantity;
-        return entry.update()
+        return entry.update();
       })
-      .then((entry) => console.log(`Entry ${entry.sys.id} updated.`))
-      .catch(console.error);
-
-    client
-      .getSpace(process.env.CONTENTFUL_SPACE_ID)
-      .then((space) =>
-        space.getEnvironment(process.env.CONTENTFUL_ENVIRONMENT_ID)
+      .then(
+        (entry) =>
+          console.log(`Entry ${entry.sys.id} updated.`) || entry.publish()
       )
-      .then((environment) => environment.getEntry(itemId))
-      .then((entry) => entry.publish())
       .then((entry) => console.log(`Entry ${entry.sys.id} published.`))
       .catch(console.error);
   }
@@ -83,9 +77,9 @@ export default async function webhookHandler(req, res) {
     // Handle the event
     if (event.type === "checkout.session.completed") {
       const session = event.data.object;
-      handleContentful(session, client);
       return fulfillOrder(session)
         .then(() => res.status(200))
+        .then(() => handleContentful(session, client))
         .catch((err) => res.status(400).send(`Webhook Error: ${err.message}`));
     }
   }
