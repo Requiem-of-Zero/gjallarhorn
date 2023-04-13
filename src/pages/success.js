@@ -25,9 +25,9 @@ export default function Success({ products }) {
   return (
     <div className="items-center">
       <Header {...products} />
-      <main className="flex justify-center w-screen h-screen items-center text-white text-3xl">
+      <main className="flex justify-center h-screen items-center text-white text-3xl">
         <div className="flex flex-col max-w-contentContainer">
-          <h1 className="w-screen pb-4 text-center">
+          <h1 className="pb-4 text-center">
             Success, your order has been placed!
           </h1>
           <p className="text-center">
