@@ -25,7 +25,7 @@ const ProductTile = ({
   const handleQuantity = (quantity) => {
     if (quantity >= 20) {
       return "In stock";
-    } else if (quantity === 0) {
+    } else if (quantity <= 0) {
       return "Sold out!";
     } else if (quantity < 10) {
       return "< 10 left";
