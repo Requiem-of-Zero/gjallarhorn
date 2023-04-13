@@ -117,6 +117,10 @@ li {
 #light #desktop_checkout {
   color: black;
 }
+
+#desktop_checkout {
+  padding-top: 20px;
+}
 #light #mobile_checkout {
   background-color: var(--trimming-light-secondary);
 }
