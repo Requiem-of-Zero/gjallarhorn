@@ -19,6 +19,7 @@ const ProductTile = ({
 }) => {
   const [loading, setLoading] = useState(false);
   const { user } = UserAuth();
+
   const handleQuantity = (quantity) => {
     if (quantity >= 20) {
       return "In stock";
@@ -76,19 +77,25 @@ const ProductTile = ({
       <button
         disabled={!quantity || !user}
         onClick={() => {
-          setLoading(true);
-          dispatch(
-            addToCart({
-              id: id,
-              name: name,
-              description: description,
-              imgUrl: imgUrl,
-              price: price,
-              quantity: 1,
-            })
-          ) &&
-            toast.success(`${name} is added to bag.`) &&
-            setTimeout(() => setLoading(false), 500);
+          if (quantity > handleQuantityInBag(products, id)) {
+            setLoading(true);
+            dispatch(
+              addToCart({
+                id: id,
+                name: name,
+                description: description,
+                imgUrl: imgUrl,
+                price: price,
+                quantity: 1,
+              })
+            ) &&
+              toast.success(`${name} is added to bag.`) &&
+              setTimeout(() => setLoading(false), 500);
+          } else {
+            toast.error(
+              `${name} does not have enough inventory at the stock at the moment`
+            )
+          }
         }}
         className={`product_add ${
           quantity ? "text-white" : "disabled"
