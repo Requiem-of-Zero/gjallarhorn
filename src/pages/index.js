@@ -6,7 +6,7 @@ import Products from "../components/Products/Products";
 import getEntryById from "../contentful/client";
 import Header from "../components/Header/Header";
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const banners = await getEntryById("JEKYG8KNcGOnz3uJt3Nhm");
   const products = await getEntryById("2wkr5VcBa9PYCsBQqvvvbl");
 
