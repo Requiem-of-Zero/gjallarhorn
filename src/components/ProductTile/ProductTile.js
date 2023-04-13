@@ -25,8 +25,10 @@ const ProductTile = ({
       return "In stock";
     } else if (quantity === 0) {
       return "Sold out!";
-    } else if (quantity <= 10) {
+    } else if (quantity < 10) {
       return "< 10 left";
+    } else if (quantity >= 10) {
+      return '> 10 left'
     }
   };
 
