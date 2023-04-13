@@ -271,11 +271,6 @@ li {
   margin: 0 auto;
 }
 
-#sold-out {
-  background-color: red;
-  color: white;
-}
-
 /* Cart item styling */
 .productContainer {
   width: 100px;

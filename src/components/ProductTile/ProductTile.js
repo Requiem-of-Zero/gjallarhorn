@@ -21,7 +21,8 @@ const ProductTile = ({
   const products = useSelector((state) => state.products);
   const [loading, setLoading] = useState(false);
   const { user } = UserAuth();
-  
+  const [indicator, setIndicator] = useState("green");
+
   const handleQuantity = (quantity) => {
     if (quantity >= 20) {
       return "In stock";
@@ -34,11 +35,37 @@ const ProductTile = ({
     }
   };
 
+  const handleIndicator = (indicator) => {
+    if (indicator === "green") {
+      return "bg-[green] text-white";
+    } else if (indicator === "red") {
+      return "bg-[red] text-white";
+    } else {
+      return "bg-[#F7C00B] text-grey";
+    }
+  };
+
+  const handleColor = (quantity) => {
+    if (quantity >= 20) {
+      return setIndicator("green");
+    } else if (quantity <= 0) {
+      return setIndicator("red");
+    } else if (quantity < 10) {
+      return setIndicator("yellow");
+    } else if (quantity >= 10) {
+      return setIndicator("yellow");
+    }
+  };
+
   const [stock, setStock] = useState(handleQuantity(quantity));
 
   useEffect(() => {
     setStock(handleQuantity(quantity));
   }, []);
+
+  useEffect(() => {
+    handleColor(quantity);
+  }, [indicator]);
 
   const handleQuantityInBag = (products, currProductId) => {
     let count = 0;
@@ -73,17 +100,10 @@ const ProductTile = ({
       <h2 className="product_name h-[50px]">{name}</h2>
       <div className="flex justify-between">
         <p className="text-light-grey">{"$" + price}</p>
-        <p
-          id={`${quantity === 0 ? "sold-out" : ""}`}
-          className={`px-2 ${
-            quantity >= 20 ? "bg-[green] text-white" : "text-grey bg-[#F7C00B]"
-          }`}
-        >
-          {stock}
-        </p>
+        <p className={`px-2 ${handleIndicator(indicator)}`}>{stock}</p>
       </div>
       <button
-        disabled={!quantity || !user}
+        disabled={quantity <= 0 || !user}
         onClick={() => {
           if (quantity > handleQuantityInBag(products, id)) {
             setLoading(true);
@@ -106,7 +126,7 @@ const ProductTile = ({
           }
         }}
         className={`product_add ${
-          quantity ? "text-white" : "disabled"
+          quantity <= 0 ? "disabled" : "text-white"
         } border text-xs w-[100%] py-2 tracking-wider mt-1 shadow-btnShadow hover:text-light-grey focus:text-light-grey`}
       >
         {`${user ? "ADD TO BAG" : "Sign In to Start Shopping"} ${
