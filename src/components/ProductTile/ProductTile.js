@@ -65,7 +65,7 @@ const ProductTile = ({
 
   useEffect(() => {
     handleColor(quantity);
-  }, [indicator]);
+  }, []);
 
   const handleQuantityInBag = (products, currProductId) => {
     let count = 0;
@@ -100,6 +100,7 @@ const ProductTile = ({
       <h2 className="product_name h-[50px]">{name}</h2>
       <div className="flex justify-between">
         <p className="text-light-grey">{"$" + price}</p>
+        {/* Add Stock Indicator Component */}
         <p className={`px-2 ${handleIndicator(indicator)}`}>{stock}</p>
       </div>
       <button
