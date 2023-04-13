@@ -1,7 +1,6 @@
 import Head from "next/head";
 import "react-toastify/dist/ReactToastify.css";
 import Banner from "../components/Banner/Banner";
-// import bannerData from "../components/Banner/data";
 import Products from "../components/Products/Products";
 import getEntryById from "../contentful/client";
 import Header from "../components/Header/Header";
