@@ -1,10 +1,10 @@
-import { addToCart } from "../../redux/reducers/cartSlice";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { UserAuth } from "../../context/AuthContext";
+import { addToCart } from "../../redux/reducers/cartSlice";
 import Loading from "../Loading/Loading";
 
 const ProductTile = ({
@@ -17,9 +17,11 @@ const ProductTile = ({
   height,
   width,
 }) => {
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products);
   const [loading, setLoading] = useState(false);
   const { user } = UserAuth();
-
+  
   const handleQuantity = (quantity) => {
     if (quantity >= 20) {
       return "In stock";
@@ -28,9 +30,15 @@ const ProductTile = ({
     } else if (quantity < 10) {
       return "< 10 left";
     } else if (quantity >= 10) {
-      return '> 10 left'
+      return "> 10 left";
     }
   };
+
+  const [stock, setStock] = useState(handleQuantity(quantity));
+
+  useEffect(() => {
+    setStock(handleQuantity(quantity));
+  }, []);
 
   const handleQuantityInBag = (products, currProductId) => {
     let count = 0;
@@ -42,8 +50,6 @@ const ProductTile = ({
     return count;
   };
 
-  const dispatch = useDispatch();
-  const products = useSelector((state) => state.products);
   const quantityInBag = handleQuantityInBag(products, id);
   return (
     <motion.div
@@ -73,7 +79,7 @@ const ProductTile = ({
             quantity >= 20 ? "bg-[green] text-white" : "text-grey bg-[#F7C00B]"
           }`}
         >
-          {handleQuantity(quantity)}
+          {stock}
         </p>
       </div>
       <button
@@ -96,7 +102,7 @@ const ProductTile = ({
           } else {
             toast.error(
               `${name} does not have enough inventory at the stock at the moment`
-            )
+            );
           }
         }}
         className={`product_add ${
