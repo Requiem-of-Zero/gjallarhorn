@@ -1,12 +1,13 @@
 import * as admin from "firebase-admin";
 import { buffer } from "micro";
+import { client } from "../../contentful/client";
 const serviceAccount = require("../../../permissions.json");
 const stripe = require("stripe")(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
 export const config = {
   api: {
     bodyParser: false,
-    externalResolver: true
+    externalResolver: true,
   },
 };
 
@@ -37,6 +38,35 @@ const fulfillOrder = async (session) => {
     });
 };
 
+const handleContentful = async (session, client) => {
+  for (const item of JSON.parse(session.metadata.items_id_quantity)) {
+    let [itemId, quantity] = item.split(",");
+
+    client
+      .getSpace(process.env.CONTENTFUL_SPACE_ID)
+      .then((space) =>
+        space.getEnvironment(process.env.CONTENTFUL_ENVIRONMENT_ID)
+      )
+      .then((environment) => environment.getEntry(itemId))
+      .then((entry) => {
+        entry.fields.quantity["en-US"] -= quantity;
+        return entry.update()
+      })
+      .then((entry) => console.log(`Entry ${entry.sys.id} updated.`))
+      .catch(console.error);
+
+    client
+      .getSpace(process.env.CONTENTFUL_SPACE_ID)
+      .then((space) =>
+        space.getEnvironment(process.env.CONTENTFUL_ENVIRONMENT_ID)
+      )
+      .then((environment) => environment.getEntry(itemId))
+      .then((entry) => entry.publish())
+      .then((entry) => console.log(`Entry ${entry.sys.id} published.`))
+      .catch(console.error);
+  }
+};
+
 export default async function webhookHandler(req, res) {
   if (req.method === "POST") {
     const buf = await buffer(req);
@@ -51,10 +81,12 @@ export default async function webhookHandler(req, res) {
     }
 
     // Handle the event
-    if(event.type === 'checkout.session.completed'){
+    if (event.type === "checkout.session.completed") {
       const session = event.data.object;
-      
-      return fulfillOrder(session).then(() => res.status(200)).catch((err) => res.status(400).send(`Webhook Error: ${err.message}`)) 
+      handleContentful(session, client);
+      return fulfillOrder(session)
+        .then(() => res.status(200))
+        .catch((err) => res.status(400).send(`Webhook Error: ${err.message}`));
     }
   }
 }

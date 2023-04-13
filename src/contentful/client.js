@@ -1,5 +1,10 @@
 import axios from 'axios';
 import resolveResponse from 'contentful-resolve-response';
+const contentful = require("contentful-management");
+
+export const client = contentful.createClient({
+  accessToken: "CFPAT-MWEyA9f2R_9oQ5y33siYOCjIJ1njMFGqGa4KN2i46U8",
+});
 
 const isObject = (data) => {
   const object =
