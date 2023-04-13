@@ -1,13 +1,13 @@
-import EmptyResults from "../components/404/EmptyResults";
-import CartItem from "../components/CartItem/CartItem";
-import { UserAuth } from "../context/AuthContext";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
-import { useSelector } from "react-redux";
 import { useState } from "react";
-import Loading from "../components/Loading/Loading";
+import { useSelector } from "react-redux";
+import EmptyResults from "../components/404/EmptyResults";
+import CartItem from "../components/CartItem/CartItem";
 import Header from "../components/Header/Header";
+import Loading from "../components/Loading/Loading";
 import getEntryById from "../contentful/client";
+import { UserAuth } from "../context/AuthContext";
 
 export async function getServerSideProps() {
   const products = await getEntryById("2wkr5VcBa9PYCsBQqvvvbl");
@@ -25,6 +25,7 @@ export default function Cart({ products }) {
   const { user } = UserAuth();
   const [loading, setLoading] = useState(false);
 
+  const product_id_quantity = products.products.map((product) => `${product.sys.id}-${product.fields.quantity}`)
   const calculateCartTotal = (products) => {
     let sum = 0;
 
@@ -84,7 +85,7 @@ export default function Cart({ products }) {
               {/* End Mobile Checkout Block */}
               {cartProducts &&
                 cartProducts.map((product, i) => (
-                  <CartItem key={`cart_item-${i}`} {...product} />
+                  <CartItem key={`cart_item-${i}`} {...product} product_id_quantity={product_id_quantity}/>
                 ))}
             </ul>
           </div>

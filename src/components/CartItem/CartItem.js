@@ -1,19 +1,41 @@
-import {
-  decrementQuantity,
-  incrementQuantity,
-  removeFromCart,
-} from "../../redux/reducers/cartSlice";
 import AddIcon from "@mui/icons-material/Add";
 import ClearIcon from "@mui/icons-material/Clear";
 import RemoveIcon from "@mui/icons-material/Remove";
 import Image from "next/image";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {
+  decrementQuantity,
+  incrementQuantity,
+  removeFromCart,
+} from "../../redux/reducers/cartSlice";
 
-const CartItem = ({ id, name, description, type, imgUrl, price, quantity }) => {
+const CartItem = ({
+  id,
+  name,
+  description,
+  type,
+  imgUrl,
+  price,
+  quantity,
+  product_id_quantity,
+}) => {
   const dispatch = useDispatch();
+
+  const hash = {};
+
+  const createQuantityHash = (hash, arr) => {
+    for (let item of arr) {
+      let [productId, quantity] = item.split("-");
+      hash[productId] = +quantity;
+    }
+
+    return hash;
+  };
+
+  createQuantityHash(hash, product_id_quantity);
 
   return (
     <li className="flex gap-[15px] justify-between w-[100%]">
@@ -36,7 +58,15 @@ const CartItem = ({ id, name, description, type, imgUrl, price, quantity }) => {
         </p>
         <AddIcon
           className="cursor-pointer"
-          onClick={() => dispatch(incrementQuantity(id))}
+          onClick={() => {
+            if(hash[id] > quantity){
+              dispatch(incrementQuantity(id));
+            } else {
+              toast.error(
+                `${name} does not have enough inventory at the stock at the moment`
+              );
+            }
+          }}
         />
       </div>
       <div className="flex gap-[30px]">
