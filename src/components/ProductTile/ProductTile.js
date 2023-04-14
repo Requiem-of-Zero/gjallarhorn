@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { UserAuth } from "../../context/AuthContext";
 import { addToCart } from "../../redux/reducers/cartSlice";
 import Loading from "../Loading/Loading";
+import Stock from "../StockIndicator/Stock";
 
 const ProductTile = ({
   id,
@@ -16,6 +17,8 @@ const ProductTile = ({
   quantity,
   height,
   width,
+  quantityTag,
+  quantityColor,
 }) => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
@@ -57,16 +60,6 @@ const ProductTile = ({
     }
   };
 
-  const [stock, setStock] = useState(handleQuantity(quantity));
-
-  useEffect(() => {
-    setStock(handleQuantity(quantity));
-  }, []);
-
-  useEffect(() => {
-    handleColor(quantity);
-  }, []);
-
   const handleQuantityInBag = (products, currProductId) => {
     let count = 0;
 
@@ -101,7 +94,7 @@ const ProductTile = ({
       <div className="flex justify-between">
         <p className="text-light-grey">{"$" + price}</p>
         {/* Add Stock Indicator Component */}
-        <p className={`px-2 ${handleIndicator(indicator)}`}>{stock}</p>
+        <Stock quantityTag={quantityTag} quantityColor={quantityColor} />
       </div>
       <button
         disabled={quantity <= 0 || !user}
