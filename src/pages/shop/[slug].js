@@ -17,7 +17,7 @@ export async function getServerSideProps() {
 export default function ProductDetail({ products }) {
   const router = useRouter();
   const productType = router.query.slug;
-
+  
   const handleProducts = (catalog) => {
     if (productType === "lobsters") {
       return catalog.products.filter((item) => item.fields.type === 2);
@@ -31,7 +31,6 @@ export default function ProductDetail({ products }) {
   };
 
   const filteredProducts = handleProducts(products);
-
   return (
     <main className="min-h-screen w-screen">
       <Header {...products}/>
@@ -55,6 +54,7 @@ export default function ProductDetail({ products }) {
               />
             )
           })}
+          
       </div>
     </main>
   );

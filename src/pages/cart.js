@@ -25,7 +25,9 @@ export default function Cart({ products }) {
   const { user } = UserAuth();
   const [loading, setLoading] = useState(false);
 
-  const product_id_quantity = products.products.map((product) => `${product.sys.id}-${product.fields.quantity}`)
+  const product_id_quantity = products.products.map(
+    (product) => `${product.sys.id}-${product.fields.quantity}`
+  );
   const calculateCartTotal = (products) => {
     let sum = 0;
 
@@ -85,7 +87,11 @@ export default function Cart({ products }) {
               {/* End Mobile Checkout Block */}
               {cartProducts &&
                 cartProducts.map((product, i) => (
-                  <CartItem key={`cart_item-${i}`} {...product} product_id_quantity={product_id_quantity}/>
+                  <CartItem
+                    key={`cart_item-${i}`}
+                    {...product}
+                    product_id_quantity={product_id_quantity}
+                  />
                 ))}
             </ul>
           </div>
@@ -112,7 +118,7 @@ export default function Cart({ products }) {
     </div>
   ) : (
     <div>
-        <Header {...products} />
+      <Header {...products} />
       <div className="w-screen flex justify-center min-h-screen item-center">
         <EmptyResults />
       </div>

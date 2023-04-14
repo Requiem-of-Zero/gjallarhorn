@@ -7,6 +7,7 @@ import { UserAuth } from "../../context/AuthContext";
 import { addToCart } from "../../redux/reducers/cartSlice";
 import Loading from "../Loading/Loading";
 import Stock from "../StockIndicator/Stock";
+import Link from "next/link";
 
 const ProductTile = ({
   id,
@@ -24,39 +25,26 @@ const ProductTile = ({
   const products = useSelector((state) => state.products);
   const [loading, setLoading] = useState(false);
   const { user } = UserAuth();
-  const [indicator, setIndicator] = useState("green");
 
-  const handleQuantity = (quantity) => {
-    if (quantity >= 20) {
-      return "In stock";
-    } else if (quantity <= 0) {
-      return "Sold out!";
-    } else if (quantity < 10) {
-      return "< 10 left";
-    } else if (quantity >= 10) {
-      return "> 10 left";
-    }
-  };
-
-  const handleIndicator = (indicator) => {
-    if (indicator === "green") {
-      return "bg-[green] text-white";
-    } else if (indicator === "red") {
-      return "bg-[red] text-white";
+  const handleClick = () => {
+    if (quantity > handleQuantityInBag(products, id)) {
+      setLoading(true);
+      dispatch(
+        addToCart({
+          id: id,
+          name: name,
+          description: description,
+          imgUrl: imgUrl,
+          price: price,
+          quantity: 1,
+        })
+      ) &&
+        toast.success(`${name} is added to bag.`) &&
+        setTimeout(() => setLoading(false), 500);
     } else {
-      return "bg-[#F7C00B] text-grey";
-    }
-  };
-
-  const handleColor = (quantity) => {
-    if (quantity >= 20) {
-      return setIndicator("green");
-    } else if (quantity <= 0) {
-      return setIndicator("red");
-    } else if (quantity < 10) {
-      return setIndicator("yellow");
-    } else if (quantity >= 10) {
-      return setIndicator("yellow");
+      toast.error(
+        `${name} does not have enough inventory at the stock at the moment`
+      );
     }
   };
 
@@ -81,14 +69,16 @@ const ProductTile = ({
       className="max-w-[200px]"
     >
       <Loading open={loading} setOpen={setLoading} />
-      <Image
-        loading="lazy"
-        src={`https:${imgUrl}`}
-        width={width}
-        height={height}
-        alt={description}
-        className="product-img"
-      />
+      <Link href={`/show/${id}`}>
+        <Image
+          loading="lazy"
+          src={`https:${imgUrl}`}
+          width={width}
+          height={height}
+          alt={description}
+          className="product-img"
+        />
+      </Link>
       <h3 className="text-light-grey text-xs pt-2">{description}</h3>
       <h2 className="product_name h-[50px]">{name}</h2>
       <div className="flex justify-between">
@@ -98,27 +88,7 @@ const ProductTile = ({
       </div>
       <button
         disabled={quantity <= 0 || !user}
-        onClick={() => {
-          if (quantity > handleQuantityInBag(products, id)) {
-            setLoading(true);
-            dispatch(
-              addToCart({
-                id: id,
-                name: name,
-                description: description,
-                imgUrl: imgUrl,
-                price: price,
-                quantity: 1,
-              })
-            ) &&
-              toast.success(`${name} is added to bag.`) &&
-              setTimeout(() => setLoading(false), 500);
-          } else {
-            toast.error(
-              `${name} does not have enough inventory at the stock at the moment`
-            );
-          }
-        }}
+        onClick={handleClick}
         className={`product_add ${
           quantity <= 0 ? "disabled" : "text-white"
         } border text-xs w-[100%] py-2 tracking-wider mt-1 shadow-btnShadow hover:text-light-grey focus:text-light-grey`}
