@@ -1,9 +1,10 @@
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
-const SearchItem = ({ name, imgUrl }) => {
+const SearchItem = ({ name, imgUrl, id }) => {
   return (
-    <div className="search_item flex gap-[20px] bg-[#1F2122] py-2 pl-3 items-center text-white w-[400px]">
+    <Link href={`/show/${id}`} className="search_item flex gap-[20px] bg-[#1F2122] py-2 pl-3 items-center text-white w-[400px]">
       <Image
         src={`http:${imgUrl}`}
         width={70}
@@ -12,7 +13,7 @@ const SearchItem = ({ name, imgUrl }) => {
         alt="search-item"
       />
       <h2>{name}</h2>
-    </div>
+    </Link>
   );
 };
 

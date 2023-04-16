@@ -1,6 +1,6 @@
 import SearchIcon from "@mui/icons-material/Search";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Bag from "../Bag/Bag";
 import SearchItem from "../SearchItem/SearchItem";
 
@@ -39,12 +39,14 @@ const Search = ({ products }) => {
           {data.map((product, i) => {
             const { name } = product.fields;
             const { url } = product.fields.image.fields.file;
+            const id = product.sys.id;
             return (
               <SearchItem
                 className="z-20"
                 key={`search_result-${i}`}
                 name={name}
                 imgUrl={url}
+                id={id}
               />
             );
           })}
