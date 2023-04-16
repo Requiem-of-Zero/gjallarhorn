@@ -10,6 +10,7 @@ import {
   handleQuantity,
 } from "../../components/Products/util/stock.util";
 import getEntryById from "../../contentful/client";
+import Comments from "../../components/Products/Comments/Comments";
 
 export async function getServerSideProps(context) {
   const product = await getEntryById(context.query.pid);
@@ -42,6 +43,7 @@ export default function ProductShow({ product, products, id }) {
         <div className="flex">
           <div className="py-5">
             <Image src={`http:${url}`} height={500} width={500} />
+            <Comments />
           </div>
           <div
             id="product_description"
