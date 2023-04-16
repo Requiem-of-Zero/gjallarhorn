@@ -2,6 +2,7 @@ import { useState } from "react";
 import EmptyResults from "../404/EmptyResults";
 import ProductTile from "../ProductTile/ProductTile";
 import ProductNavigation from "../Product_Navigation/ProductNavigation";
+import { handleQuantity, handleIndicator } from "./util/stock.util";
 
 const Products = ({ products }) => {
   const [currProducts, setCurrProducts] = useState(products);
@@ -15,30 +16,6 @@ const Products = ({ products }) => {
   // 4 is shrimps
   // 5 is fish
   // 6 is eggs
-
-  const handleQuantity = (quantity) => {
-    if (quantity >= 20) {
-      return "In stock";
-    } else if (quantity <= 0) {
-      return "Sold out!";
-    } else if (quantity < 10) {
-      return "< 10 left";
-    } else if (quantity >= 10) {
-      return "> 10 left";
-    }
-  };
-
-  const handleIndicator = (quantity) => {
-    if (quantity >= 20) {
-      return "bg-[green] text-white";
-    } else if (quantity <= 0) {
-      return "bg-[red] text-white";
-    } else if (quantity < 10){
-      return "bg-[#F7C00B] text-grey";
-    } else {
-      return "bg-[#F7C00B] text-grey";
-    }
-  };
 
   return (
     <div>
