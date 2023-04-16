@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import ProductTile from "../../components/ProductTile/ProductTile";
+import ProductTile from "../../components/Products/ProductTile/ProductTile";
 import "react-toastify/dist/ReactToastify.css";
 import getEntryById from "../../contentful/client";
 import Header from "../../components/Header/Header";
