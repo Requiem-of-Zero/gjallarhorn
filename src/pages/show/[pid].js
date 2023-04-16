@@ -1,15 +1,15 @@
-import getEntryById from "../../contentful/client";
-import { useState } from "react";
-import Header from "../../components/Header/Header";
 import Image from "next/image";
-import Stock from "../../components/StockIndicator/Stock";
-import {
-  handleQuantity,
-  handleIndicator,
-} from "../../components/Products/util/stock.util";
+import { useState } from "react";
 import Button from "../../components/Button/Button";
+import Header from "../../components/Header/Header";
 import Loading from "../../components/Loading/Loading";
-import ProductTile from "../../components/ProductTile/ProductTile";
+import ProductTile from "../../components/Products/ProductTile/ProductTile";
+import Stock from "../../components/Products/StockIndicator/Stock";
+import {
+  handleIndicator,
+  handleQuantity,
+} from "../../components/Products/util/stock.util";
+import getEntryById from "../../contentful/client";
 
 export async function getServerSideProps(context) {
   const product = await getEntryById(context.query.pid);
@@ -35,11 +35,11 @@ export default function ProductShow({ product, products, id }) {
     (product) => product.fields.type === type && product.fields.name !== name
   );
   return (
-    <div>
-      <Loading open={loading} setOpen={setLoading} />
+    <div className="w-screen">
       <Header products={products} />
-      <div className="min-h-screen w-screen flex justify-center">
-        <div className="max-w-contentContainer flex">
+      <div className="min-h-screen flex justify-center">
+        <Loading open={loading} setOpen={setLoading} />
+        <div className="flex">
           <div className="py-5">
             <Image src={`http:${url}`} height={500} width={500} />
           </div>

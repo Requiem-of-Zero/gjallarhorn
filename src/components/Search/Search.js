@@ -2,7 +2,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import Link from "next/link";
 import { useState } from "react";
 import Bag from "../Bag/Bag";
-import SearchItem from "../SearchItem/SearchItem";
+import SearchItem from "./SearchItem/SearchItem";
 
 const Search = ({ products }) => {
   const [keyword, setKeyword] = useState("");

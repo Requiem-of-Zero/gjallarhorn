@@ -1,13 +1,13 @@
-import * as React from "react";
+import HomeIcon from "@mui/icons-material/Home";
+import MenuIcon from "@mui/icons-material/Menu";
+import PersonIcon from "@mui/icons-material/Person";
+import SearchIcon from "@mui/icons-material/Search";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
-import SearchIcon from "@mui/icons-material/Search";
-import HomeIcon from "@mui/icons-material/Home";
-import PersonIcon from "@mui/icons-material/Person";
-import MenuIcon from "@mui/icons-material/Menu";
-import Bag from "../Bag/Bag";
 import { useRouter } from "next/router";
-import { UserAuth } from "../../context/AuthContext";
+import * as React from "react";
+import { UserAuth } from "../../../context/AuthContext";
+import Bag from "../../Bag/Bag";
 
 export default function FooterNavigation({ setSidebar, sidebar, theme }) {
   const [value, setValue] = React.useState("Home");

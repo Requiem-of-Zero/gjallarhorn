@@ -1,8 +1,8 @@
 import { useState } from "react";
 import EmptyResults from "../404/EmptyResults";
-import ProductTile from "../ProductTile/ProductTile";
-import ProductNavigation from "../Product_Navigation/ProductNavigation";
-import { handleQuantity, handleIndicator } from "./util/stock.util";
+import ProductNavigation from "./Product_Navigation/ProductNavigation";
+import ProductTile from "./ProductTile/ProductTile";
+import { handleIndicator, handleQuantity } from "./util/stock.util";
 
 const Products = ({ products }) => {
   const [currProducts, setCurrProducts] = useState(products);

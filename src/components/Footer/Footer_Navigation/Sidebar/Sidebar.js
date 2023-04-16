@@ -2,16 +2,16 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-import { UserAuth } from "../../context/AuthContext";
-import { resetCart } from "../../redux/reducers/cartSlice";
+import { UserAuth } from "../../../../context/AuthContext";
+import { resetCart } from "../../../../redux/reducers/cartSlice";
 
 const Sidebar = ({ sidebar, setSidebar }) => {
   const { logout } = UserAuth();
   const dispatch = useDispatch();
   const router = useRouter();
 
-  const products = useSelector((state) => state.products)
-  
+  const products = useSelector((state) => state.products);
+
   return (
     <motion.div animate={{ width: sidebar ? "15rem" : "0px" }} id="sidebar">
       <ul className="py-40 pr-5 flex flex-col justify-between items-end text-3xl h-[100%] ">
@@ -51,7 +51,7 @@ const Sidebar = ({ sidebar, setSidebar }) => {
             logout();
             router.push("/");
             dispatch(resetCart(products));
-            setSidebar(false)
+            setSidebar(false);
           }}
         >
           LOGOUT

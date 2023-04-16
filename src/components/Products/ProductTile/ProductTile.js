@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { ToastContainer } from "react-toastify";
-import Loading from "../Loading/Loading";
+import Button from "../../Button/Button";
+import Loading from "../../Loading/Loading";
 import Stock from "../StockIndicator/Stock";
-import Link from "next/link";
-import Button from "../Button/Button";
 
 const ProductTile = ({
   id,

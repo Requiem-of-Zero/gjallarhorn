@@ -1,6 +1,6 @@
 import Footer from "../Footer/Footer";
-import FooterNavigation from "../Footer_Navigation/FooterNavigation";
-import Sidebar from "../Sidebar/Sidebar";
+import FooterNavigation from "../Footer/Footer_Navigation/FooterNavigation";
+import Sidebar from "../Footer/Footer_Navigation/Sidebar/Sidebar";
 import { motion } from "framer-motion";
 
 export default function Layout({
