@@ -20,7 +20,9 @@ const Reviews = ({ user, product, productId }) => {
   const [createLoading, setCreateLoading] = useState(false);
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
-  const onCreateReview = async () => {
+  
+  const onCreateReview = async (e) => {
+    e.preventDefault()
     setCreateLoading(true);
     try {
       const batch = writeBatch(db);
@@ -37,10 +39,10 @@ const Reviews = ({ user, product, productId }) => {
         createdAt: serverTimestamp(),
         rating,
       };
-
+      
       batch.set(reviewDocRef, newReview);
-
       newReview.createdAt = { seconds: Date.now() / 1000 };
+
 
       await batch.commit();
       setReviewText("");
@@ -74,8 +76,9 @@ const Reviews = ({ user, product, productId }) => {
   };
 
   useEffect(() => {
+    if(!product) return
     getProductReviews();
-  }, [reviews]);
+  }, [product]);
   return (
     <div className="text-white mt-10">
       <div className="flex flex-col text-xl w-[100%]">
