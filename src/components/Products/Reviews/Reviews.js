@@ -75,7 +75,7 @@ const Reviews = ({ user, product, productId }) => {
 
   useEffect(() => {
     getProductReviews();
-  }, []);
+  }, [reviews]);
   return (
     <div className="text-white mt-10">
       <div className="flex flex-col text-xl w-[100%]">
