@@ -10,7 +10,8 @@ import {
   handleQuantity,
 } from "../../components/Products/util/stock.util";
 import getEntryById from "../../contentful/client";
-import Comments from "../../components/Products/Comments/Comments";
+import Reviews from "../../components/Products/Reviews/Reviews";
+import { UserAuth } from "../../context/AuthContext";
 
 export async function getServerSideProps(context) {
   const product = await getEntryById(context.query.pid);
@@ -26,6 +27,7 @@ export async function getServerSideProps(context) {
 
 export default function ProductShow({ product, products, id }) {
   const { url } = product.image.file;
+  const { user } = UserAuth();
   const { description, name, price, quantity, type } = product;
   const [quantityTag, quantityColor] = [
     handleQuantity(quantity),
@@ -43,7 +45,7 @@ export default function ProductShow({ product, products, id }) {
         <div className="flex">
           <div className="py-5">
             <Image src={`http:${url}`} height={500} width={500} />
-            <Comments />
+            <Reviews user={user} productId={id} product={product}/>
           </div>
           <div
             id="product_description"
