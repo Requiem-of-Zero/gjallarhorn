@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const ReviewItem = ({ review, onDeleteReview, loadingDelete, userId }) => {
   return (
-    <div>
+    <div className="py-2">
       <div id="review_info" className="flex justify-between">
         <div id="user_photo" className="flex gap-[5px]">
           <Image

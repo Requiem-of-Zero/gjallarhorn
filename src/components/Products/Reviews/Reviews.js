@@ -1,7 +1,11 @@
 import {
   collection,
   doc,
+  getDocs,
+  orderBy,
+  query,
   serverTimestamp,
+  where,
   writeBatch,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
@@ -9,10 +13,10 @@ import { db } from "../../../firebase.config";
 import ReviewInput from "./ReviewInput";
 import ReviewItem from "./ReviewItem";
 
-const Reviews = ({ user, product, productId, username }) => {
+const Reviews = ({ user, product, productId }) => {
   const [reviewText, setReviewText] = useState("");
   const [reviews, setReviews] = useState([]);
-  const [fetchLoading, setFetchLoading] = useState(false);
+  const [fetchLoading, setFetchLoading] = useState(true);
   const [createLoading, setCreateLoading] = useState(false);
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
@@ -49,7 +53,25 @@ const Reviews = ({ user, product, productId, username }) => {
 
   const onDeleteReview = async (review) => {};
 
-  const getProductReviews = async () => {};
+  const getProductReviews = async () => {
+    try {
+      const reviewsQuery = query(
+        collection(db, "reviews"),
+        where("productId", "==", productId),
+        orderBy("createdAt", "desc")
+      );
+      const reviewDocs = await getDocs(reviewsQuery);
+      const reviews = reviewDocs.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+
+      setReviews(reviews)
+    } catch (error) {
+      console.log("getProductReviews error", error);
+    }
+    setFetchLoading(false);
+  };
 
   useEffect(() => {
     getProductReviews();
