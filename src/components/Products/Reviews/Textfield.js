@@ -3,7 +3,6 @@ import TextField from "@mui/material/TextField";
 import * as React from "react";
 
 export default function MultilineTextFields({user, setReviewText, reviewText}) {
-  console.log(user)
   return (
     <Box
       component="form"
