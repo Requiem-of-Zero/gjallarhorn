@@ -18,7 +18,7 @@ export default function MultilineTextFields({user, setReviewText, reviewText}) {
           label={`Review product as ${user.email}`}
           multiline
           rows={4}
-          defaultValue={reviewText}
+          value={reviewText}
           placeholder="Add a review..."
           variant="filled"
           onChange={(e) => setReviewText(e.target.value)}
