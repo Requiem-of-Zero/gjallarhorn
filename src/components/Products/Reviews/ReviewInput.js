@@ -38,9 +38,9 @@ const ReviewInput = ({
         })}
       </div>
       <div className="flex relative w-[500px]">
-        <MultilineTextFields setReviewText={setReviewText} reviewText={reviewText}/>
+        <MultilineTextFields setReviewText={setReviewText} reviewText={reviewText} user={user}/>
         <button onClick={() => onCreateReview(reviewText)} className="absolute bottom-3 right-10">
-          Create Review
+          Post
         </button>
       </div>
     </div>

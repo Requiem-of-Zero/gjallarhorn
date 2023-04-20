@@ -45,7 +45,7 @@ export default function ProductShow({ product, products, id }) {
         <div className="flex">
           <div className="py-5">
             <Image src={`http:${url}`} height={500} width={500} />
-            <Reviews user={user} productId={id} product={product}/>
+            <Reviews user={user} productId={id} product={product} />
           </div>
           <div
             id="product_description"

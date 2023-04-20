@@ -2,12 +2,13 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import * as React from "react";
 
-export default function MultilineTextFields({ setReviewText, reviewText }) {
+export default function MultilineTextFields({user, setReviewText, reviewText}) {
+  console.log(user)
   return (
     <Box
       component="form"
       sx={{
-        "& .MuiTextField-root": { m: 1, width: '100%'},
+        "& .MuiTextField-root": { m: 1, width: "100%" },
       }}
       noValidate
       autoComplete="off"
@@ -15,7 +16,7 @@ export default function MultilineTextFields({ setReviewText, reviewText }) {
       <div>
         <TextField
           id="filled-multiline-static"
-          label="Review Product"
+          label={`Review product as ${user.email}`}
           multiline
           rows={4}
           defaultValue={reviewText}

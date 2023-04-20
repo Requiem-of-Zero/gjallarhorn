@@ -2,7 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["images.ctfassets.net", "upload.wikimedia.org"],
+    domains: [
+      "images.ctfassets.net",
+      "upload.wikimedia.org",
+      "lh3.googleusercontent.com",
+    ],
     formats: ["image/avif", "image/webp"],
   },
   env: {

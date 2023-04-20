@@ -7,15 +7,15 @@ import {
 import { useEffect, useState } from "react";
 import { db } from "../../../firebase.config";
 import ReviewInput from "./ReviewInput";
+import ReviewItem from "./ReviewItem";
 
-const Reviews = ({ user, product, productId }) => {
+const Reviews = ({ user, product, productId, username }) => {
   const [reviewText, setReviewText] = useState("");
   const [reviews, setReviews] = useState([]);
   const [fetchLoading, setFetchLoading] = useState(false);
   const [createLoading, setCreateLoading] = useState(false);
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
-  console.log(reviewText)
   const onCreateReview = async () => {
     setCreateLoading(true);
     try {
@@ -35,6 +35,8 @@ const Reviews = ({ user, product, productId }) => {
       };
 
       batch.set(reviewDocRef, newReview);
+
+      newReview.createdAt = { seconds: Date.now() / 1000 };
 
       await batch.commit();
       setReviewText("");
@@ -66,6 +68,29 @@ const Reviews = ({ user, product, productId }) => {
           setHover={setHover}
           rating={rating}
         />
+      </div>
+      <div id="reviews">
+        {fetchLoading ? (
+          <p>Loading...</p>
+        ) : (
+          <>
+            {reviews.length === 0 ? (
+              <div className="pl-4 mt-2">No Reviews Yet...</div>
+            ) : (
+              <>
+                {reviews.map((review, i) => (
+                  <ReviewItem
+                    review={review}
+                    key={`review_item-${i}`}
+                    onDeleteReview={onDeleteReview}
+                    loadingDelete={false}
+                    userId={user.uid}
+                  />
+                ))}
+              </>
+            )}
+          </>
+        )}
       </div>
     </div>
   );
