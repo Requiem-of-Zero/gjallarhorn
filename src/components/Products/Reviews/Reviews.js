@@ -1,19 +1,21 @@
-import { useEffect, useState } from "react";
-import ReviewInput from "./ReviewInput";
 import {
-  doc,
   collection,
-  writeBatch,
+  doc,
   serverTimestamp,
+  writeBatch,
 } from "firebase/firestore";
+import { useEffect, useState } from "react";
 import { db } from "../../../firebase.config";
+import ReviewInput from "./ReviewInput";
 
 const Reviews = ({ user, product, productId }) => {
   const [reviewText, setReviewText] = useState("");
   const [reviews, setReviews] = useState([]);
   const [fetchLoading, setFetchLoading] = useState(false);
   const [createLoading, setCreateLoading] = useState(false);
-  
+  const [rating, setRating] = useState(null);
+  const [hover, setHover] = useState(null);
+  console.log(reviewText)
   const onCreateReview = async () => {
     setCreateLoading(true);
     try {
@@ -29,6 +31,7 @@ const Reviews = ({ user, product, productId }) => {
         reviewText,
         productName: product.name,
         createdAt: serverTimestamp(),
+        rating,
       };
 
       batch.set(reviewDocRef, newReview);
@@ -50,14 +53,18 @@ const Reviews = ({ user, product, productId }) => {
     getProductReviews();
   }, []);
   return (
-    <div className="text-white">
-      <div className="flex flex-col pl-10 pr-4 mb-6 text-xl w-[100%]">
+    <div className="text-white mt-10">
+      <div className="flex flex-col text-xl w-[100%]">
         <ReviewInput
           reviewText={reviewText}
           setReviewText={setReviewText}
           user={user}
           createLoading={createLoading}
           onCreateReview={onCreateReview}
+          setRating={setRating}
+          hover={hover}
+          setHover={setHover}
+          rating={rating}
         />
       </div>
     </div>
