@@ -13,7 +13,7 @@ const Reviews = ({ user, product, productId }) => {
   const [reviews, setReviews] = useState([]);
   const [fetchLoading, setFetchLoading] = useState(false);
   const [createLoading, setCreateLoading] = useState(false);
-  console.log(reviewText);
+  
   const onCreateReview = async () => {
     setCreateLoading(true);
     try {
