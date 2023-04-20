@@ -20,9 +20,8 @@ const Reviews = ({ user, product, productId }) => {
   const [createLoading, setCreateLoading] = useState(false);
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
-  
-  const onCreateReview = async (e) => {
-    e.preventDefault()
+
+  const onCreateReview = async () => {
     setCreateLoading(true);
     try {
       const batch = writeBatch(db);
