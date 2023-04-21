@@ -42,13 +42,16 @@ export default function Register({ products }) {
   return (
     <div className="w-screen">
       <Header {...products} />
-      <div className="flex justify-center">
-        <div className="w-[300px] h-[80vh]">
-          <div className="mt-10 flex flex-col text-white gap-[20px]">
+      <div >
+        <div className="flex justify-center items-center h-[80vh]">
+          <div className="flex flex-col text-white gap-[20px]">
             <h2 id="login_header" className="text-4xl cursor-default">
               REGISTER
             </h2>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-[20px]">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-[20px] w-[300px]"
+            >
               <TextField
                 color="primary"
                 label="Email"
