@@ -46,7 +46,15 @@ export default function ProductShow({ product, products, id }) {
         <div className="lgl:flex">
           <div className="py-5">
             <div id="product_image" className="flex w-full justify-center">
-              <Image src={`http:${url}`} height={500} width={500} />
+              <div style={{ position: "relative", height: 500, width: 500 }}>
+                <Image
+                  loading="lazy"
+                  src={`https:${url}`}
+                  fill
+                  style={{ objectFit: "fill" }}
+                  alt="cart-product"
+                />
+              </div>
             </div>
             <div
               id="product_description"
@@ -117,7 +125,9 @@ export default function ProductShow({ product, products, id }) {
           </div>
         </div>
         <div id="product_recommendations" className="text-sm">
-          <h2 className="text-white pt-5 text-center pb-2">Customers also bought:</h2>
+          <h2 className="text-white pt-5 text-center pb-2">
+            Customers also bought:
+          </h2>
           <div className="pb-5 flex lgl:flex-col gap-[20px] px-3 shrink-0 overflow-y-scroll">
             {recommendations.map((product, i) => (
               <ProductTile
