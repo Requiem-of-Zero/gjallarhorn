@@ -22,7 +22,7 @@ export default function Home({ banners, products }) {
     <>
       <Head>
         <title>Gjallahorn</title>
-        <meta name="description" content="Created by Samuel Wong." />
+        <meta name="description" content="Seafood E-Commerce Application created by Samuel Wong." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
