@@ -61,7 +61,7 @@ const Reviews = ({ user, product, productId }) => {
   }, [product]);
 
   return (
-    <div className="text-white mt-10">
+    <div className="text-white mt-10 px-4">
       <div className="flex flex-col text-xl w-[100%]">
         <ReviewInput
           productId={productId}

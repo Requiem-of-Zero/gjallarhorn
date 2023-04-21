@@ -21,7 +21,7 @@ const ReviewItem = ({ review, onDeleteReview, loadingDelete, userId }) => {
         </p>
       </div>
 
-      <div className="text-lg text-light-grey font-light lgl:flex lgl:justify-between">
+      <div className="text-lg text-light-grey font-light flex justify-between">
         <p>{review.reviewText}</p>
         <ul className="flex">
           {rating ? (

@@ -45,10 +45,12 @@ export default function ProductShow({ product, products, id }) {
         <Loading open={loading} setOpen={setLoading} />
         <div className="lgl:flex">
           <div className="py-5">
-            <Image src={`http:${url}`} height={500} width={500} />
+            <div id="product_image" className="flex w-full justify-center">
+              <Image src={`http:${url}`} height={500} width={500} />
+            </div>
             <div
               id="product_description"
-              className="px-10 py-5 lgl:w-[500px] lgl:sticky lgl:top-[110px] lgl:h-[400px] lgl:hidden"
+              className="px-10 py-5 lgl:w-[500px] lgl:sticky lgl:top-[110px] lgl:h-[400px] lgl:hidden "
             >
               <h1 className="text-3xl font-bold text-white">{`${name}`}</h1>
               <div
@@ -92,7 +94,7 @@ export default function ProductShow({ product, products, id }) {
           </div>
           <div
             id="product_description"
-            className="px-10 py-5 lgl:w-[500px] lgl:sticky lgl:top-[110px] lgl:h-[400px]"
+            className="px-10 py-5 lgl:w-[500px] lgl:sticky lgl:top-[110px] lgl:h-[400px] xs:hidden lgl:block"
           >
             <h1 className="text-3xl font-bold text-white">{`${name}`}</h1>
             <div

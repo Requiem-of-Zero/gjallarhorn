@@ -37,11 +37,14 @@ export default function MultilineTextFields({
           />
         ) : (
           <button
+            disabled={reviewText.length === 0}
             onClick={(e) => {
               e.preventDefault();
               onCreateReview(reviewText);
             }}
-            className="absolute bottom-3 right-3"
+            className={`${
+              reviewText.length === 0 ? "text-light-grey" : "text-white"
+            } absolute bottom-3 right-3`}
           >
             Post
           </button>
