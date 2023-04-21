@@ -3,7 +3,6 @@ import Image from "next/image";
 import Stars from "./Stars";
 import { CircularProgress } from "@mui/material";
 import ClearIcon from "@mui/icons-material/Clear";
-import { UserAuth } from "../../../context/AuthContext";
 const ReviewItem = ({ review, onDeleteReview, loadingDelete, userId }) => {
   const { rating } = review;
   return (

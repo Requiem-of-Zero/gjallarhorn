@@ -1,13 +1,10 @@
 import { db } from "../../../../firebase.config";
 import {
   collection,
-  doc,
   getDocs,
   orderBy,
   query,
-  serverTimestamp,
   where,
-  writeBatch,
 } from "firebase/firestore";
 
 const getProductReviews = async (productId, setReviews, setFetchLoading) => {

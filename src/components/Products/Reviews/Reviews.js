@@ -1,11 +1,7 @@
 import {
   collection,
   doc,
-  getDocs,
-  orderBy,
-  query,
   serverTimestamp,
-  where,
   writeBatch,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
@@ -13,7 +9,7 @@ import { db } from "../../../firebase.config";
 import ReviewInput from "./ReviewInput";
 import ReviewItem from "./ReviewItem";
 import { Skeleton } from "@mui/material";
-import { getProductReviews, onCreateReview } from "./util/Reviews.util";
+import { getProductReviews } from "./util/Reviews.util";
 
 const Reviews = ({ user, product, productId }) => {
   const [reviewText, setReviewText] = useState("");
@@ -48,9 +44,9 @@ const Reviews = ({ user, product, productId }) => {
 
       const newReview = {
         productId,
-        creatorId: user && user.uid,
-        creatorDisplayText: user && user.email.split("@")[0],
-        creatorPhotoURL: user && user.photoURL,
+        creatorId: user.uid,
+        creatorDisplayText: user.email.split("@")[0],
+        creatorPhotoURL: user.photoURL,
         reviewText,
         productName: product.name,
         createdAt: serverTimestamp(),
