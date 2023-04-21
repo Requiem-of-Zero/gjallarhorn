@@ -15,7 +15,7 @@ const ProductNavigation = ({ setActive, active, setFiltered, products }) => {
       <ul id='filter_list'className="flex gap-[30px] px-[20px] pt-2 tracking-widest text-white font-[100] md:items-center md:justify-center">
         <li
           onClick={() => setActive('')}
-          className={`py-2 border-b-4 cursor-pointer select-none ${active === 0 ? "border-blue" : "border-[transparent]"}`}
+          className={`py-2 border-b-4 cursor-pointer select-none ${active === '' ? "border-blue" : "border-[transparent]"}`}
         >
           ALL
         </li>
@@ -30,7 +30,7 @@ const ProductNavigation = ({ setActive, active, setFiltered, products }) => {
         <li
           onClick={() => setActive('lobster')}
           className={`py-2 border-b-4 cursor-pointer select-none ${
-            active === 2 ? "border-blue" : "border-[transparent]"
+            active === 'lobster' ? "border-blue" : "border-[transparent]"
           }`}
         >
           LOBSTERS
@@ -38,7 +38,7 @@ const ProductNavigation = ({ setActive, active, setFiltered, products }) => {
         <li
           onClick={() => setActive('crab')}
           className={`py-2 border-b-4 cursor-pointer select-none ${
-            active === 3 ? "border-blue" : "border-[transparent]"
+            active === 'crab' ? "border-blue" : "border-[transparent]"
           }`}
         >
           CRABS
@@ -46,7 +46,7 @@ const ProductNavigation = ({ setActive, active, setFiltered, products }) => {
         <li
           onClick={() => setActive('shrimp')}
           className={`py-2 border-b-4 cursor-pointer select-none ${
-            active === 4 ? "border-blue" : "border-[transparent]"
+            active === 'shrimp' ? "border-blue" : "border-[transparent]"
           }`}
         >
           SHRIMPS
