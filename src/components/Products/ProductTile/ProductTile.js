@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { ToastContainer } from "react-toastify";
-import { UserAuth } from "../../../context/AuthContext";
 import Button from "../../Button/Button";
 import Loading from "../../Loading/Loading";
 import Stock from "../StockIndicator/Stock";
@@ -21,7 +20,6 @@ const ProductTile = ({
   quantityColor,
 }) => {
   const [loading, setLoading] = useState(false);
-  const { user } = UserAuth();
   return (
     <motion.div
       layout
