@@ -25,9 +25,15 @@ export default function Home({ banners, products }) {
         <meta name="description" content="Created by Samuel Wong." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <main>
-        <Header {...products}/>
+        <Header {...products} />
         <Banner {...banners} />
         <Products {...products} />
       </main>

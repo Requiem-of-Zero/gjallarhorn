@@ -18,6 +18,10 @@ body {
   box-sizing: border-box;
 }
 
+#header_title {
+  font-family: 'Bruno Ace SC', cursive;
+}
+
 #empty_background {
   background-image: url('https://staticg.sportskeeda.com/editor/2022/07/31987-16590245387151-1920.jpg');
   background-size: contain;

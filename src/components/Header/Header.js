@@ -54,7 +54,7 @@ const Header = ({ products }) => {
         {/* End Header Login Bar */}
         {/* Search Bar and Title */}
         <div className="navigation-title flex justify-between lgl:w-[1000px] xl:w-[1280px]">
-          <Link href="/" className="text-3xl text-blue">
+          <Link href="/" className="text-3xl text-blue" id="header_title">
             GJALLAHORN
           </Link>
           <Search products={products} />
