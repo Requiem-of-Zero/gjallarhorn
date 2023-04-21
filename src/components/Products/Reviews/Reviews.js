@@ -20,10 +20,24 @@ const Reviews = ({ user, product, productId }) => {
   const [reviews, setReviews] = useState([]);
   const [fetchLoading, setFetchLoading] = useState(true);
   const [createLoading, setCreateLoading] = useState(false);
+  const [loadingDeleteId, setLoadingDeleteId] = useState('');
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
+  console.log(reviews)
+  const onDeleteReview = async (review) => {
+    setLoadingDeleteId(review.id)
+    try {
+      const batch = writeBatch(db);
+      const reviewDocRef = doc(db, 'reviews', review.id)
+      batch.delete(reviewDocRef);
+      await batch.commit();
 
-  const onDeleteReview = async (review) => {};
+      setReviews(prev => prev.filter(item => item.id !== review.id))
+    } catch (error) {
+      console.log('onDeleteReview error', error)
+    }
+    setLoadingDeleteId('');
+  };
 
   const onCreateReview = async () => {
     setCreateLoading(true);
@@ -63,7 +77,7 @@ const Reviews = ({ user, product, productId }) => {
   return (
     <div className="text-white mt-10 px-4">
       <div className="flex flex-col text-xl w-[100%]">
-        <ReviewInput
+        {!fetchLoading && (<ReviewInput
           productId={productId}
           product={product}
           setReviews={setReviews}
@@ -77,7 +91,7 @@ const Reviews = ({ user, product, productId }) => {
           hover={hover}
           setHover={setHover}
           rating={rating}
-        />
+        />)}
       </div>
       <div id="reviews">
         {fetchLoading ? (
@@ -95,8 +109,9 @@ const Reviews = ({ user, product, productId }) => {
                     review={review}
                     key={`review_item-${i}`}
                     onDeleteReview={onDeleteReview}
-                    loadingDelete={false}
+                    loadingDelete={loadingDeleteId === review.id}
                     userId={user.uid}
+                    user={user}
                   />
                 ))}
               </>

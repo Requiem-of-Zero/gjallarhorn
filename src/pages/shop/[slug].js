@@ -39,10 +39,9 @@ export default function ProductDetail({ products }) {
           filteredProducts.map((product, i) => {
             const { description, name, price, quantity, type } = product.fields;
             const { url } = product.fields.image.fields.file;
-            return(
-              <div>
+            return (
+              <div key={`product-${i}`}>
                 <ProductTile
-                  key={`product-${i}`}
                   width={300}
                   height={300}
                   id={product.sys.id}
@@ -55,7 +54,7 @@ export default function ProductDetail({ products }) {
                   imgUrl={url}
                 />
               </div>
-            )
+            );
           })}
           
       </div>
