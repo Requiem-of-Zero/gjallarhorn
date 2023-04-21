@@ -27,7 +27,7 @@ const Header = ({ products }) => {
     }
   };
   return (
-    <div className="sticky top-0 navigation_bar pb-2 z-10 bg-grey h-12 flex justify-end flex-col items-center shadow-lg lgl:pb-0 lgl:h-[120px] lgl:items-start">
+    <div className="sticky top-0 navigation_bar pb-2 z-20 bg-grey h-12 flex justify-end flex-col items-center shadow-lg lgl:pb-0 lgl:h-[120px] lgl:items-start">
       {/* Header Login Bar */}
       <div className="max-w-contentContainer m0a">
         {user ? (

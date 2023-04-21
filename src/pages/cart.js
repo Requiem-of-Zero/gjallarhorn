@@ -66,7 +66,7 @@ export default function Cart({ products }) {
             {/* End Desktop Cart Header */}
             <ul className="flex flex-col gap-[20px]">
               {/* Mobile Checkout Block */}
-              <div id="mobile_checkout" className="sticky top-[38px]">
+              <div id="mobile_checkout" className="sticky top-[38px] z-10">
                 <h2 className="text-center pb-1 text-4xl cursor-default">
                   YOUR BAG
                 </h2>

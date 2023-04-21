@@ -25,7 +25,7 @@ export default function Layout({
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: sidebar ? 0.8 : 0 }}
-          className="bg-[black] w-screen h-screen fixed z-20 opacity-0"
+          className="bg-[black] w-screen h-screen fixed z-[999] opacity-0"
           onClick={() => setSidebar(false)}
         ></motion.div>
       )}
