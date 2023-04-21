@@ -77,7 +77,7 @@ export default function ProductShow({ product, products, id }) {
             {user ? (
               <Reviews user={user} productId={id} product={product} />
             ) : (
-              <div className="text-white lgl:text-xl lgl:text-center lgl:py-4">
+              <div className="text-white flex justify-center lgl:text-xl lgl:py-4">
                 <p>
                   Please{" "}
                   <Link href="/login" className="cursor-pointer text-blue">
