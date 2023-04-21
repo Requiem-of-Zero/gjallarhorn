@@ -7,6 +7,7 @@ import {
   handleQuantity,
   handleIndicator,
 } from "../../components/Products/util/stock.util";
+import { useEffect, useState } from "react";
 export async function getServerSideProps() {
   const products = await getEntryById("2wkr5VcBa9PYCsBQqvvvbl");
 
@@ -20,6 +21,7 @@ export async function getServerSideProps() {
 export default function ProductDetail({ products }) {
   const router = useRouter();
   const productType = router.query.slug;
+  const [filtered, setFiltered] = useState([]);
 
   const handleProducts = (catalog) => {
     if (productType === "lobsters") {
@@ -37,13 +39,17 @@ export default function ProductDetail({ products }) {
     }
   };
 
-  const filteredProducts = handleProducts(products);
+  useEffect(() => {
+    if(!products) return
+    setFiltered(handleProducts(products));
+  },[products])
+
   return (
     <main className="min-h-screen w-screen">
       <Header {...products} />
       <div className="min-h-screen py-10 px-10 flex flex-wrap gap-[20px] justify-center lgl:justify-start">
-        {filteredProducts &&
-          filteredProducts.map((product, i) => {
+        {filtered &&
+          filtered.map((product, i) => {
             const { description, name, price, quantity, type } = product.fields;
             const { url } = product.fields.image.fields.file;
             return (
@@ -55,6 +61,7 @@ export default function ProductDetail({ products }) {
                   description={description}
                   name={name}
                   price={price}
+                  quantity={quantity}
                   quantityTag={handleQuantity(quantity)}
                   quantityColor={handleIndicator(quantity)}
                   type={type}
