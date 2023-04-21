@@ -33,14 +33,18 @@ const ProductTile = ({
     >
       <Loading open={loading} setOpen={setLoading} />
       <Link href={`/show/${id}`}>
-        <Image
-          loading="lazy"
-          src={`https:${imgUrl}`}
-          width={width}
-          height={height}
-          alt={description}
-          className="product-img"
-        />
+        <div
+          style={{ position: "relative", height: 200, width: '100%' }}
+        >
+          <Image
+            loading="lazy"
+            src={`https:${imgUrl}`}
+            fill
+            style={{ objectFit: "fill" }}
+            alt={description}
+            className="product-img"
+          />
+        </div>
       </Link>
       <h3 className="text-light-grey text-xs pt-2">{description}</h3>
       <h2 className="product_name h-[50px]">{name}</h2>

@@ -2,6 +2,7 @@ import Footer from "../Footer/Footer";
 import FooterNavigation from "../Footer/Footer_Navigation/FooterNavigation";
 import Sidebar from "../Footer/Footer_Navigation/Sidebar/Sidebar";
 import { motion } from "framer-motion";
+import Head from "next/head";
 
 export default function Layout({
   children,
@@ -12,6 +13,14 @@ export default function Layout({
 }) {
   return (
     <>
+      <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
       {sidebar && (
         <motion.div
           initial={{ opacity: 0 }}
