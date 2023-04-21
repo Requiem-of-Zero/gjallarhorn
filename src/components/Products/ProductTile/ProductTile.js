@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 import Button from "../../Button/Button";
 import Loading from "../../Loading/Loading";
 import Stock from "../StockIndicator/Stock";
+import Skeleton from "@mui/material/Skeleton";
 
 const ProductTile = ({
   id,
@@ -31,17 +32,19 @@ const ProductTile = ({
     >
       <Loading open={loading} setOpen={setLoading} />
       <Link href={`/show/${id}`}>
-        <div
-          style={{ position: "relative", height: 200, width: '100%' }}
-        >
-          <Image
-            loading="lazy"
-            src={`https:${imgUrl}`}
-            fill
-            style={{ objectFit: "fill" }}
-            alt={description}
-            className="product-img"
-          />
+        <div style={{ position: "relative", height: 200, width: "100%" }}>
+          {imgUrl ? (
+            <Image
+              loading="lazy"
+              src={`https:${imgUrl}`}
+              fill
+              style={{ objectFit: "fill" }}
+              alt={description}
+              className="product-img"
+            />
+          ) : (
+            <Skeleton variant="rectangular" width={200} height={200} />
+          )}
         </div>
       </Link>
       <h3 className="text-light-grey text-xs pt-2">{description}</h3>
