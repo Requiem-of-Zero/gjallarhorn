@@ -3,7 +3,7 @@ import ProductTile from "../../components/Products/ProductTile/ProductTile";
 import "react-toastify/dist/ReactToastify.css";
 import getEntryById from "../../contentful/client";
 import Header from "../../components/Header/Header";
-
+import { handleQuantity, handleIndicator } from "../../components/Products/util/stock.util";
 export async function getServerSideProps() {
   const products = await getEntryById("2wkr5VcBa9PYCsBQqvvvbl");
 
@@ -40,18 +40,21 @@ export default function ProductDetail({ products }) {
             const { description, name, price, quantity, type } = product.fields;
             const { url } = product.fields.image.fields.file;
             return(
-              <ProductTile
-                key={`product-${i}`}
-                width={300}
-                height={300}
-                id={product.sys.id}
-                description={description}
-                name={name}
-                price={price}
-                quantity={quantity}
-                type={type}
-                imgUrl={url}
-              />
+              <div>
+                <ProductTile
+                  key={`product-${i}`}
+                  width={300}
+                  height={300}
+                  id={product.sys.id}
+                  description={description}
+                  name={name}
+                  price={price}
+                  quantityTag={handleQuantity(quantity)}
+                  quantityColor={handleIndicator(quantity)}
+                  type={type}
+                  imgUrl={url}
+                />
+              </div>
             )
           })}
           
