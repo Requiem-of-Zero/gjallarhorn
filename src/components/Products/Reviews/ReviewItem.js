@@ -7,7 +7,7 @@ import { UserAuth } from "../../../context/AuthContext";
 const ReviewItem = ({ review, onDeleteReview, loadingDelete, userId }) => {
   const { rating } = review;
   return (
-    <div className="py-2">
+    <div className="pt-5">
       <div id="user_photo">
         <Image
           className="rounded-full"
