@@ -35,7 +35,7 @@ const Search = ({ products }) => {
           onChange={handleSearch}
         />
         <SearchIcon className="absolute right-[5px] top-[8px]" />
-        <div className="absolute">
+        <div className="absolute h-[300px] overflow-x-scroll">
           {data.map((product, i) => {
             const { name } = product.fields;
             const { url } = product.fields.image.fields.file;

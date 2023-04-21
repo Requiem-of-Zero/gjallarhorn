@@ -40,7 +40,15 @@ const CartItem = ({
   return (
     <li className="flex gap-[15px] justify-between w-[100%]">
       <div className="flex gap-[10px]">
-        <Image src={`https:${imgUrl}`} alt="product" height={100} width={100} />
+        <div style={{ position: "relative", height: 70, width: 100 }}>
+          <Image
+            loading="lazy"
+            src={`https:${imgUrl}`}
+            fill
+            style={{ objectFit: "fill" }}
+            alt="cart-product"
+          />
+        </div>
         <div className="flex flex-col justify-center h-[100%]">
           <p className="font-medium text-xs text-light-grey w-[50px] sml:w-[100px] sml:text-sm">
             {name.toUpperCase()}
@@ -59,7 +67,7 @@ const CartItem = ({
         <AddIcon
           className="cursor-pointer"
           onClick={() => {
-            if(hash[id] > quantity){
+            if (hash[id] > quantity) {
               dispatch(incrementQuantity(id));
             } else {
               toast.error(
