@@ -29,14 +29,14 @@ export async function getServerSideProps(context) {
 export default function ProductShow({ product, products, id }) {
   const { url } = product.image.file;
   const { user } = UserAuth();
-  const { description, name, price, quantity, type } = product;
+  const { description, name, price, quantity, category} = product;
   const [quantityTag, quantityColor] = [
     handleQuantity(quantity),
     handleIndicator(quantity),
   ];
   const [loading, setLoading] = useState(false);
   const recommendations = products.filter(
-    (product) => product.fields.type === type && product.fields.name !== name
+    (product) => product.fields.category === category && product.fields.name !== name
   );
   return (
     <div className="w-screen">
