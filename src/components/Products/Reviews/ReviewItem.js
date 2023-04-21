@@ -30,7 +30,7 @@ const ReviewItem = ({ review, onDeleteReview, loadingDelete, userId }) => {
       </div>
 
       <div className="text-lg text-light-grey font-light flex justify-between">
-        <p className="w-[80%] break-all">{review.reviewText}</p>
+        <p className="w-[80%] break-word break-all">{review.reviewText}</p>
         <ul className="flex">
           {rating ? (
             <Stars rating={rating} />
