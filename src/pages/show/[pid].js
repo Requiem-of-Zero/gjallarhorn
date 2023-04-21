@@ -41,11 +41,37 @@ export default function ProductShow({ product, products, id }) {
   return (
     <div className="w-screen">
       <Header products={products} />
-      <div className="min-h-screen flex justify-center">
+      <div className="min-h-screen lgl:flex lgl:justify-center">
         <Loading open={loading} setOpen={setLoading} />
-        <div className="flex">
+        <div className="lgl:flex">
           <div className="py-5">
             <Image src={`http:${url}`} height={500} width={500} />
+            <div
+              id="product_description"
+              className="px-10 py-5 lgl:w-[500px] lgl:sticky lgl:top-[110px] lgl:h-[400px] lgl:hidden"
+            >
+              <h1 className="text-3xl font-bold text-white">{`${name}`}</h1>
+              <div
+                id="product_price_stock"
+                className="text-light-grey flex justify-between w-[100%] pt-5"
+              >
+                <p>${price}</p>
+                <Stock
+                  quantityTag={quantityTag}
+                  quantityColor={quantityColor}
+                />
+              </div>
+              <h2 className="text-2xl font-semibold text-light-grey">{`${description}`}</h2>
+              <Button
+                id={id}
+                quantity={quantity}
+                name={name}
+                description={description}
+                imgUrl={url}
+                price={price}
+                setLoading={setLoading}
+              />
+            </div>
             {user ? (
               <Reviews user={user} productId={id} product={product} />
             ) : (
@@ -66,7 +92,7 @@ export default function ProductShow({ product, products, id }) {
           </div>
           <div
             id="product_description"
-            className="px-10 py-5 w-[500px] sticky top-[110px] h-[400px]"
+            className="px-10 py-5 lgl:w-[500px] lgl:sticky lgl:top-[110px] lgl:h-[400px]"
           >
             <h1 className="text-3xl font-bold text-white">{`${name}`}</h1>
             <div

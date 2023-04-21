@@ -1,18 +1,25 @@
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import * as React from "react";
+import { CircularProgress } from "@mui/material";
 
-export default function MultilineTextFields({user, setReviewText, reviewText}) {
+export default function MultilineTextFields({
+  user,
+  setReviewText,
+  reviewText,
+  onCreateReview,
+  createLoading,
+}) {
   return (
     <Box
       component="form"
       sx={{
-        "& .MuiTextField-root": { m: 1, width: '500px' },
+        "& .MuiTextField-root": { width: 1 },
       }}
       noValidate
       autoComplete="off"
     >
-      <div>
+      <div className="relative">
         <TextField
           id="filled-multiline-static"
           label={`Review product as ${user.email}`}
@@ -23,6 +30,22 @@ export default function MultilineTextFields({user, setReviewText, reviewText}) {
           variant="filled"
           onChange={(e) => setReviewText(e.target.value)}
         />
+        {createLoading ? (
+          <CircularProgress
+            color="secondary"
+            className="absolute bottom-3 right-3"
+          />
+        ) : (
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              onCreateReview(reviewText);
+            }}
+            className="absolute bottom-3 right-3"
+          >
+            Post
+          </button>
+        )}
       </div>
     </Box>
   );

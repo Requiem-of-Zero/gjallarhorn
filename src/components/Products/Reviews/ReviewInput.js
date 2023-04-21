@@ -38,26 +38,13 @@ const ReviewInput = ({
           );
         })}
       </div>
-      <div className="flex relative w-[500px]">
         <MultilineTextFields
           setReviewText={setReviewText}
           reviewText={reviewText}
           user={user}
+          onCreateReview={onCreateReview}
+          createLoading={createLoading}
         />
-        {createLoading ? (
-            <CircularProgress color="secondary" />
-        ) : (
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              onCreateReview(reviewText);
-            }}
-            className="absolute bottom-3 right-10"
-          >
-            Post
-          </button>
-        )}
-      </div>
     </div>
   );
 };
