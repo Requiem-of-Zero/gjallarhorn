@@ -44,7 +44,7 @@ export default function MultilineTextFields({
             }}
             className={`${
               reviewText.length === 0 ? "text-light-grey" : "text-white"
-            } absolute bottom-3 right-3`}
+            } absolute bottom-3 right-3 bg-[#181818] px-3 rounded hover:bg-grey transition-colors cursor-pointer`}
           >
             Post
           </button>
