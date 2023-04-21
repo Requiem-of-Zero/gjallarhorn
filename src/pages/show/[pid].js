@@ -41,7 +41,7 @@ export default function ProductShow({ product, products, id }) {
   return (
     <div className="w-screen">
       <Header products={products} />
-      <div className="min-h-screen lgl:flex lgl:justify-center">
+      <div className="min-h-screen lgl:flex lgl:justify-center lgl:max-w-contentContainer m0a">
         <Loading open={loading} setOpen={setLoading} />
         <div className="lgl:flex">
           <div className="py-5">
@@ -50,7 +50,7 @@ export default function ProductShow({ product, products, id }) {
             </div>
             <div
               id="product_description"
-              className="px-10 py-5 lgl:w-[500px] lgl:sticky lgl:top-[110px] lgl:h-[400px] lgl:hidden "
+              className="px-10 py-5 lgl:w-[500px] lgl:sticky lgl:top-[110px] lgl:h-[400px] lgl:hidden sticky top-[48px] bg-[#181818] z-20"
             >
               <h1 className="text-3xl font-bold text-white">{`${name}`}</h1>
               <div
@@ -116,9 +116,9 @@ export default function ProductShow({ product, products, id }) {
             />
           </div>
         </div>
-        <div id="product_recommendations">
-          <h2 className="text-white pt-5">Customers also bought:</h2>
-          <div className="pb-5 flex flex-col gap-[20px]">
+        <div id="product_recommendations" className="text-sm">
+          <h2 className="text-white pt-5 text-center pb-2">Customers also bought:</h2>
+          <div className="pb-5 flex lgl:flex-col gap-[20px] overflow-y-scroll px-3">
             {recommendations.map((product, i) => (
               <ProductTile
                 key={`reccomendation-${i}`}
@@ -128,8 +128,8 @@ export default function ProductShow({ product, products, id }) {
                 imgUrl={product.fields.image.fields.file.url}
                 price={product.fields.price}
                 quantity={product.fields.quantity}
-                height={100}
-                width={100}
+                height={50}
+                width={50}
                 quantityTag={handleQuantity(product.fields.quantity)}
                 quantityColor={handleIndicator(product.fields.quantity)}
               />

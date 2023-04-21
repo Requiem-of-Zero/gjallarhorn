@@ -16,7 +16,8 @@ const ReviewInput = ({
 }) => {
   return (
     <div>
-      <div className="flex pl-4">
+      <div className="flex pl-4 items-center">
+        <p className="text-sm pr-3">Rate this product:</p>
         {[...Array(5)].map((star, i) => {
           const ratingVal = i + 1;
           return (
@@ -38,13 +39,13 @@ const ReviewInput = ({
           );
         })}
       </div>
-        <MultilineTextFields
-          setReviewText={setReviewText}
-          reviewText={reviewText}
-          user={user}
-          onCreateReview={onCreateReview}
-          createLoading={createLoading}
-        />
+      <MultilineTextFields
+        setReviewText={setReviewText}
+        reviewText={reviewText}
+        user={user}
+        onCreateReview={onCreateReview}
+        createLoading={createLoading}
+      />
     </div>
   );
 };
