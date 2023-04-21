@@ -12,6 +12,7 @@ import {
 import getEntryById from "../../contentful/client";
 import Reviews from "../../components/Products/Reviews/Reviews";
 import { UserAuth } from "../../context/AuthContext";
+import Link from "next/link";
 
 export async function getServerSideProps(context) {
   const product = await getEntryById(context.query.pid);
@@ -45,7 +46,23 @@ export default function ProductShow({ product, products, id }) {
         <div className="flex">
           <div className="py-5">
             <Image src={`http:${url}`} height={500} width={500} />
-            <Reviews user={user} productId={id} product={product} />
+            {user ? (
+              <Reviews user={user} productId={id} product={product} />
+            ) : (
+              <div className="text-white lgl:text-xl lgl:text-center lgl:py-4">
+                <p>
+                  Please{" "}
+                  <Link href="/login" className="cursor-pointer text-blue">
+                    login
+                  </Link>{" "}
+                  /{" "}
+                  <Link href="/register" className="cursor-pointer text-blue">
+                    register
+                  </Link>{" "}
+                  to leave and see reviews
+                </p>
+              </div>
+            )}
           </div>
           <div
             id="product_description"

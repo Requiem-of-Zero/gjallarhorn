@@ -1,7 +1,10 @@
 import moment from "moment";
 import Image from "next/image";
+import { FaStar } from "react-icons/fa";
 
 const ReviewItem = ({ review, onDeleteReview, loadingDelete, userId }) => {
+  console.log(review);
+  const { rating } = review;
   return (
     <div className="py-2">
       <div id="review_info" className="flex justify-between">
@@ -19,8 +22,30 @@ const ReviewItem = ({ review, onDeleteReview, loadingDelete, userId }) => {
         </p>
       </div>
 
-      <div className="text-lg text-light-grey font-light">
-        {review.reviewText}
+      <div className="text-lg text-light-grey font-light lgl:flex lgl:justify-between">
+        <p>{review.reviewText}</p>
+        <ul className="flex">
+          {rating ? [...Array(5)].map((star, i) => {
+            const ratingVal = i + 1;
+            return (
+              <li>
+                <label key={`rating_star-${i}`}>
+                  <input
+                    type="radio"
+                    name="rating"
+                    className="hidden"
+                    value={ratingVal}
+                  />
+                  <FaStar color={ratingVal <= rating ? "#ffc107" : "#e4e5e9"} />
+                </label>
+              </li>
+            );
+          }): (
+            <>
+              <p className="text-xs">no rating left</p>
+            </>
+          )}
+        </ul>
       </div>
     </div>
   );

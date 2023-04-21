@@ -32,7 +32,7 @@ const ProductTile = ({
       className="max-w-[200px]"
     >
       <Loading open={loading} setOpen={setLoading} />
-      <Link href={user ? `/show/${id}` : `/login`}>
+      <Link href={`/show/${id}`}>
         <Image
           loading="lazy"
           src={`https:${imgUrl}`}

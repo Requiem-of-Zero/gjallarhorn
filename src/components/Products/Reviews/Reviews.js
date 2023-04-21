@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { db } from "../../../firebase.config";
 import ReviewInput from "./ReviewInput";
 import ReviewItem from "./ReviewItem";
+import { Skeleton } from "@mui/material";
 
 const Reviews = ({ user, product, productId }) => {
   const [reviewText, setReviewText] = useState("");
@@ -95,7 +96,9 @@ const Reviews = ({ user, product, productId }) => {
       </div>
       <div id="reviews">
         {fetchLoading ? (
-          <p>Loading...</p>
+          [0,1,2,].map((item, i) => (
+            <Skeleton animation="wave" key={`skeleton_loader-${i}`}/>
+          ))
         ) : (
           <>
             {reviews.length === 0 ? (
