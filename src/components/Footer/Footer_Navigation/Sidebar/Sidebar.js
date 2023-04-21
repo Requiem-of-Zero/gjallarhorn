@@ -39,12 +39,6 @@ const Sidebar = ({ sidebar, setSidebar }) => {
         >
           SHRIMPS
         </Link>
-        <Link
-          href="/shop/clams"
-          className="hover:text-blue focus:text-blue transition-colors"
-        >
-          CLAMS
-        </Link>
         <li
           className="hover:text-blue focus:text-blue transition-colors"
           onClick={() => {
