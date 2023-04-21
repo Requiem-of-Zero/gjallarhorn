@@ -23,7 +23,7 @@ const Reviews = ({ user, product, productId }) => {
   const [loadingDeleteId, setLoadingDeleteId] = useState('');
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
-  console.log(reviews)
+
   const onDeleteReview = async (review) => {
     setLoadingDeleteId(review.id)
     try {
@@ -66,6 +66,7 @@ const Reviews = ({ user, product, productId }) => {
     } catch (error) {
       console.log("onCreateReview error", error);
     }
+    setRating(null)
     setCreateLoading(false);
   };
 
