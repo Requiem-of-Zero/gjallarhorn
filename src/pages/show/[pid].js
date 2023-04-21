@@ -118,7 +118,7 @@ export default function ProductShow({ product, products, id }) {
         </div>
         <div id="product_recommendations" className="text-sm">
           <h2 className="text-white pt-5 text-center pb-2">Customers also bought:</h2>
-          <div className="pb-5 flex lgl:flex-col gap-[20px] overflow-y-scroll px-3">
+          <div className="pb-5 flex lgl:flex-col gap-[20px] px-3 shrink-0 overflow-y-scroll">
             {recommendations.map((product, i) => (
               <ProductTile
                 key={`reccomendation-${i}`}
