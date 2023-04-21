@@ -3,7 +3,10 @@ import ProductTile from "../../components/Products/ProductTile/ProductTile";
 import "react-toastify/dist/ReactToastify.css";
 import getEntryById from "../../contentful/client";
 import Header from "../../components/Header/Header";
-import { handleQuantity, handleIndicator } from "../../components/Products/util/stock.util";
+import {
+  handleQuantity,
+  handleIndicator,
+} from "../../components/Products/util/stock.util";
 export async function getServerSideProps() {
   const products = await getEntryById("2wkr5VcBa9PYCsBQqvvvbl");
 
@@ -17,23 +20,27 @@ export async function getServerSideProps() {
 export default function ProductDetail({ products }) {
   const router = useRouter();
   const productType = router.query.slug;
-  
+
   const handleProducts = (catalog) => {
     if (productType === "lobsters") {
-      return catalog.products.filter((item) => item.fields.type === 2);
+      return catalog.products.filter(
+        (item) => item.fields.category === "lobster"
+      );
     } else if (productType === "shrimps") {
-      return catalog.products.filter((item) => item.fields.type === 4);
+      return catalog.products.filter(
+        (item) => item.fields.category === "shrimp"
+      );
     } else if (productType === "crabs") {
-      return catalog.products.filter((item) => item.fields.type === 3);
+      return catalog.products.filter((item) => item.fields.category === "crab");
     } else if (productType === "fish") {
-      return catalog.products.filter((item) => item.fields.type === 5);
+      return catalog.products.filter((item) => item.fields.category === "fish");
     }
   };
 
   const filteredProducts = handleProducts(products);
   return (
     <main className="min-h-screen w-screen">
-      <Header {...products}/>
+      <Header {...products} />
       <div className="min-h-screen py-10 px-10 flex flex-wrap gap-[20px] justify-center lgl:justify-start">
         {filteredProducts &&
           filteredProducts.map((product, i) => {
@@ -56,7 +63,6 @@ export default function ProductDetail({ products }) {
               </div>
             );
           })}
-          
       </div>
     </main>
   );

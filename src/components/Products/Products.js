@@ -7,7 +7,7 @@ import { handleIndicator, handleQuantity } from "./util/stock.util";
 const Products = ({ products }) => {
   const [currProducts, setCurrProducts] = useState(products);
   const [filtered, setFiltered] = useState(products);
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState('');
   // type
   // 0 is all
   // 1 is sold out
