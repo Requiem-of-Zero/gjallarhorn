@@ -9,6 +9,7 @@ import {
   sendPasswordResetEmail,
   setPersistence,
   browserSessionPersistence,
+  sendEmailVerification
 } from "firebase/auth";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 
@@ -18,8 +19,14 @@ export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState({});
   let mounted = useRef(false);
 
-  const createUser = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+  const createUser = async (email, password) => {
+    try {
+      const newUser = await createUserWithEmailAndPassword(auth, email, password)
+      await sendEmailVerification(newUser.user);
+      return newUser
+    } catch(error) {
+      console.log('user creation error', error)
+    }
   };
 
   const signIn = (email, password) => {
