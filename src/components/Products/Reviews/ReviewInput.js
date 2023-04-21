@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaStar } from "react-icons/fa";
 import MultilineTextFields from "./Textfield";
+import { CircularProgress } from "@mui/material";
 
 const ReviewInput = ({
   reviewText,
@@ -43,15 +44,19 @@ const ReviewInput = ({
           reviewText={reviewText}
           user={user}
         />
-        <button
-          onClick={(e) => {
-            e.preventDefault()
-            onCreateReview(reviewText);
-          }}
-          className="absolute bottom-3 right-10"
-        >
-          Post
-        </button>
+        {createLoading ? (
+            <CircularProgress color="secondary" />
+        ) : (
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              onCreateReview(reviewText);
+            }}
+            className="absolute bottom-3 right-10"
+          >
+            Post
+          </button>
+        )}
       </div>
     </div>
   );

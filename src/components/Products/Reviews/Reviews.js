@@ -13,6 +13,7 @@ import { db } from "../../../firebase.config";
 import ReviewInput from "./ReviewInput";
 import ReviewItem from "./ReviewItem";
 import { Skeleton } from "@mui/material";
+import { getProductReviews, onCreateReview } from "./util/Reviews.util";
 
 const Reviews = ({ user, product, productId }) => {
   const [reviewText, setReviewText] = useState("");
@@ -21,6 +22,8 @@ const Reviews = ({ user, product, productId }) => {
   const [createLoading, setCreateLoading] = useState(false);
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(null);
+
+  const onDeleteReview = async (review) => {};
 
   const onCreateReview = async () => {
     setCreateLoading(true);
@@ -39,10 +42,9 @@ const Reviews = ({ user, product, productId }) => {
         createdAt: serverTimestamp(),
         rating,
       };
-      
+
       batch.set(reviewDocRef, newReview);
       newReview.createdAt = { seconds: Date.now() / 1000 };
-
 
       await batch.commit();
       setReviewText("");
@@ -53,40 +55,23 @@ const Reviews = ({ user, product, productId }) => {
     setCreateLoading(false);
   };
 
-  const onDeleteReview = async (review) => {};
-
-  const getProductReviews = async () => {
-    try {
-      const reviewsQuery = query(
-        collection(db, "reviews"),
-        where("productId", "==", productId),
-        orderBy("createdAt", "desc")
-      );
-      const reviewDocs = await getDocs(reviewsQuery);
-      const reviews = reviewDocs.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-
-      setReviews(reviews)
-    } catch (error) {
-      console.log("getProductReviews error", error);
-    }
-    setFetchLoading(false);
-  };
-
   useEffect(() => {
-    if(!product) return
-    getProductReviews();
+    if (!product) return;
+    getProductReviews(productId, setReviews, setFetchLoading);
   }, [product]);
+
   return (
     <div className="text-white mt-10">
       <div className="flex flex-col text-xl w-[100%]">
         <ReviewInput
+          productId={productId}
+          product={product}
+          setReviews={setReviews}
           reviewText={reviewText}
           setReviewText={setReviewText}
           user={user}
           createLoading={createLoading}
+          setCreateLoading={setCreateLoading}
           onCreateReview={onCreateReview}
           setRating={setRating}
           hover={hover}
@@ -96,8 +81,8 @@ const Reviews = ({ user, product, productId }) => {
       </div>
       <div id="reviews">
         {fetchLoading ? (
-          [0,1,2,].map((item, i) => (
-            <Skeleton animation="wave" key={`skeleton_loader-${i}`}/>
+          [0, 1, 2].map((item, i) => (
+            <Skeleton animation="wave" key={`skeleton_loader-${i}`} />
           ))
         ) : (
           <>

@@ -7,7 +7,7 @@ export default function MultilineTextFields({user, setReviewText, reviewText}) {
     <Box
       component="form"
       sx={{
-        "& .MuiTextField-root": { m: 1, width: "100%" },
+        "& .MuiTextField-root": { m: 1, width: '500px' },
       }}
       noValidate
       autoComplete="off"
