@@ -7,8 +7,8 @@ const Stars = ({ rating }) => {
       {[...Array(5)].map((star, i) => {
         const ratingVal = i + 1;
         return (
-          <li>
-            <label key={`rating_star-${i}`}>
+          <li key={`rating_star-${i}`}>
+            <label>
               <input
                 type="radio"
                 name="rating"
