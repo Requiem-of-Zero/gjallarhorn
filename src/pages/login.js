@@ -53,9 +53,9 @@ export default function Login({ products }) {
     <div className="w-screen sm:items-center">
       <Header products={products}/>
       <div>
-        <div className="w-max-contentContainer h-[80vh] flex justify-center">
-          <div className="flex flex-col text-white">
-            <h2 id='login_header' className="text-4xl pb-4 pt-10">SIGN IN</h2>
+        <div className="w-max-contentContainer h-[80vh] flex justify-center items-center">
+          <div className="flex flex-col text-white w-[300px]">
+            <h2 id='login_header' className="text-4xl pb-4">SIGN IN</h2>
             <button
               id='google_btn'
               className="border-white border py-2"
