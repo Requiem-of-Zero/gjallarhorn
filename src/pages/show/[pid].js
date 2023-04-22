@@ -46,7 +46,7 @@ export default function ProductShow({ product, products, id }) {
         <div className="lgl:flex">
           <div className="py-5">
             <div id="product_image" className="flex w-full justify-center">
-              <div style={{ position: "relative", height: 500, width: 500 }}>
+              <div style={{ position: "relative", height: 400, width: 400 }}>
                 <Image
                   loading="lazy"
                   src={`https:${url}`}
@@ -60,7 +60,7 @@ export default function ProductShow({ product, products, id }) {
               id="product_description"
               className="px-10 py-5 lgl:w-[500px] lgl:sticky lgl:top-[110px] lgl:h-[400px] lgl:hidden sticky top-[48px] bg-[#181818] z-20"
             >
-              <h1 className="text-3xl font-bold text-white">{`${name}`}</h1>
+              <h1 className="text-2xl font-bold text-white">{`${name}`}</h1>
               <div
                 id="product_price_stock"
                 className="text-light-grey flex justify-between w-[100%] pt-5"
@@ -102,9 +102,9 @@ export default function ProductShow({ product, products, id }) {
           </div>
           <div
             id="product_description"
-            className="px-10 py-5 lgl:w-[500px] lgl:sticky lgl:top-[110px] lgl:h-[400px] xs:hidden lgl:block"
+            className="px-10 py-5 lgl:min-w-[350px] lgl:sticky lgl:top-[110px] lgl:h-[400px] xs:hidden lgl:block"
           >
-            <h1 className="text-3xl font-bold text-white">{`${name}`}</h1>
+            <h1 className="text-2xl font-bold text-white">{`${name}`}</h1>
             <div
               id="product_price_stock"
               className="text-light-grey flex justify-between w-[100%] pt-5"
@@ -112,7 +112,7 @@ export default function ProductShow({ product, products, id }) {
               <p>${price}</p>
               <Stock quantityTag={quantityTag} quantityColor={quantityColor} />
             </div>
-            <h2 className="text-2xl font-semibold text-light-grey">{`${description}`}</h2>
+            <h2 className="text-xl font-semibold text-light-grey">{`${description}`}</h2>
             <Button
               id={id}
               quantity={quantity}
@@ -128,7 +128,7 @@ export default function ProductShow({ product, products, id }) {
           <h2 className="text-white pt-5 text-center pb-2">
             Customers also bought:
           </h2>
-          <div className="pb-5 flex lgl:flex-col gap-[20px] px-3 shrink-0 overflow-y-scroll">
+          <div className="pb-5 flex lgl:flex-col gap-[20px] px-3 shrink-0 overflow-y-scroll ">
             {recommendations.map((product, i) => (
               <ProductTile
                 key={`reccomendation-${i}`}
@@ -138,8 +138,8 @@ export default function ProductShow({ product, products, id }) {
                 imgUrl={product.fields.image.fields.file.url}
                 price={product.fields.price}
                 quantity={product.fields.quantity}
-                height={50}
-                width={50}
+                height={200}
+                width={170}
                 quantityTag={handleQuantity(product.fields.quantity)}
                 quantityColor={handleIndicator(product.fields.quantity)}
               />

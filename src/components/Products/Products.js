@@ -46,8 +46,8 @@ const Products = ({ products }) => {
                 quantityColor={handleIndicator(quantity)}
                 type={type}
                 imgUrl={url}
-                height={1080}
-                width={1920}
+                height={200}
+                width={175}
               />
             );
           })

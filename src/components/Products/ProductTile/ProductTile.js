@@ -32,7 +32,7 @@ const ProductTile = ({
     >
       <Loading open={loading} setOpen={setLoading} />
       <Link href={`/show/${id}`}>
-        <div style={{ position: "relative", height: 200, width: "100%" }}>
+        <div style={{ position: "relative", height: height, width: width }}>
           {imgUrl ? (
             <Image
               loading="lazy"
