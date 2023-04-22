@@ -55,7 +55,7 @@ export default function ProductDetail({ products }) {
             return (
               <div key={`product-${i}`}>
                 <ProductTile
-                  width={190}
+                  width={170}
                   height={200}
                   id={product.sys.id}
                   description={description}

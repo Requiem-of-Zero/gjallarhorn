@@ -28,7 +28,7 @@ const ProductTile = ({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="max-w-[190px] min-w-[190px] flex flex-col justify-between m0a"
+      className="max-w-[170px] min-w-[170px] flex flex-col justify-between m0a"
     >
       <Loading open={loading} setOpen={setLoading} />
       <Link href={`/show/${id}`}>
@@ -43,7 +43,7 @@ const ProductTile = ({
               className="product-img"
             />
           ) : (
-            <Skeleton variant="rectangular" width={200} height={200} />
+            <Skeleton variant="rectangular" width={170} height={200} />
           )}
         </div>
       </Link>
