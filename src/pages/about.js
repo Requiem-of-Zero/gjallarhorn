@@ -98,7 +98,7 @@ export default function About({ products }) {
               </p>
               <br />
               <p>
-                He started small&#44; selling his catches at local farmers'
+                He started small&#44; selling his catches at local farmers&apos;
                 markets and building up a loyal customer base through word of
                 mouth&#46; As his reputation grew&#44; he began to expand his
                 operations&#44; opening his own seafood shop and later launching
