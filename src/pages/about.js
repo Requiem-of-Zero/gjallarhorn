@@ -32,7 +32,7 @@ export default function About({ products }) {
         <Header {...products} />
         <div className="max-w-[1000px] m0a text-white pb-20">
           <section>
-            <h1 className="lgl:text-3xl pt-4 font-semibold">ABOUT US</h1>
+            <h1 className="text-3xl pt-4 font-semibold">ABOUT US</h1>
             <h2 className="py-4">
               gjallahorn{" "}
               <span className="text-[#7d807d]">{`[gahlahorn, ghalahhorn]`}</span>
@@ -52,7 +52,7 @@ export default function About({ products }) {
             </article>
           </section>
           <section>
-            <h1 className="lgl:text-2xl py-3">Our Mission Statement</h1>
+            <h1 className="text-2xl py-3">Our Mission Statement</h1>
             <article>
               At Gjallahorn&#44; we are dedicated to providing the freshest&#44;
               highest-quality seafood to our customers through our modern&#44;
@@ -69,7 +69,7 @@ export default function About({ products }) {
             </article>
           </section>
           <section>
-            <h1 className="lgl:text-2xl py-3 font-semibold">Our Story</h1>
+            <h1 className="text-2xl py-3 font-semibold">Our Story</h1>
             <article className="text-[#7d807d]">
               From our founder&#58;
               <br />

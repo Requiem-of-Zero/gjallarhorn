@@ -33,7 +33,7 @@ export default function Terms({ products }) {
         <Header {...products} />
         <div className="max-w-[1000px] m0a text-white pb-20">
           <section>
-            <h1 className="lgl:text-3xl font-semibold pt-4">TERMS OF USE</h1>
+            <h1 className="text-3xl font-semibold pt-4">TERMS OF USE</h1>
             <h2 className="text-lg py-4">AGGREEMENT TO TERMS</h2>
             <p className="text-[#7d807d]">
               Welcome to our website. By accessing and using this website, you

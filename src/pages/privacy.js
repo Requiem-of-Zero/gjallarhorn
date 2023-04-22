@@ -32,7 +32,7 @@ export default function Privacy({ products }) {
         <Header {...products} />
         <div className="max-w-[1000px] m0a text-white pb-20">
           <section>
-            <h1 className="lgl:text-3xl font-semibold py-4">PRIVACY POLICY</h1>
+            <h1 className="text-3xl font-semibold py-4">PRIVACY POLICY</h1>
             <p className="text-[#7d807d]">
               Thank you for choosing to be part of our community at Gjallahorn.
               inc, doing business as Gjallahorn ("Gjallahorn", "we", "us",

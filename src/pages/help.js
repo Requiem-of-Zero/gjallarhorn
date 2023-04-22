@@ -32,7 +32,7 @@ export default function Help({ products }) {
         <Header {...products} />
         <div className="max-w-[1000px] m0a text-white pb-20">
           <section>
-            <h1 className="lgl:text-3xl pt-4 font-semibold">HELP</h1>
+            <h1 className="text-3xl pt-4 font-semibold">HELP</h1>
             <h2 className="py-4 text-xl">Customer Support</h2>
             <article className="text-[#7d807d]">
               We pride ourselves on providing responsive and accurate customer
