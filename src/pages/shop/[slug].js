@@ -47,7 +47,7 @@ export default function ProductDetail({ products }) {
   return (
     <main className="min-h-screen w-screen">
       <Header {...products} />
-      <div className="min-h-screen py-10 px-10 flex flex-wrap gap-[20px] justify-center lgl:justify-start">
+      <div className="min-h-screen max-w-contentContainer m0a py-10 flex flex-wrap gap-[20px] justify-center lgl:justify-start">
         {filtered &&
           filtered.map((product, i) => {
             const { description, name, price, quantity, type } = product.fields;
