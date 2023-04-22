@@ -67,7 +67,7 @@ export default function Terms({ products }) {
           <section>
             <h2 className="text-lg py-4">DISCLAIMER OF WARRANTIES</h2>
             <p className="text-[#7d807d]">
-              This website is provided on an "as is" basis and without any
+              This website is provided on an &quot;as is&quot; basis and without any
               warranties, either express or implied. We do not warrant that this
               website will be uninterrupted or error-free, or that the content
               provided on this website will be accurate, complete, or current.
