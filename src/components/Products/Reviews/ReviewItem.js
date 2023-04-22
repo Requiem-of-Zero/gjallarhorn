@@ -13,6 +13,7 @@ const ReviewItem = ({ review, onDeleteReview, loadingDelete, userId }) => {
           src={review.creatorPhotoURL}
           width={30}
           height={30}
+          alt="user-photo"
         />
       </div>
       <div id="review_info" className="flex justify-between relative">
