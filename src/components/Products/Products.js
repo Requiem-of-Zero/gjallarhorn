@@ -28,7 +28,7 @@ const Products = ({ products }) => {
       <div
         className={`${
           filtered.length ? "product-grid" : ""
-        } gap-[5px] pt-2 pb-5 max-w-contentContainer min-h-[50vh]`}
+        } gap-[5px] pt-2 pb-5 max-w-contentContainer min-h-[50vh] px-1`}
       >
         {filtered.length ? (
           filtered.map((product, i) => {
