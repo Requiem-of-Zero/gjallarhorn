@@ -1,8 +1,7 @@
 import { useCallback, useEffect } from "react";
 import Header from "../components/Header/Header";
 import getEntryById from "../contentful/client";
-import Router from "next/router";
-
+import {Router} from "next/router";
 export async function getServerSideProps() {
   const products = await getEntryById("2wkr5VcBa9PYCsBQqvvvbl");
 
