@@ -15,25 +15,117 @@ export default function About({ products }) {
     <div>
       <div className="w-screen min-h-screen">
         <Header {...products} />
-        <div className="max-w-[1000px] m0a text-white">
-          <h1 className="text-3xl pt-4 font-semibold">ABOUT US</h1>
-          <h2 className="py-4">
-            gjallahorn{" "}
-            <span className="text-light-grey">{`[gahlahorn, ghalahhorn]`}</span>
-          </h2>
-          <p className="text-light-grey pb-4">noun</p>
-          <article className="text-light-grey">
-            In Norse mythology, Gjallarhorn &#40;Old Norse&#58;
-            &#91;&#39;ɡjɑl&#58;ɑr&#44;horn&#93;&#59; &quot;hollering
-            horn&quot;&#91;1&#93; or &quot;the loud sounding
-            horn&quot;&#91;2&#93;&#41; is a horn associated with the god
-            Heimdallr and the wise being Mímir. The sound of Heimdallr&#39;s
-            horn will herald the beginning of Ragnarök, the sound of which will
-            be heard in all corners of the world. Gjallarhorn is attested in the
-            Poetic Edda, compiled in the 13th century from earlier traditional
-            material, and the Prose Edda, written in the 13th century by Snorri
-            Sturluson.
-          </article>
+        <div className="max-w-[1000px] m0a text-white pb-20">
+          <section>
+            <h1 className="lgl:text-3xl pt-4 font-semibold">ABOUT US</h1>
+            <h2 className="py-4">
+              gjallahorn{" "}
+              <span className="text-light-grey">{`[gahlahorn, ghalahhorn]`}</span>
+            </h2>
+            <p className="text-light-grey pb-4">noun</p>
+            <article className="text-light-grey">
+              In Norse mythology&#44; Gjallarhorn &#40;Old Norse&#58;
+              &#91;&#39;ɡjɑl&#58;ɑr&#44;horn&#93;&#59; &quot;hollering
+              horn&quot;&#91;1&#93; or &quot;the loud sounding
+              horn&quot;&#91;2&#93;&#41; is a horn associated with the god
+              Heimdallr and the wise being Mímir&#46; The sound of
+              Heimdallr&#39;s horn will herald the beginning of Ragnarök&#44;
+              the sound of which will be heard in all corners of the world&#46;
+              Gjallarhorn is attested in the Poetic Edda&#44; compiled in the
+              13th century from earlier traditional material&#44; and the Prose
+              Edda&#44; written in the 13th century by Snorri Sturluson&#46;
+            </article>
+          </section>
+          <section>
+            <h1 className="lgl:text-2xl py-3">Our Mission Statement</h1>
+            <article>
+              At Gjallahorn&#44; we are dedicated to providing the freshest&#44;
+              highest-quality seafood to our customers through our modern&#44;
+              digital approach to business&#46; Our mission is to make it easy
+              and convenient for seafood lovers to enjoy sustainably sourced and
+              expertly prepared seafood&#44; whether they are at home&#44; at
+              work&#44; or on the go&#46; We strive to use the latest technology
+              and innovative techniques to streamline our operations&#44;
+              minimize waste&#44; and reduce our environmental impact&#46; Our
+              goal is to become the go-to seafood provider for consumers who
+              demand the best in taste&#44; quality&#44; and convenience&#44;
+              while upholding the highest standards of ethics&#44;
+              transparency&#44; and customer service&#46;
+            </article>
+          </section>
+          <section>
+            <h1 className="lgl:text-2xl py-3 font-semibold">Our Story</h1>
+            <article className="text-light-grey">
+              From our founder:
+              <br />
+              <br />
+              <p>
+                In the year 1980, a young Chinese immigrant arrived in the
+                United States with little more than a dream of starting his own
+                business. He had grown up in a small fishing village in China,
+                where he learned the art of catching and preparing fresh seafood
+                from his father and grandfather. Despite the many challenges he
+                faced as a newcomer to a foreign land, he was determined to
+                carry on this family tradition and share his love of seafood
+                with the American people.
+              </p>
+              <br />
+              <p>
+                As he settled into his new life in the U.S., he quickly realized
+                that the seafood industry here was vastly different from what he
+                was used to back in China. The market was highly competitive and
+                dominated by large corporations, and there was little emphasis
+                on sustainability or quality. Undaunted, he set out to carve his
+                own niche in this crowded field by offering something truly
+                unique: the freshest, highest-quality seafood, sourced directly
+                from local fishermen and prepared using traditional Chinese
+                techniques.
+              </p>
+              <br />
+              <p>
+                He started small, selling his catches at local farmers' markets
+                and building up a loyal customer base through word of mouth. As
+                his reputation grew, he began to expand his operations, opening
+                his own seafood shop and later launching a website to reach
+                customers across the country. Along the way, he faced numerous
+                setbacks and challenges, from supply chain issues to the
+                constant threat of competition from larger rivals.
+              </p>
+              <br />
+              <p>
+                But through it all, he remained committed to his values of
+                sustainability, quality, and authenticity. He developed close
+                relationships with local fishermen, learning about their fishing
+                methods and working with them to ensure that his customers
+                always had access to the freshest, most sustainably caught
+                seafood. He also invested heavily in technology, using the
+                latest digital tools and data analytics to optimize his
+                operations and streamline his supply chain.
+              </p>
+              <br />
+              <p>
+                Over time, his hard work and perseverance paid off. His business
+                grew steadily, and he became known as one of the most respected
+                and innovative seafood providers in the country. Along the way,
+                he imparted many valuable lessons to his employees and customers
+                alike, teaching them the importance of hard work, honesty, and
+                respect for the environment.
+              </p>
+              <br />
+              <p>
+                Today, his company continues to thrive, with a loyal customer
+                base and a reputation for excellence that extends far beyond its
+                origins as a small Chinese immigrant business. And while he has
+                achieved great success over the years, he never forgets the
+                lessons he learned as a young fisherman in China, and the values
+                that have guided him on his remarkable journey.
+              </p>
+              <p className="pt-4">
+              - Chris
+              </p>
+              <br />
+            </article>
+          </section>
         </div>
       </div>
     </div>
