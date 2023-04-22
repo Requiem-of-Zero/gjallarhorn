@@ -28,7 +28,7 @@ const ProductTile = ({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="max-w-[190px] min-w-[190px] flex flex-col justify-between"
+      className="max-w-[190px] min-w-[190px] flex flex-col justify-between m0a"
     >
       <Loading open={loading} setOpen={setLoading} />
       <Link href={`/show/${id}`}>
