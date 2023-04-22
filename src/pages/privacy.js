@@ -1,7 +1,5 @@
 import getEntryById from "../contentful/client";
 import Header from "../components/Header/Header";
-import { Router } from "next/router";
-import { useCallback, useEffect } from "react";
 export async function getServerSideProps() {
   const products = await getEntryById("2wkr5VcBa9PYCsBQqvvvbl");
 
@@ -13,19 +11,6 @@ export async function getServerSideProps() {
 }
 
 export default function Privacy({ products }) {
-  const resetWindowScrollPosition = useCallback(
-    () => window.scrollTo(0, 0),
-    []
-  );
-
-  useEffect(() => {
-    Router.events.on("routeChangeComplete", resetWindowScrollPosition);
-
-    return () => {
-      Router.events.off("routeChangeComplete", resetWindowScrollPosition);
-    };
-  }, []);
-
   return (
     <div>
       <div className="w-screen min-h-screen">

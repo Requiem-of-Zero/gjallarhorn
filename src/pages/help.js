@@ -1,7 +1,5 @@
-import { useCallback, useEffect } from "react";
 import Header from "../components/Header/Header";
 import getEntryById from "../contentful/client";
-import { Router } from "next/router";
 
 export async function getServerSideProps() {
   const products = await getEntryById("2wkr5VcBa9PYCsBQqvvvbl");
@@ -13,18 +11,6 @@ export async function getServerSideProps() {
   };
 }
 export default function Help({ products }) {
-  const resetWindowScrollPosition = useCallback(
-    () => window.scrollTo(0, 0),
-    []
-  );
-
-  useEffect(() => {
-    Router.events.on("routeChangeComplete", resetWindowScrollPosition);
-
-    return () => {
-      Router.events.off("routeChangeComplete", resetWindowScrollPosition);
-    };
-  }, []);
 
   return (
     <div>
