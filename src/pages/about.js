@@ -56,73 +56,75 @@ export default function About({ products }) {
           <section>
             <h1 className="lgl:text-2xl py-3 font-semibold">Our Story</h1>
             <article className="text-light-grey">
-              From our founder:
+              From our founder&#58;
               <br />
               <br />
               <p>
-                In the year 1980, a young Chinese immigrant arrived in the
+                In the year 1980&#44; a young Chinese immigrant arrived in the
                 United States with little more than a dream of starting his own
-                business. He had grown up in a small fishing village in China,
-                where he learned the art of catching and preparing fresh seafood
-                from his father and grandfather. Despite the many challenges he
-                faced as a newcomer to a foreign land, he was determined to
-                carry on this family tradition and share his love of seafood
-                with the American people.
+                business&#46; He had grown up in a small fishing village in
+                China&#44; where he learned the art of catching and preparing
+                fresh seafood from his father and grandfather&#46; Despite the
+                many challenges he faced as a newcomer to a foreign land&#44; he
+                was determined to carry on this family tradition and share his
+                love of seafood with the American people&#46;
               </p>
               <br />
               <p>
-                As he settled into his new life in the U.S., he quickly realized
-                that the seafood industry here was vastly different from what he
-                was used to back in China. The market was highly competitive and
-                dominated by large corporations, and there was little emphasis
-                on sustainability or quality. Undaunted, he set out to carve his
-                own niche in this crowded field by offering something truly
-                unique: the freshest, highest-quality seafood, sourced directly
-                from local fishermen and prepared using traditional Chinese
-                techniques.
+                As he settled into his new life in the U&#46;S&#46;&#44; he
+                quickly realized that the seafood industry here was vastly
+                different from what he was used to back in China&#46; The market
+                was highly competitive and dominated by large corporations&#44;
+                and there was little emphasis on sustainability or quality&#46;
+                Undaunted&#44; he set out to carve his own niche in this crowded
+                field by offering something truly unique: the freshest&#44;
+                highest-quality seafood&#44; sourced directly from local
+                fishermen and prepared using traditional Chinese techniques&#46;
               </p>
               <br />
               <p>
-                He started small, selling his catches at local farmers' markets
-                and building up a loyal customer base through word of mouth. As
-                his reputation grew, he began to expand his operations, opening
-                his own seafood shop and later launching a website to reach
-                customers across the country. Along the way, he faced numerous
-                setbacks and challenges, from supply chain issues to the
-                constant threat of competition from larger rivals.
+                He started small&#44; selling his catches at local farmers'
+                markets and building up a loyal customer base through word of
+                mouth&#46; As his reputation grew&#44; he began to expand his
+                operations&#44; opening his own seafood shop and later launching
+                a website to reach customers across the country&#46; Along the
+                way&#44; he faced numerous setbacks and challenges&#44; from
+                supply chain issues to the constant threat of competition from
+                larger rivals&#46;
               </p>
               <br />
               <p>
-                But through it all, he remained committed to his values of
-                sustainability, quality, and authenticity. He developed close
-                relationships with local fishermen, learning about their fishing
-                methods and working with them to ensure that his customers
-                always had access to the freshest, most sustainably caught
-                seafood. He also invested heavily in technology, using the
-                latest digital tools and data analytics to optimize his
-                operations and streamline his supply chain.
+                But through it all&#44; he remained committed to his values of
+                sustainability&#44; quality&#44; and authenticity&#46; He
+                developed close relationships with local fishermen&#44; learning
+                about their fishing methods and working with them to ensure that
+                his customers always had access to the freshest&#44; most
+                sustainably caught seafood&#46; He also invested heavily in
+                technology&#44; using the latest digital tools and data
+                analytics to optimize his operations and streamline his supply
+                chain&#46;
               </p>
               <br />
               <p>
-                Over time, his hard work and perseverance paid off. His business
-                grew steadily, and he became known as one of the most respected
-                and innovative seafood providers in the country. Along the way,
-                he imparted many valuable lessons to his employees and customers
-                alike, teaching them the importance of hard work, honesty, and
-                respect for the environment.
+                Over time&#44; his hard work and perseverance paid off&#46; His
+                business grew steadily&#44; and he became known as one of the
+                most respected and innovative seafood providers in the
+                country&#46; Along the way&#44; he imparted many valuable
+                lessons to his employees and customers alike&#44; teaching them
+                the importance of hard work&#44; honesty&#44; and respect for
+                the environment&#46;
               </p>
               <br />
               <p>
-                Today, his company continues to thrive, with a loyal customer
-                base and a reputation for excellence that extends far beyond its
-                origins as a small Chinese immigrant business. And while he has
-                achieved great success over the years, he never forgets the
-                lessons he learned as a young fisherman in China, and the values
-                that have guided him on his remarkable journey.
+                Today&#44; his company continues to thrive&#44; with a loyal
+                customer base and a reputation for excellence that extends far
+                beyond its origins as a small Chinese immigrant business&#46;
+                And while he has achieved great success over the years&#44; he
+                never forgets the lessons he learned as a young fisherman in
+                China&#44; and the values that have guided him on his remarkable
+                journey&#46;
               </p>
-              <p className="pt-4">
-              - Chris
-              </p>
+              <p className="pt-4">- Chris</p>
               <br />
             </article>
           </section>
