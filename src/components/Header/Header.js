@@ -45,7 +45,7 @@ const Header = ({ products }) => {
               }}
               className="cursor-pointer hover:text-white"
             >
-              logout
+              sign out
             </p>
           </ul>
         ) : (

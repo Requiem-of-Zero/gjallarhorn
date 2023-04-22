@@ -6,7 +6,7 @@ import { UserAuth } from "../../../../context/AuthContext";
 import { resetCart } from "../../../../redux/reducers/cartSlice";
 
 const Sidebar = ({ sidebar, setSidebar }) => {
-  const { logout } = UserAuth();
+  const { logout, user } = UserAuth();
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -39,17 +39,19 @@ const Sidebar = ({ sidebar, setSidebar }) => {
         >
           SHRIMPS
         </Link>
-        <li
-          className="hover:text-blue focus:text-blue transition-colors"
-          onClick={() => {
-            logout();
-            router.push("/");
-            dispatch(resetCart(products));
-            setSidebar(false);
-          }}
-        >
-          LOGOUT
-        </li>
+        {user && (
+          <li
+            className="hover:text-blue focus:text-blue transition-colors"
+            onClick={() => {
+              logout();
+              router.push("/");
+              dispatch(resetCart(products));
+              setSidebar(false);
+            }}
+          >
+            SIGN OUT
+          </li>
+        )}
       </ul>
     </motion.div>
   );

@@ -29,7 +29,7 @@ module.exports = {
     extend: {
       boxShadow: {
         btnShadow: "0 2px 5px 0 rgba(213,217,217,.5)",
-      }
+      },
     },
   },
   plugins: [require("tailwind-scrollbar-hide"), require("tailwind-scrollbar")],
