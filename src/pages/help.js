@@ -34,7 +34,7 @@ export default function Help({ products }) {
           <section>
             <h1 className="lgl:text-3xl pt-4 font-semibold">HELP</h1>
             <h2 className="py-4 text-xl">Customer Support</h2>
-            <article className="text-[#7d807d] break-word">
+            <article className="text-[#7d807d]">
               We pride ourselves on providing responsive and accurate customer
               support. You can reach our customer support team expect at
               <a

@@ -35,10 +35,10 @@ export default function About({ products }) {
             <h1 className="lgl:text-3xl pt-4 font-semibold">ABOUT US</h1>
             <h2 className="py-4">
               gjallahorn{" "}
-              <span className="text-light-grey">{`[gahlahorn, ghalahhorn]`}</span>
+              <span className="text-[#7d807d]">{`[gahlahorn, ghalahhorn]`}</span>
             </h2>
-            <p className="text-light-grey pb-4">noun</p>
-            <article className="text-light-grey">
+            <p className="text-[#7d807d] pb-4">noun</p>
+            <article className="text-[#7d807d]">
               In Norse mythology&#44; Gjallarhorn &#40;Old Norse&#58;
               &#91;&#39;ɡjɑl&#58;ɑr&#44;horn&#93;&#59; &quot;hollering
               horn&quot;&#91;1&#93; or &quot;the loud sounding
@@ -70,7 +70,7 @@ export default function About({ products }) {
           </section>
           <section>
             <h1 className="lgl:text-2xl py-3 font-semibold">Our Story</h1>
-            <article className="text-light-grey">
+            <article className="text-[#7d807d]">
               From our founder&#58;
               <br />
               <br />
