@@ -128,7 +128,7 @@ export default function ProductShow({ product, products, id }) {
           <h2 className="text-white pt-5 text-center pb-2">
             Customers also bought:
           </h2>
-          <div className="pb-5 flex lgl:flex-col gap-[20px] px-3 shrink-0 overflow-y-scroll ">
+          <div className="pb-5 flex lgl:flex-col gap-[10px] px-3 shrink-0 overflow-y-scroll ">
             {recommendations.map((product, i) => (
               <ProductTile
                 key={`reccomendation-${i}`}
@@ -139,7 +139,7 @@ export default function ProductShow({ product, products, id }) {
                 price={product.fields.price}
                 quantity={product.fields.quantity}
                 height={200}
-                width={190}
+                width={170}
                 quantityTag={handleQuantity(product.fields.quantity)}
                 quantityColor={handleIndicator(product.fields.quantity)}
               />
