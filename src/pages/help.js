@@ -144,14 +144,14 @@ export default function Help({ products }) {
                 </a>
                 . If the order has already been picked up by the shipping
                 carrier, we will make a best effort in rerouting the order, but
-                we can't make any guarentees. Any re-shipments due to incorrect
+                we can&apos;t make any guarentees. Any re-shipments due to incorrect
                 shipping addresses will be charged actual shipping costs.
               </p>
               <h3 className="text-lg">
                 I received my order but something came damaged. What do I do?
               </h3>
               <p className="text-[#7d807d] py-3">
-                First, we apologize for your order's less-than-perfect arrival.
+                First, we apologize for your order&apos;s less-than-perfect arrival.
                 Even though we ship all our products in live condition,
                 sometimes products experience damage along their journey to
                 their new home. Please inspect your order upon receipt and
@@ -168,8 +168,8 @@ export default function Help({ products }) {
                 I think my order is lost or stolen. What do I do?
               </h3>
               <p className="text-[#7d807d] py-3">
-                We know it doesn't feel good when your order appears lost or
-                stolen, but we're trying to help solve the issue. Due to
+                We know it doesn&apos;t feel good when your order appears lost or
+                stolen, but we&apos;re trying to help solve the issue. Due to
                 inconsistencies with shipping carriers, we ask that customers
                 wait for at least a week after the last tracking scan before
                 requesting support. Even if the tracking information indicates
@@ -178,7 +178,7 @@ export default function Help({ products }) {
                 delivered.
               </p>
               <p className="text-[#7d807d] py-3">
-                If you haven't received your order after a week, please reach
+                If you haven&apos;t received your order after a week, please reach
                 out to{" "}
                 <a
                   href="mailto:gjallahorn-imports@gmail.com"
