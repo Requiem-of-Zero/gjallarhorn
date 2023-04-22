@@ -47,7 +47,7 @@ const Products = ({ products }) => {
                 type={type}
                 imgUrl={url}
                 height={200}
-                width={175}
+                width={190}
               />
             );
           })

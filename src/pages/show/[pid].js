@@ -139,7 +139,7 @@ export default function ProductShow({ product, products, id }) {
                 price={product.fields.price}
                 quantity={product.fields.quantity}
                 height={200}
-                width={170}
+                width={190}
                 quantityTag={handleQuantity(product.fields.quantity)}
                 quantityColor={handleIndicator(product.fields.quantity)}
               />
