@@ -125,10 +125,13 @@ export default function ProductShow({ product, products, id }) {
           </div>
         </div>
         <div id="product_recommendations" className="text-sm">
-          <h2 className="text-white pt-5 text-center pb-2">
+          <h2 className="text-white pt-5 text-center pb-2 lgl:hidden">
             Customers also bought:
           </h2>
-          <div className="pb-5 flex lgl:flex-col gap-[10px] px-3 shrink-0 overflow-y-scroll ">
+          <div className="pb-5 flex lgl:flex-col gap-[10px] px-3 shrink-0 overflow-x-scroll lgl:overflow-hidden lgl:sticky lgl:top-[108px]">
+            <h2 className="text-white pt-5 text-center pb-2 hidden lgl:block">
+              Customers also bought:
+            </h2>
             {recommendations.map((product, i) => (
               <ProductTile
                 key={`reccomendation-${i}`}
