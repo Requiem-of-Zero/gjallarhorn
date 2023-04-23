@@ -18,7 +18,7 @@ export default function About({ products }) {
           <section>
             <h1 className="text-3xl pt-4 font-semibold">ABOUT US</h1>
             <h2 className="py-4">
-              gjallahorn{" "}
+              gjallarhorn{" "}
               <span className="text-[#7d807d]">{`[gahlahorn, ghalahhorn]`}</span>
             </h2>
             <p className="text-[#7d807d] pb-4">noun</p>
@@ -38,7 +38,7 @@ export default function About({ products }) {
           <section>
             <h1 className="text-2xl py-3">Our Mission Statement</h1>
             <article>
-              At Gjallahorn&#44; we are dedicated to providing the freshest&#44;
+              At Gjallarhorn&#44; we are dedicated to providing the freshest&#44;
               highest-quality seafood to our customers through our modern&#44;
               digital approach to business&#46; Our mission is to make it easy
               and convenient for seafood lovers to enjoy sustainably sourced and

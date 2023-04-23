@@ -24,11 +24,11 @@ export default function Help({ products }) {
               We pride ourselves on providing responsive and accurate customer
               support. You can reach our customer support team expect at
               <a
-                href="mailto:gjallahorn-imports@gmail.com"
+                href="mailto:gjallarhornimports@gmail.com"
                 className="cursor-pointer text-light-grey"
               >
                 {" "}
-                gjallahorn-imports@gmail.com
+                gjallarhornimports@gmail.com
               </a>
               , and you can expect a response within 24 hours &#40;sometimes
               less&#41; for requests made during business hours, Monday -
@@ -44,7 +44,7 @@ export default function Help({ products }) {
             <article className="break-word">
               <h1 className="text-xl py-4">Shipping</h1>
               <p className="text-[#7d807d]">
-                For the following shipping rates, Gjallahorn will choose the
+                For the following shipping rates, Gjallarhorn will choose the
                 shipping carrier and shipping method at its own discretion.
                 Expect average shipment times to range from 1-2 days for West
                 Coast addresses to 5-6 days for East Coast addresses.
@@ -70,17 +70,17 @@ export default function Help({ products }) {
                 shipping method will be determined by us at our discretion. If
                 there is a need for faster service, please contact us at{" "}
                 <a
-                  href="mailto:gjallahorn-imports@gmail.com"
+                  href="mailto:gjallarhornimports@gmail.com"
                   className="cursor-pointer text-light-grey"
                 >
                   {" "}
-                  gjallahorn-imports@gmail.com
+                  gjallarhornimports@gmail.com
                 </a>{" "}
                 after placing your order.
               </p>
               <h2 className="text-xl py-3">International Shipping Rates</h2>
               <p className="text-[#7d807d]">
-                Gjallahorn ships internationally for most countries. To
+                Gjallarhorn ships internationally for most countries. To
                 determine if international shipping is available to your
                 country, follow the standard checkout procedure. Discounted
                 rates from shipping carriers will be displayed for countries
@@ -137,10 +137,10 @@ export default function Help({ products }) {
                 As long as your order has not been packed yet, you can change
                 the shipping address by sending us an email at{" "}
                 <a
-                  href="mailto:gjallahorn-imports@gmail.com"
+                  href="mailto:gjallarhornimports@gmail.com"
                   className="text-light-grey"
                 >
-                  gjallahorn-imports@gmail.com
+                  gjallarhornimports@gmail.com
                 </a>
                 . If the order has already been picked up by the shipping
                 carrier, we will make a best effort in rerouting the order, but
@@ -157,10 +157,10 @@ export default function Help({ products }) {
                 their new home. Please inspect your order upon receipt and
                 report and issues by contacting us at{" "}
                 <a
-                  href="mailto:gjallahorn-imports@gmail.com"
+                  href="mailto:gjallarhornimports@gmail.com"
                   className="text-light-grey"
                 >
-                  gjallahorn-imports@gmail.com
+                  gjallarhornimports@gmail.com
                 </a>
                 .{" "}
               </p>
@@ -181,10 +181,10 @@ export default function Help({ products }) {
                 If you haven&apos;t received your order after a week, please reach
                 out to{" "}
                 <a
-                  href="mailto:gjallahorn-imports@gmail.com"
+                  href="mailto:gjallarhornimports@gmail.com"
                   className="text-light-grey"
                 >
-                  gjallahorn-imports@gmail.com
+                  gjallarhornimports@gmail.com
                 </a>{" "}
                 and we will help solve the issue. Depending on the circumstance,
                 this may include filing a claim with the carrier. Please bear

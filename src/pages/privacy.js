@@ -19,23 +19,23 @@ export default function Privacy({ products }) {
           <section>
             <h1 className="text-3xl font-semibold py-4">PRIVACY POLICY</h1>
             <p className="text-[#7d807d]">
-              Thank you for choosing to be part of our community at Gjallahorn.
-              inc, doing business as Gjallahorn (&quot;Gjallahorn&quot;,
+              Thank you for choosing to be part of our community at Gjallarhorn.
+              inc, doing business as Gjallarhorn (&quot;Gjallarhorn&quot;,
               &quot;we&quot;, &quot;us&quot;, &quot;our&quot;). We are committed
               to protecting your personal information and your right to privacy.
               If you have any questions or concerns about this privacy notice,
               or our practices with regards to your personal information, please
               contact us at{" "}
               <a
-                href="mailto:gjallahorn-imports@gmail.com"
+                href="mailto:gjallarhornimports@gmail.com"
                 className="cursor-pointer text-light-grey"
               >
                 {" "}
-                gjallahorn-imports@gmail.com
+                gjallarhornimports@gmail.com
               </a>
               . When you visit our website{" "}
-              <a href="https://gjallahorn.vercel.app">
-                https://gjallahorn.vercel.app
+              <a href="https://gjallarhorn.vercel.app">
+                https://gjallarhorn.vercel.app
               </a>{" "}
               (the &quot;Website&quot;), and more generally, use any of our
               services (the &quot;Services&quot;, which include the Website), we
@@ -121,11 +121,11 @@ export default function Privacy({ products }) {
               If you have any questions or concerns about this privacy policy,
               please contact us at{" "}
               <a
-                href="mailto:gjallahorn-imports@gmail.com"
+                href="mailto:gjallarhornimports@gmail.com"
                 className="cursor-pointer text-light-grey"
               >
                 {" "}
-                gjallahorn-imports@gmail.com
+                gjallarhornimports@gmail.com
               </a>
               .
             </p>
