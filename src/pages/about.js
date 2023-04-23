@@ -19,7 +19,7 @@ export default function About({ products }) {
             <h1 className="text-3xl pt-4 font-semibold">ABOUT US</h1>
             <h2 className="py-4">
               gjallarhorn{" "}
-              <span className="text-[#7d807d]">{`[gahlahorn, ghalahhorn]`}</span>
+              <span className="text-[#7d807d]">{`[gahlaarhorn, ghalahrhorn]`}</span>
             </h2>
             <p className="text-[#7d807d] pb-4">noun</p>
             <article className="text-[#7d807d]">
