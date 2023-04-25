@@ -19,6 +19,7 @@ const Header = ({ products }) => {
   const { user, logout } = UserAuth();
   const cartProducts = useSelector((state) => state.products);
   const dispatch = useDispatch();
+
   const handleSignOut = async () => {
     try {
       await logout();
@@ -33,20 +34,25 @@ const Header = ({ products }) => {
         {user ? (
           <ul
             id="subheader"
-            className="flex justify-end text-[#A1A7AD] gap-2 text-sm h-9"
+            className="flex justify-end text-[#A1A7AD] gap-2 text-sm h-9 "
           >
-            <Link href="/help" className="pr-2 cursor-pointer hover:text-white">
+            <Link href="/help" className="cursor-pointer hover:text-white">
               help
             </Link>
-            <p
-              onClick={() => {
-                handleSignOut();
-                dispatch(resetCart(cartProducts));
-              }}
-              className="cursor-pointer hover:text-white"
-            >
-              sign out
-            </p>
+            <Link href="/profile" className="cursor-pointer hover:text-white">
+              {`Welcome back, ${user.displayName?.split(" ")[0]}`}
+            </Link>
+            <li>
+              <p
+                onClick={() => {
+                  handleSignOut();
+                  dispatch(resetCart(cartProducts));
+                }}
+                className="cursor-pointer hover:text-white"
+              >
+                sign out
+              </p>
+            </li>
           </ul>
         ) : (
           <LoginSubheader />

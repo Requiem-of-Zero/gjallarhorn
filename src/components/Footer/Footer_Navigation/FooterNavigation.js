@@ -37,7 +37,7 @@ export default function FooterNavigation({ setSidebar, sidebar, theme }) {
         icon={<PersonIcon />}
         onClick={() => {
           if (user) {
-            router.push("/");
+            router.push("/profile");
           } else {
             router.push("/login");
           }
