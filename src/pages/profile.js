@@ -49,10 +49,10 @@ export default function Profile({ products }) {
       }));
 
       setOrders(order);
-      setFetchLoading(false);
     } catch (error) {
       console.log("getUserOrder error", error);
     }
+    setFetchLoading(false);
   };
 
   return (
