@@ -48,7 +48,7 @@ export default function Profile({ products }) {
         ...doc.data(),
       }));
 
-      setOrders(order);
+      return order;
     } catch (error) {
       console.log("getUserOrder error", error);
     }
@@ -93,18 +93,18 @@ export default function Profile({ products }) {
               {`Hello, ${user.displayName?.split(" ")[0] || user.email}`}
               <h2 className="text-xl tracking-wider pt-6">Your latest order</h2>
               <div>
-                  <OrderItem
-                    {...orders[0]}
-                    fetchLoading={fetchLoading}
-                    products={products.products}
-                  />
+                <OrderItem
+                  {...orders[0]}
+                  fetchLoading={fetchLoading}
+                  products={products.products}
+                />
               </div>
             </section>
           ) : (
             <div>Loading...</div>
           )
         ) : (
-          <></>
+          <div>PROFILE PAGE</div>
         )}
       </div>
     </>
