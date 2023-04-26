@@ -69,7 +69,7 @@ export default function Profile({ products }) {
         {active === 'history' && (
           <section className="text-white text-5xl py-4 px-4">
             {`Hello, ${user.displayName?.split(" ")[0] || user.email}`}
-            <h2 className="text-xl tracking-wider pt-6">Your latest order</h2>
+            <h2 className="text-xl tracking-wider pt-6">Your orders</h2>
             <div>
               <Orders
                 user={user}
