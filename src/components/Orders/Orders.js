@@ -47,7 +47,7 @@ const Orders = ({ user }) => {
     <div className="text-sm">
       <div>
         {orders.map((order, i) => {
-          return <OrderItem {...order} />;
+          return <OrderItem {...order} key={`order_item-${i}`} />;
         })}
       </div>
     </div>
