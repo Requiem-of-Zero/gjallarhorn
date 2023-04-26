@@ -2,12 +2,12 @@ import { UserAuth } from "../context/AuthContext";
 import Header from "../components/Header/Header";
 import getEntryById from "../contentful/client";
 import { useEffect, useState } from "react";
-import { db, auth } from "../firebase.config";
-import moment from "moment";
+import { db} from "../firebase.config";
 import nookies from "nookies";
 import { app } from "../pages/api/webhook";
 import { useRouter } from "next/router";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import OrderItem from "../components/OrderItem/OrderItem";
 
 export async function getServerSideProps(ctx) {
   const products = await getEntryById("2wkr5VcBa9PYCsBQqvvvbl");
@@ -51,13 +51,13 @@ export default function Profile({ products, message, token }) {
   const [active, setActive] = useState("");
   const [orders, setOrders] = useState([]);
   const { user } = UserAuth();
-  console.log(orders);
+  console.log(products);
   const router = useRouter();
   useEffect(() => {
     if (!orders.length) {
       getUserOrders();
     }
-  }, []);
+  }, [orders]);
 
   useEffect(() => {
     if (!user) {
@@ -119,7 +119,11 @@ export default function Profile({ products, message, token }) {
           <section className="text-white text-5xl py-4 px-4">
             {`Hello, ${user.displayName?.split(" ")[0] || user.email}`}
             <h2 className="text-xl tracking-wider pt-6">Your latest order</h2>
-            <div>{[orders[0]].map((order, i) => console.log(order))}</div>
+            <div>
+              {[orders[0]].map((order, i) => (
+                <OrderItem {...order} key={`order_item-${i}`} />
+              ))}
+            </div>
           </section>
         ) : (
           <></>
