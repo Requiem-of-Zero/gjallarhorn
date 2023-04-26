@@ -93,14 +93,11 @@ export default function Profile({ products }) {
               {`Hello, ${user.displayName?.split(" ")[0] || user.email}`}
               <h2 className="text-xl tracking-wider pt-6">Your latest order</h2>
               <div>
-                {[orders[0]].map((order, i) => (
                   <OrderItem
-                    {...order}
+                    {...orders[0]}
                     fetchLoading={fetchLoading}
                     products={products.products}
-                    key={`order_item-${i}`}
                   />
-                ))}
               </div>
             </section>
           ) : (
