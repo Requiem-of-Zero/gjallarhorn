@@ -53,7 +53,7 @@ export default function Profile({ products }) {
             </li>
           </ul>
         </nav>
-        {active === "" ? (
+        {active === "" && (
           <section className="text-white text-5xl py-4 px-4">
             {`Hello, ${user.displayName?.split(" ")[0] || user.email}`}
             <h2 className="text-xl tracking-wider pt-6">Your latest order</h2>
@@ -65,8 +65,19 @@ export default function Profile({ products }) {
               />
             </div>
           </section>
-        ) : (
-          <div>PROFILE PAGE</div>
+        )}
+        {active === 'history' && (
+          <section className="text-white text-5xl py-4 px-4">
+            {`Hello, ${user.displayName?.split(" ")[0] || user.email}`}
+            <h2 className="text-xl tracking-wider pt-6">Your latest order</h2>
+            <div>
+              <Orders
+                user={user}
+                active={active}
+                products={products.products}
+              />
+            </div>
+          </section>
         )}
       </div>
     </>

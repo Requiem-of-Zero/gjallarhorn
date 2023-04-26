@@ -5,8 +5,9 @@ import { useRouter } from "next/router";
 import { UserAuth } from "../../context/AuthContext";
 import { db } from "../../firebase.config";
 import OrderItem from "./OrderItem";
+import Loading from "../Loading/Loading";
 
-const Orders = ({ user }) => {
+const Orders = ({ user, active }) => {
   const [orders, setOrders] = useState([]);
   const [fetchLoading, setFetchLoading] = useState(true);
 
@@ -45,14 +46,17 @@ const Orders = ({ user }) => {
 
   return !fetchLoading ? (
     <div className="text-sm">
-      <div>
-        {orders.map((order, i) => {
-          return <OrderItem {...order} key={`order_item-${i}`} />;
-        })}
-      </div>
+      {active === "history" && (
+        <div>
+          {orders.map((order, i) => {
+            return <OrderItem {...order} key={`order_item-${i}`} />;
+          })}
+        </div>
+      )}
+      {active === "" && <OrderItem {...orders[0]} />}
     </div>
   ) : (
-    <div className="text-sm">Loading...</div>
+    <Loading open={fetchLoading} setOpen={setFetchLoading} />
   );
 };
 
