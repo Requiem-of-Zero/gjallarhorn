@@ -117,7 +117,7 @@ export default function Profile({ products, message, token }) {
           </ul>
         </nav>
         {active === "" ? (
-          orders.length && (
+          orders.length ? (
             <section className="text-white text-5xl py-4 px-4">
               {`Hello, ${user.displayName?.split(" ")[0] || user.email}`}
               <h2 className="text-xl tracking-wider pt-6">Your latest order</h2>
@@ -133,6 +133,8 @@ export default function Profile({ products, message, token }) {
                 ))}
               </div>
             </section>
+          ) : (
+            <div>Loading...</div>
           )
         ) : (
           <></>
