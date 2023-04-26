@@ -17,7 +17,7 @@ export async function getServerSideProps() {
   };
 }
 
-export default function Profile({ products, message, token }) {
+export default function Profile({ products }) {
   const [active, setActive] = useState("");
   const [orders, setOrders] = useState([]);
   const [fetchLoading, setFetchLoading] = useState(true);
@@ -27,7 +27,7 @@ export default function Profile({ products, message, token }) {
 
   useEffect(() => {
     if (orders.length) return;
-    getUserOrders();
+    getUserOrders(user.email);
   }, [orders]);
 
   useEffect(() => {
@@ -36,10 +36,10 @@ export default function Profile({ products, message, token }) {
     }
   }, []);
 
-  const getUserOrders = async () => {
+  const getUserOrders = async (email) => {
     try {
       const ordersQuery = query(
-        collection(db, `users/${user.email}/orders`),
+        collection(db, `users/${email}/orders`),
         orderBy("timestamp", "desc")
       );
       const orderDocs = await getDocs(ordersQuery);

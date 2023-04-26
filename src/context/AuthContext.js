@@ -1,5 +1,4 @@
 import { auth, db } from "../firebase.config";
-import nookies from "nookies";
 
 import {
   GoogleAuthProvider,
@@ -80,15 +79,10 @@ export const AuthContextProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         if (mounted.current) {
-          const token = await user.getIdToken()
           setUser(user);
-          nookies.set(undefined, 'token', token, {path: '/'})
         }
       } else {
-        if (mounted.current) {
           setUser(null);
-          nookies.set(undefined, "token", "", { path: "/" });
-        }
       }
     });
     return () => {
