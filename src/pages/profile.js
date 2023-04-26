@@ -7,38 +7,14 @@ import { useRouter } from "next/router";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import OrderItem from "../components/OrderItem/OrderItem";
 
-export async function getServerSideProps(ctx) {
+export async function getServerSideProps() {
   const products = await getEntryById("2wkr5VcBa9PYCsBQqvvvbl");
 
-  // try {
-  //   const cookies = nookies.get(ctx);
-  //   const token = await app.auth().verifyIdToken(cookies.token);
-
-    // the user is authenticated!
-    // const { uid, email } = token;
-
-    return {
-      props: {
-        products,
-      },
-    };
-  // } catch (err) {
-  //   // either the `token` cookie didn't exist
-  //   // or token verification failed
-  //   // either way: redirect to the login page
-  //   ctx.res.writeHead(302, { Location: "/login" });
-  //   ctx.res.end();
-
-  //   // `as never` prevents inference issues
-  //   // with InferGetServerSidePropsType.
-  //   // The props returned here don't matter because we've
-  //   // already redirected the user.
-  // }
-  // return {
-  //   props: {
-  //     products,
-  //   },
-  // };
+  return {
+    props: {
+      products,
+    },
+  };
 }
 
 export default function Profile({ products, message, token }) {
@@ -50,9 +26,8 @@ export default function Profile({ products, message, token }) {
   const router = useRouter();
 
   useEffect(() => {
-    if (!orders.length) {
-      getUserOrders();
-    }
+    if (orders.length) return;
+    getUserOrders();
   }, [orders]);
 
   useEffect(() => {
