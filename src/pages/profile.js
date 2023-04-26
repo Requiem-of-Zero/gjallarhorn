@@ -48,7 +48,7 @@ export default function Profile({ products }) {
         ...doc.data(),
       }));
 
-      return order;
+      setOrders(order);
     } catch (error) {
       console.log("getUserOrder error", error);
     }
