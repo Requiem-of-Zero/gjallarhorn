@@ -2,7 +2,7 @@ import { UserAuth } from "../context/AuthContext";
 import Header from "../components/Header/Header";
 import getEntryById from "../contentful/client";
 import { useEffect, useState } from "react";
-import { db} from "../firebase.config";
+import { db } from "../firebase.config";
 import nookies from "nookies";
 import { app } from "../pages/api/webhook";
 import { useRouter } from "next/router";
@@ -18,8 +18,6 @@ export async function getServerSideProps(ctx) {
 
     // the user is authenticated!
     const { uid, email } = token;
-    // FETCH STUFF HERE!! 🚀
-    // Firebase DB
 
     return {
       props: {
@@ -50,9 +48,11 @@ export async function getServerSideProps(ctx) {
 export default function Profile({ products, message, token }) {
   const [active, setActive] = useState("");
   const [orders, setOrders] = useState([]);
+  const [fetchLoading, setFetchLoading] = useState(true);
+
   const { user } = UserAuth();
-  console.log(products);
   const router = useRouter();
+
   useEffect(() => {
     if (!orders.length) {
       getUserOrders();
@@ -61,7 +61,7 @@ export default function Profile({ products, message, token }) {
 
   useEffect(() => {
     if (!user) {
-      router.push("/");
+      router.push("/login");
     }
   }, []);
 
@@ -78,6 +78,7 @@ export default function Profile({ products, message, token }) {
       }));
 
       setOrders(order);
+      setFetchLoading(false);
     } catch (error) {
       console.log("getUserOrder error", error);
     }
@@ -116,15 +117,23 @@ export default function Profile({ products, message, token }) {
           </ul>
         </nav>
         {active === "" ? (
-          <section className="text-white text-5xl py-4 px-4">
-            {`Hello, ${user.displayName?.split(" ")[0] || user.email}`}
-            <h2 className="text-xl tracking-wider pt-6">Your latest order</h2>
-            <div>
-              {[orders[0]].map((order, i) => (
-                <OrderItem {...order} key={`order_item-${i}`} />
-              ))}
-            </div>
-          </section>
+          orders.length && (
+            <section className="text-white text-5xl py-4 px-4">
+              {`Hello, ${user.displayName?.split(" ")[0] || user.email}`}
+              <h2 className="text-xl tracking-wider pt-6">Your latest order</h2>
+              <div>
+                {[orders[0]].map((order, i) => (
+                  <OrderItem
+                    {...order}
+                    fetchLoading={fetchLoading}
+                    setFetchLoading={setFetchLoading}
+                    products={products.products}
+                    key={`order_item-${i}`}
+                  />
+                ))}
+              </div>
+            </section>
+          )
         ) : (
           <></>
         )}
