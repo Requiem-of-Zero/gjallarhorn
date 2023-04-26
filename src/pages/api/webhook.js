@@ -11,7 +11,7 @@ export const config = {
   },
 };
 
-const app = !admin.apps.length
+export const app = !admin.apps.length
   ? admin.initializeApp({
       credential: admin.credential.cert(serviceAccount),
     })

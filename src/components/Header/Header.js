@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { UserAuth } from "../../context/AuthContext";
 import Search from "../Search/Search";
 import LoginSubheader from "./LoginSubheader";
+import { useRouter } from "next/router";
 
 export const getStaticProps = async () => {
   const products = await getEntryById("2wkr5VcBa9PYCsBQqvvvbl");
@@ -19,7 +20,7 @@ const Header = ({ products }) => {
   const { user, logout } = UserAuth();
   const cartProducts = useSelector((state) => state.products);
   const dispatch = useDispatch();
-
+  const router = useRouter();
   const handleSignOut = async () => {
     try {
       await logout();
@@ -40,12 +41,13 @@ const Header = ({ products }) => {
               help
             </Link>
             <Link href="/profile" className="cursor-pointer hover:text-white">
-              {`Welcome back, ${user.displayName?.split(" ")[0]}`}
+              {`Welcome back, ${user.displayName?.split(" ")[0] || user.email}`}
             </Link>
             <li>
               <p
                 onClick={() => {
                   handleSignOut();
+                  router.push("/");
                   dispatch(resetCart(cartProducts));
                 }}
                 className="cursor-pointer hover:text-white"

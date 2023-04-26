@@ -1,4 +1,6 @@
-import { auth } from "../firebase.config";
+import { auth, db } from "../firebase.config";
+import nookies from "nookies";
+
 import {
   GoogleAuthProvider,
   onAuthStateChanged,
@@ -9,7 +11,7 @@ import {
   sendPasswordResetEmail,
   setPersistence,
   browserSessionPersistence,
-  sendEmailVerification
+  sendEmailVerification,
 } from "firebase/auth";
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 
@@ -21,11 +23,15 @@ export const AuthContextProvider = ({ children }) => {
 
   const createUser = async (email, password) => {
     try {
-      const newUser = await createUserWithEmailAndPassword(auth, email, password)
+      const newUser = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
       await sendEmailVerification(newUser.user);
-      return newUser
-    } catch(error) {
-      console.log('user creation error', error)
+      return newUser;
+    } catch (error) {
+      console.log("user creation error", error);
     }
   };
 
@@ -59,7 +65,7 @@ export const AuthContextProvider = ({ children }) => {
           const email = error.customData.email;
           // The AuthCredential type that was used.
           const credential = GoogleAuthProvider.credentialFromError(error);
-          console.log(errorMessage)
+          console.log(errorMessage);
           // ...
         });
     });
@@ -71,14 +77,17 @@ export const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     mounted.current = true;
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         if (mounted.current) {
+          const token = await user.getIdToken()
           setUser(user);
+          nookies.set(undefined, 'token', token, {path: '/'})
         }
       } else {
         if (mounted.current) {
           setUser(null);
+          nookies.set(undefined, "token", "", { path: "/" });
         }
       }
     });
@@ -87,6 +96,16 @@ export const AuthContextProvider = ({ children }) => {
       unsubscribe();
     };
   }, [user]);
+
+  useEffect(() => {
+    const handle = setInterval(async () => {
+    const user = auth.currentUser;
+      if (user) await user.getIdToken(true);
+    }, 10 * 60 * 1000);
+
+    // clean up setInterval
+    return () => clearInterval(handle);
+  }, []);
 
   return (
     <AuthContext.Provider

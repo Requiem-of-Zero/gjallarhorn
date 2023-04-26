@@ -48,8 +48,10 @@ export default async function handler(req, res) {
     cancel_url: `${process.env.HOST}/cart`,
     metadata: {
       email: email,
-      items_id_quantity: JSON.stringify(items.map((item) => `${item.id}, ${item.quantity}`)),
-      status: JSON.stringify('order.created'),
+      items_id_quantity: JSON.stringify(
+        items.map((item) => `${item.id}, ${item.quantity}`)
+      ),
+      status: JSON.stringify("order.created"),
     },
   });
 
