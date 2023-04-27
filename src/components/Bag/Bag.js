@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 import { useSelector } from "react-redux";
 
 const Bag = () => {
   const products = useSelector((state) => state.products);
 
+  const handleQuantity = () => {
+    let total = 0;
+
+    for(const product of products){
+      total += product.quantity
+    }
+
+    return total
+  }
+  
   return (
     <div className="relative hover:opacity-[0.5]">
       <LocalMallIcon className="cursor-pointer" />
@@ -13,7 +23,7 @@ const Bag = () => {
           products && products.length > 0 ? "bg-blue" : ""
         }`}
       >
-        {products.length > 0 ? products.length : ""}
+        {products.length > 0 ? handleQuantity(products) : ""}
       </span>
     </div>
   );
