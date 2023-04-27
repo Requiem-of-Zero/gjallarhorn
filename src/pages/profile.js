@@ -40,7 +40,7 @@ export default function Profile({ products }) {
         <nav className="sticky top-[47px] lgl:top-[120px] max-w-[1100px] z-20">
           <ul className="flex gap-[20px] items-center justify-start text-xl pt-2 px-4 bg-grey overflow-x-scroll scrollbar-hide">
             <li
-              className={`text-white cursor-pointer text-center min-w-[150px] border-b-4 ${
+              className={`text-white cursor-pointer whitespace-nowrap border-b-4 ${
                 active === "" ? "border-blue pb-2" : "border-[transparent] pb-2"
               }`}
               onClick={() => setActive("")}
@@ -48,7 +48,7 @@ export default function Profile({ products }) {
               MY ACCOUNT
             </li>
             <li
-              className={`text-white cursor-pointer text-center border-b-4 ${
+              className={`text-white cursor-pointer whitespace-nowrap border-b-4 ${
                 active === "profile"
                   ? "border-blue pb-2"
                   : "border-[transparent] pb-2"
@@ -58,7 +58,7 @@ export default function Profile({ products }) {
               PROFILE
             </li>
             <li
-              className={`text-white cursor-pointer text-center min-w-[150px] border-b-4 ${
+              className={`text-white cursor-pointer whitespace-nowrap border-b-4 ${
                 active === "history"
                   ? "border-blue pb-2"
                   : "border-[transparent] pb-2"
