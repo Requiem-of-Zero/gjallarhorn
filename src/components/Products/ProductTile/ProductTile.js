@@ -50,7 +50,7 @@ const ProductTile = ({
       <h3 className="text-light-grey text-xs pt-2">{description}</h3>
       <h2 className="product_name h-[50px]">{name}</h2>
       <div className="flex justify-between">
-        <p className="text-light-grey">{"$" + price}</p>
+        <p className="text-light-grey">{"$" + price} / lb</p>
         {/* Add Stock Indicator Component */}
         <Stock quantityTag={quantityTag} quantityColor={quantityColor} />
       </div>

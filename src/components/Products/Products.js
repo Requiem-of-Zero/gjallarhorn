@@ -18,7 +18,7 @@ const Products = ({ products }) => {
   // 6 is eggs
 
   return (
-    <div>
+    <div className="w-screen">
       <ProductNavigation
         products={currProducts}
         setFiltered={setFiltered}
