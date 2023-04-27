@@ -5,6 +5,7 @@ import { useState } from "react";
 import Orders from "../components/Orders/Orders";
 import moment from "moment";
 import Image from "next/image";
+import { Skeleton } from "@mui/material";
 
 export async function getServerSideProps() {
   const products = await getEntryById("2wkr5VcBa9PYCsBQqvvvbl");
