@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import moment from "moment";
-import getEntryById from "../../contentful/client";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,6 +12,15 @@ const OrderItem = ({
   timestamp,
   productsHash,
 }) => {
+  const [items, setItems] = useState([]);
+  const [fetchLoading, setFetchLoading] = useState(true);
+  useEffect(() => {
+    if (items.length) setFetchLoading(false);
+    if(items_id_quantity){
+      handleItemIds();
+    }
+  }, [items]);
+
   const handleItemIds = () => {
     const items = [];
     for (const item of items_id_quantity) {
@@ -22,10 +30,11 @@ const OrderItem = ({
       );
     }
 
-    return items;
+     setItems(items);
+     setFetchLoading(false);
   };
 
-  const items = items_id_quantity && handleItemIds(items_id_quantity);
+  // const basket = items_id_quantity && handleItemIds(items_id_quantity);
   console.log(items, "items");
   return (
     <div>
@@ -34,7 +43,7 @@ const OrderItem = ({
       <p>${amount_shipping}</p>
       <p>{status === "order.created" ? "Order Created" : ""}</p>
       <div className="flex">
-        {items &&
+        {!fetchLoading ? (
           items.map((item, i) => {
             const [imgUrl, quantity] = item.split(",");
             return (
@@ -45,7 +54,10 @@ const OrderItem = ({
                 <Image src={`https:${imgUrl}`} width={100} height={100} />
               </Link>
             );
-          })}
+          })
+        ) : (
+          <>Loading</>
+        )}
       </div>
       <p>{items_id_quantity}</p>
       <p>
