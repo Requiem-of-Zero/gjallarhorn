@@ -14,7 +14,7 @@ const Orders = ({ user, active, productsHash }) => {
     if (orders.length) return;
     getUserOrders(user.email);
   }, [orders]);
-  
+
   useEffect(() => {
     if (!user) {
       router.push("/login");
@@ -42,11 +42,13 @@ const Orders = ({ user, active, productsHash }) => {
 
   return !fetchLoading ? (
     <div className="text-sm">
-      {active === "history" && orders &&(
+      {active === "history" && orders && (
         <div>
           {orders.map((order, i) => {
             return (
               <OrderItem
+                height={200}
+                width={200}
                 productsHash={productsHash}
                 {...order}
                 key={`order_item-${i}`}
@@ -57,6 +59,8 @@ const Orders = ({ user, active, productsHash }) => {
       )}
       {active === "" && orders && (
         <OrderItem
+          height={200}
+          width={200}
           productsHash={productsHash}
           {...orders[0]}
         />

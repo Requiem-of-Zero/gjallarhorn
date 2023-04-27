@@ -18,42 +18,46 @@ export default function Profile({ products }) {
   const [active, setActive] = useState("");
   const handleOrders = (products) => {
     const productsHash = {};
-    
-    for(const product of products.products){
+
+    for (const product of products.products) {
       productsHash[product.sys.id] = product;
     }
-    
-    return productsHash
-  }
-  
-  const productsHash = handleOrders(products)
-  
+
+    return productsHash;
+  };
+
+  const productsHash = handleOrders(products);
+
   const { user } = UserAuth();
   return (
     <>
       <Header {...products} />
       <div className="min-h-screen max-w-[1100px] m0a">
-        <nav className="sticky top-[40px] lgl:top-[120px]">
-          <ul className="flex gap-[20px] items-center justify-center text-xl py-4 px-4 bg-grey overflow-x-scroll scrollbar-hide">
+        <nav className="sticky top-[47px] lgl:top-[120px] max-w-[1100px] z-20">
+          <ul className="flex gap-[20px] items-center justify-start text-xl pt-2 px-4 bg-grey overflow-x-scroll scrollbar-hide">
             <li
-              className={`text-white text-center min-w-[150px] border-b-4 ${
-                active === "" ? "border-blue" : "border-[transparent]"
+              className={`text-white cursor-pointer text-center min-w-[150px] border-b-4 ${
+                active === "" ? "border-blue pb-2" : "border-[transparent] pb-2"
               }`}
               onClick={() => setActive("")}
             >
               MY ACCOUNT
             </li>
             <li
-              className={`text-white text-center border-b-4 ${
-                active === "profile" ? "border-blue" : "border-[transparent]"
+              className={`text-white cursor-pointer text-center border-b-4 ${
+                active === "profile"
+                  ? "border-blue pb-2"
+                  : "border-[transparent] pb-2"
               }`}
               onClick={() => setActive("profile")}
             >
               PROFILE
             </li>
             <li
-              className={`text-white text-center min-w-[150px] border-b-4 ${
-                active === "history" ? "border-blue" : "border-[transparent]"
+              className={`text-white cursor-pointer text-center min-w-[150px] border-b-4 ${
+                active === "history"
+                  ? "border-blue pb-2"
+                  : "border-[transparent] pb-2"
               }`}
               onClick={() => setActive("history")}
             >

@@ -41,7 +41,7 @@ const Header = ({ products }) => {
               help
             </Link>
             <Link href="/profile" className="cursor-pointer hover:text-white">
-              {`Welcome back, ${user.displayName?.split(" ")[0] || user.email}`}
+              {`welcome back, ${user.displayName?.split(" ")[0] || user.email}`}
             </Link>
             <li>
               <p
