@@ -14,6 +14,8 @@ const OrderItem = ({
 }) => {
   const [items, setItems] = useState([]);
   const [fetchLoading, setFetchLoading] = useState(true);
+
+  console.log(fetchLoading)
   useEffect(() => {
     if (items.length) {
       setFetchLoading(false);
@@ -37,8 +39,6 @@ const OrderItem = ({
     setFetchLoading(false);
   };
 
-  // const basket = items_id_quantity && handleItemIds(items_id_quantity);
-  console.log(items, "items");
   return (
     <div>
       <p>{id}</p>
