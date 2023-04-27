@@ -15,8 +15,11 @@ const OrderItem = ({
   const [items, setItems] = useState([]);
   const [fetchLoading, setFetchLoading] = useState(true);
   useEffect(() => {
-    if (items.length) setFetchLoading(false);
-    if(items_id_quantity){
+    if (items.length) {
+      setFetchLoading(false);
+      return
+    }
+    if (items_id_quantity) {
       handleItemIds();
     }
   }, [items]);
@@ -30,8 +33,8 @@ const OrderItem = ({
       );
     }
 
-     setItems(items);
-     setFetchLoading(false);
+    setItems(items);
+    setFetchLoading(false);
   };
 
   // const basket = items_id_quantity && handleItemIds(items_id_quantity);
