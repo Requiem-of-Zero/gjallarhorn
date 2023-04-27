@@ -38,7 +38,10 @@ const OrderItem = ({
           items.map((item, i) => {
             const [imgUrl, quantity] = item.split(",");
             return (
-              <Link href={`/show/${items_id_quantity[i].split(',')[0]}`}>
+              <Link
+                href={`/show/${items_id_quantity[i].split(",")[0]}`}
+                key={`order_item-${i}`}
+              >
                 <Image src={`https:${imgUrl}`} width={100} height={100} />
               </Link>
             );
