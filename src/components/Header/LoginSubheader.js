@@ -10,7 +10,7 @@ const LoginSubheader = () => {
         <Link href="/login" className="hover:text-white">
           sign in
         </Link>
-        <li>/</li>
+        <li className="cursor-default">/</li>
         <Link href="/register" className="hover:text-white">
           register
         </Link>

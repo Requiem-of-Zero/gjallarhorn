@@ -9,7 +9,7 @@ const Footer = ({ theme, toggleTheme }) => {
     <footer className="bg-grey footer_info">
       <ul className="text-light-grey px-4 pt-4 lgl:justify-center lgl:flex lgl:items-start lgl:gap-[300px] max-w-contentContainer m0a">
         <div className="pb-2 flex flex-col">
-          <li>Information</li>
+          <li className="cursor-default">Information</li>
           <Link href="/about" className="hover:underline hover:text-white">
             About Us
           </Link>
@@ -27,7 +27,7 @@ const Footer = ({ theme, toggleTheme }) => {
           </Link>
         </div>
 
-        <div>
+        <div className="cursor-default">
           Socials
           <ul id="footer-socials" className="flex gap-[10px]">
             <li>
@@ -46,7 +46,7 @@ const Footer = ({ theme, toggleTheme }) => {
           </ul>
         </div>
 
-        <div id="light-dark-mode" className="flex gap-[8px] items-center">
+        <div id="light-dark-mode" className="flex gap-[8px] items-center cursor-default">
           Mode{" "}
           {theme === "light" ? (
             <FaMoon onClick={toggleTheme} className="cursor-pointer" />
