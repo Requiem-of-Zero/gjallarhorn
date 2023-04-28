@@ -89,8 +89,8 @@ const OrderItem = ({
         )}
       </div>
       <div id="order_cost" className="flex justify-between pt-2">
-        <p>Shipping Paid: ${amount_shipping}</p>
-        <p className="font-semibold">Total Paid: ${amount + amount_shipping}</p>
+        <p>Shipping Paid: ${(amount_shipping).toFixed(2)}</p>
+        <p className="font-semibold">Total Paid: ${(amount + amount_shipping).toFixed(2)}</p>
       </div>
     </div>
   );
